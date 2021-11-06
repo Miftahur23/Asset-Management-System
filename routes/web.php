@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MonitoringController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FirstpageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +16,8 @@ use App\Http\Controllers\MonitoringController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.firstpage');
 });
 
-Route::get('/monitor',[MonitoringController::class,'jakhushi']);
+Route::get('/admin',[AdminController::class,'Admin']);
+Route::get('/employee',[EmployeeController::class,'Employee']);
