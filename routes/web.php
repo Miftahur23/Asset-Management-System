@@ -21,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('/admin',[AdminController::class,'Admin']);
 Route::get('/employee',[EmployeeController::class,'Employee']);
+Route::get('/firstpage',[FirstpageController::class,'Firstpage']);

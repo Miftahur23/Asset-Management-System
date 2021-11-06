@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class FirstpageControlelr extends Controller
+class FirstpageController extends Controller
 {
     public function Firstpage()
     {

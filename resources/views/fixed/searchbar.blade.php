@@ -176,7 +176,9 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Miftahur Rahman</span>
                                 <img class="img-profile rounded-circle"src="media/siam.jpg">
-                                <h3>  siam</h3>
+                                <a href="{{url('/firstpage')}}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Logout</a>
+                                
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
