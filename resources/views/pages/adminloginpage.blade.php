@@ -7,10 +7,13 @@
 
     <title>Login page - Bootsnipp.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/loginpage.min.css" rel="stylesheet" id="bootstrap-css">
     <style type="text/css">
     body {
     font-family: "Lato", sans-serif;
+   
+  background-image: url('media/fpimg.jpg');
+
 }
 
 
@@ -106,12 +109,12 @@
             <div class="login-form">
                <form>
                   <div class="form-group">
-                     <label>User Name</label>
-                     <input type="text" class="form-control" placeholder="User Name">
+                     <label>Admin Name</label>
+                     <input type="text" class="form-control" placeholder=" ">
                   </div>
                   <div class="form-group">
-                     <label>Password</label>
-                     <input type="password" class="form-control" placeholder="Password">
+                     <label>Admin Password</label>
+                     <input type="password" class="form-control" placeholder=" ">
                   </div>
                   <button type="submit" class="btn btn-black">Login</button>
                   <button type="submit" class="btn btn-secondary">Register</button>

@@ -27,8 +27,8 @@ body {
       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
       Register <span class="caret"></span></button>
       <ul class="dropdown-menu" role="menu">
-        <li><a href="{{url('/admin')}}">Admin</a></li>
-        <li><a href="{{url('/employee')}}">Employee</a></li>
+        <li><a href="{{url('/adminloginpage')}}">Admin</a></li>
+        <li><a href="{{url('/emploginpage')}}">Employee</a></li>
       </ul>
     </div>
   </div>

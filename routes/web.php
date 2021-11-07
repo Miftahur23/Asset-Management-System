@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FirstpageController;
+use App\Http\Controllers\AdminloginpageController;
+use App\Http\Controllers\EmploginpageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +24,5 @@ Route::get('/', function () {
 Route::get('/admin',[AdminController::class,'Admin']);
 Route::get('/employee',[EmployeeController::class,'Employee']);
 Route::get('/firstpage',[FirstpageController::class,'Firstpage']);
+Route::get('/adminloginpage',[AdminloginpageController::class,'Adminloginpage']);
+Route::get('/emploginpage',[emploginpageController::class,'Emploginpage']);
