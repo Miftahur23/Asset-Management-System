@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\FirstpageController;
 use App\Http\Controllers\AdminloginpageController;
+use App\Http\Controllers\AdminpageController;
 use App\Http\Controllers\EmploginpageController;
+use App\Http\Controllers\EmppageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,4 +27,6 @@ Route::get('/admin',[AdminController::class,'Admin']);
 Route::get('/employee',[EmployeeController::class,'Employee']);
 Route::get('/firstpage',[FirstpageController::class,'Firstpage']);
 Route::get('/adminloginpage',[AdminloginpageController::class,'Adminloginpage']);
+Route::get('/adminpage',[AdminpageController::class,'Adminpage']);
 Route::get('/emploginpage',[emploginpageController::class,'Emploginpage']);
+Route::get('/emppage',[emppageController::class,'Emppage']);
