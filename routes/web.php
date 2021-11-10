@@ -27,5 +27,5 @@ Route::get('/loginpage',[LoginpageController::class,'Loginpage'])->name('Login')
 //Route::get('/loginpage',[LoginpageController::class,'Loginpage']);
 Route::get('/home',[HomeController::class,'Homepage']);
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
-Route::get('/signupform',[SignupController::class,'Signup']);
+Route::get('/signupform',[SignupController::class,'Signup'])->name('Signup');
 Route::get('/loginpage',[SignupController::class,'AlreadyHaveAnAccount']);

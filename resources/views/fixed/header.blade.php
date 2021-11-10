@@ -8,12 +8,12 @@
         <div class="top-bar-right">
             <ul class="nav">
                 <li class="nav-item mr-1">
-                    <a href="{{url('/signupform')}}" class="nav-link">
+                    <a href="{{route('Signup')}}" class="nav-link">
                         Create Account
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a href="{{route('Login')}}" class="nav-link">
+                    <a href="{{url('/loginpage')}}" class="nav-link" >
                         Login
                     </a>
                 </li>
