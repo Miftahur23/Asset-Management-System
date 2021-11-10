@@ -10,4 +10,9 @@ class SignupController extends Controller
     {
         return view('pages.signupform');
     }
+
+    public function AlreadyHaveAnAccount()
+    {
+        return view('pages.loginpage');
+    }
 }

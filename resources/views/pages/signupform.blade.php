@@ -1,67 +1,24 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet"></head>
-<center>
-<form>
-    <!-- 2 column grid layout with text inputs for the first and last names -->
+<center><form>
+  <div class="pt-5">
+    <div class="mt-5">
+    <div class="col-3 mt-5 pt-5 ">
+      <label for="exampleInputEmail1" class="form-label"><h5>Name</h5></label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
     <div class="col-3">
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example1" class="form-control" />
-          <label class="form-label" for="form3Example1">First name</label>
-        </div>
-      </div>
-      <div class="col">
-        <div class="form-outline">
-          <input type="text" id="form3Example2" class="form-control" />
-          <label class="form-label" for="form3Example2">Last name</label>
-        </div>
-      </div>
+      <label for="exampleInputPassword1" class="form-label"><h5>Email Address</h5></label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
-  
-    <!-- Email input -->
-    <div class="form-outline col-3">
-      <input type="email" id="form3Example3" class="form-control" />
-      <label class="form-label" for="form3Example3">Email address</label>
+    <div class="col-3">
+      <label for="exampleInputPassword1" class="form-label"><h5>Password</h5></label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
-  
-    <!-- Password input -->
-    <div class="form-outline col-3">
-      <input type="password" id="form3Example4" class="form-control" />
-      <label class="form-label" for="form3Example4">Password</label>
-    </div>
-  
-    <!-- Checkbox -->
-    {{-- <div class="form-check d-flex justify-content-center mb-4">
-      <input
-        class="form-check-input me-2"
-        type="checkbox"
-        value=""
-        id="form2Example33"
-        checked
-      />
-      
-    </div> --}}
-  
-    <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-lg"><h5>Sign up</h5></button>
-  
-    <!-- Register buttons -->
-    {{-- <div class="text-center">
-      <p>or sign up with:</p>
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-facebook-f"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-google"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-twitter"></i>
-      </button>
-  
-      <button type="button" class="btn btn-primary btn-floating mx-1">
-        <i class="fab fa-github"></i>
-      </button>
-    </div> --}}
-  </form>
-</center>
+    
+  </div>
+  </div>
+  <div class="pt-2">
+    <button type="button" class="btn btn-light">Submit</button>
+    <a href="{{url('/loginpage')}}"><button type="button" class="btn btn-light">Already Have An Account</button></a>
+  </div>
+  </form></center>

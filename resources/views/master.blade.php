@@ -21,8 +21,12 @@
 
     {{-- header --}}
     @include('fixed.header')
+
+    {{-- content --}}
+
+    @yield('content')
             
-        <div class="app-main">
+        {{-- <div class="app-main">
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <div class="app-page-title">
@@ -915,10 +919,12 @@
                         </div>
                     </div>
                 </div>        </div>
-        </div>
+        </div> --}}
+
     <div class="ui-theme-settings">
          
         {{-- sidemenubutton --}}
+
         @include('fixed.sidemenubtn')
 
         <div class="theme-settings__inner">

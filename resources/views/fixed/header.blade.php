@@ -1,3 +1,4 @@
+{{-- <link href="/css/bootstrap.min.css" rel="stylesheet"></head> --}}
 <div class="app-top-bar bg-plum-plate top-bar-text-light">
     <div class="container fiori-container">
         
@@ -12,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a href="{{url('/loginpage')}}" class="nav-link">
+                    <a href="{{route('Login')}}" class="nav-link">
                         Login
                     </a>
                 </li>

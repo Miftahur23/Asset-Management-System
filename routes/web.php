@@ -23,7 +23,9 @@ Route::get('/', function () {
 });
 
 Route::get('/admin',[AdminController::class,'Admin']);
-Route::get('/loginpage',[LoginpageController::class,'loginpage']);
-Route::get('/home',[HomeController::class,'homepage']);
-Route::get('/dashboard',[DashboardController::class,'dashboard']);
-Route::get('/signupform',[SignupController::class,'signup']);
+Route::get('/loginpage',[LoginpageController::class,'Loginpage'])->name('Login');
+//Route::get('/loginpage',[LoginpageController::class,'Loginpage']);
+Route::get('/home',[HomeController::class,'Homepage']);
+Route::get('/dashboard',[DashboardController::class,'Dashboard']);
+Route::get('/signupform',[SignupController::class,'Signup']);
+Route::get('/loginpage',[SignupController::class,'AlreadyHaveAnAccount']);
