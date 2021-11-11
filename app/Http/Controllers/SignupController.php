@@ -13,6 +13,6 @@ class SignupController extends Controller
 
     public function AlreadyHaveAnAccount()
     {
-        return view('pages.loginpage');
+       return redirect()->route('Login');
     }
 }

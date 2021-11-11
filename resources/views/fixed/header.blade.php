@@ -13,7 +13,7 @@
                     </a>
                 </li>
                 <li class="nav-item mr-2">
-                    <a href="{{url('/loginpage')}}" class="nav-link" >
+                    <a href="{{route('Login')}}" class="nav-link" >
                         Login
                     </a>
                 </li>
