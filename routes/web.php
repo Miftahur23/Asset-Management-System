@@ -18,7 +18,8 @@ use App\Http\Controllers\SignupController;
 */
 
 Route::get('/', function () {
-    return view('master');
+    // return view('master');
+    return view ('pages.empregform');
 });
 
 Route::get('/loginpage',[LoginpageController::class,'Loginpage'])->name('Login');
