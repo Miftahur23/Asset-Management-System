@@ -19,15 +19,15 @@ class HomeController extends Controller
 
     public function AccountStore(Request $request)
     {
-        //dd($request->all());
-        Account::create([
+        dd($request->all());
+        // Account::create([
 
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password
+        //      'name'=>$request->name,
+        //      'email'=>$request->email,
+        //      'password'=>$request->password
             
-        ]);
+        //  ]);
 
-        return redirect()->back();
+        // return redirect()->back();
     }
 }

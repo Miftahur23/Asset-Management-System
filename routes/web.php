@@ -22,17 +22,22 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     //return view('master');
     //return view ('pages.empregform');
-    //  return view ('pages.firstpage');
-    return view ('pages.assetform');
+    return view ('pages.firstpage');
+    //return view ('pages.assetform');
 });
 
 Route::get('/adminloginpage',[AdminController::class,'Adminloginpage'])->name('Adminlogin');
+Route::post('/adminloginpage',[AdminController::class,'Adminlogininfo'])->name('Adminlogindone');
+
 Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
+
 Route::get('/emploginpage',[EmploginpageController::class,'Emploginpage'])->name('Emplogin');
+Route::post('/emploginpage',[EmploginpageController::class,'Emplogininfo'])->name('Emplogindone');
+
 Route::get('/empregform',[EmpregformController::class,'Empregform'])->name('Empreg');
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
 Route::get('/firstpage',[HomeController::class,'Firstpage'])->name('Firstpage');
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
 // Route::get('/signupform',[SignupController::class,'Signup'])->name('Signup');
 Route::get('/have-an-account',[EmpregformController::class,'AlreadyHaveAnAccount']);
-Route::post('/account/store', [HomeController::class,'AccountStore'])->name('ektanam');
+// Route::post('/account/store', [HomeController::class,'AccountStore'])->name('ektanam');

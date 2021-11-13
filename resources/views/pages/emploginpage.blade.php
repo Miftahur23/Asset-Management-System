@@ -1,12 +1,13 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-<form class="row col-5 m-auto">
-  <form action="{{route('ektanam')}}" method="POST">
+
+  <form action="{{route('Emplogindone')}}" class="row col-5 m-auto" method="POST">
+    
   @csrf
   
     <div class="col-12">
-      <label for="exampleInputName" class="form-label"><h5>Employee Name</h5></label>
-      <input name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+      <label for="exampleInputEmployeeName" class="form-label"><h5>Employee Name</h5></label>
+      <input name="name" class="form-control" id="exampleInputEmployeeName" >
     </div>
     <div class="col-12">
       <label for="exampleInputEmail1" class="form-label"><h5>Email Address</h5></label>
@@ -14,7 +15,7 @@
     </div>
     <div class="col-12">
       <label for="exampleInputPassword1" class="form-label"><h5>Password</h5></label>
-      <input name="password" class="form-control" id="exampleInputPassword1">
+      <input name="password" class="form-control" id="exampleInputPassword">
     </div>
     
   </div>
