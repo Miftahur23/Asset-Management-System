@@ -8,16 +8,17 @@
         <div class="top-bar-right">
             <ul class="nav">
                 <li class="nav-item mr-1">
-                    <a href="{{route('Signup')}}" class="nav-link">
+                    {{-- <a class="btn btn-success" role="button" href="{{ }}">Create Account</a> --}}
+                    {{-- <a href="{{route('Signup')}}" class="nav-link">
                         Create Account
-                    </a>
+                    </a> --}}
                 </li>
-                <li class="nav-item mr-2">
+                {{-- <li class="nav-item mr-2">
                     <a href="{{route('Login')}}" class="nav-link" >
                         Login
                     </a>
-                </li>
-        <div class="btn-actions-pane-right text-capitalize">
+                </li> --}}
+        {{-- <div class="btn-actions-pane-right text-capitalize">
                     <div class="btn-group dropdown">
                         <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-wide mr-1 dropdown-toggle btn btn-outline-focus btn-sm">Options</button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-lg rm-pointers dropdown-menu dropdown-menu-right">
@@ -50,56 +51,15 @@
                             </div>
                         </div>
                     </div>
+
+                    
+                </div> --}}
+                <div class="btn-group ">
+                    <a type="button" class="btn btn-success " href="{{route('Firstpage')}}">
+                        Logout 
+                    </a>   
                 </div>
-                <li class="nav-item dropdown">
-                    {{-- <a aria-haspopup="true" data-toggle="dropdown" aria-expanded="false" class="nav-link">
-                        <i class="typcn typcn-world-outline mr-1"></i>
-                        Language
-                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                    </a> --}}
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-menu-header">
-                            <div class="dropdown-menu-header-inner pt-4 pb-4 bg-focus">
-                                <div class="menu-header-image opacity-05" style="background-image: url('assets/images/dropdown-header/city2.jpg');"></div>
-                                <div class="menu-header-content text-center text-white">
-                                    <h6 class="menu-header-subtitle mt-0">
-                                        Choose Language
-                                    </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <h6 tabindex="-1" class="dropdown-header">
-                            Popular Languages
-                        </h6>
-                        <button type="button" tabindex="0" class="dropdown-item">
-                            <span class="mr-3 opacity-8 flag large US"></span>
-                            USA
-                        </button>
-                        <button type="button" tabindex="0" class="dropdown-item">
-                            <span class="mr-3 opacity-8 flag large CH"></span>
-                            Switzerland
-                        </button>
-                        <button type="button" tabindex="0" class="dropdown-item">
-                            <span class="mr-3 opacity-8 flag large FR"></span>
-                            France
-                        </button>
-                        <button type="button" tabindex="0" class="dropdown-item">
-                            <span class="mr-3 opacity-8 flag large ES"></span>
-                            Spain
-                        </button>
-                        <div tabindex="-1" class="dropdown-divider"></div>
-                        <h6 tabindex="-1" class="dropdown-header">Others</h6>
-                        <button type="button" tabindex="0" class="dropdown-item active">
-                            <span class="mr-3 opacity-8 flag large DE"></span>
-                            Germany
-                        </button>
-                        <button type="button" tabindex="0" class="dropdown-item">
-                            <span class="mr-3 opacity-8 flag large IT"></span>
-                            Italy
-                        </button>
-                    </div>
-                </li>
-            </ul>
+            
         </div>
     </div>
 </div>
@@ -126,7 +86,7 @@
                 Dashboard
             </a>
 
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a  data-toggle="dropdown" data-offset="10" data-display="static" aria-expanded="false" class="active">
                     <i class="nav-icon-big typcn typcn-directions"></i>
                     <span>Dashboards</span>
@@ -434,10 +394,10 @@
                         </div>
                     </div>
                 </div>
-            </li>
+            </li> --}}
         </ul>        <div class="app-header-right">
             <div class="search-wrapper">
-                <i class="search-icon-wrapper typcn typcn-zoom-outline"></i>
+                
                 <input type="text" placeholder="Search...">
             </div>
             <div class="header-btn-lg pr-0">
@@ -447,15 +407,7 @@
                             <i class="typcn typcn-th-large-outline"></i>
                         </button>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
-                            <div class="dropdown-menu-header">
-                                <div class="dropdown-menu-header-inner bg-vicious-stance">
-                                    <div class="menu-header-image opacity-4" style="background-image: url('assets/images/dropdown-header/city5.jpg');"></div>
-                                    <div class="menu-header-content text-white">
-                                        <h5 class="menu-header-title">Grid Dashboard</h5>
-                                        <h6 class="menu-header-subtitle">Easy grid navigation inside dropdowns</h6>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="grid-menu grid-menu-xl grid-menu-3col">
                                 <div class="no-gutters row">
                                     <div class="col-sm-6 col-xl-4">

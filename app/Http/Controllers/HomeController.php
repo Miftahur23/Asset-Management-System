@@ -12,6 +12,11 @@ class HomeController extends Controller
         return view ('pages.homepage');
     }
 
+    public function Firstpage()
+    {
+        return view ('pages.firstpage');
+    }
+
     public function AccountStore(Request $request)
     {
         //dd($request->all());

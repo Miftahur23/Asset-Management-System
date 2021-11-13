@@ -36,8 +36,12 @@
       <label for="inputAddress" class="form-label"><h6>Address</h6></label>
       <input type="text" class="form-control" id="inputAddress">
     </div>
-    <div class="col-6 mt-3 ml-5 pl-5">
+    <div class="d-flex justify-content-center align-items-center ml-4 pl-5">
+    <div class="col-3 mt-3 ">
       <button type="submit" class="btn btn-success">Register</button>
-    </div>
+    </div> 
+    <div class="col-12 mt-3 ">
+    <a href="{{route('Emplogin')}}"><button type="button" class="btn btn-success">Already Have An Account</button></a>
+  </div> </div>
   </form>
 </div> 

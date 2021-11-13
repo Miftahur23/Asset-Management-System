@@ -1,16 +1,26 @@
-@extends('pages.loginpage')
-@section('content')
-            <form>
-                  <div class="form-group">
-                     <label>Employee Name</label>
-                     <input type="text" class="form-control" placeholder=" ">
-                  </div>
-                  <div class="form-group">
-                     <label>Employee Password</label>
-                     <input type="password" class="form-control" placeholder=" ">
-                  </div>
-                  <button type="submit" class="btn btn-black">Login</button>
-                  <button type="submit" class="btn btn-secondary">Register</button>
-            </form>
-            
-@endsection
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+
+<form class="row col-5 m-auto">
+  <form action="{{route('ektanam')}}" method="POST">
+  @csrf
+  
+    <div class="col-12">
+      <label for="exampleInputName" class="form-label"><h5>Employee Name</h5></label>
+      <input name="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+    </div>
+    <div class="col-12">
+      <label for="exampleInputEmail1" class="form-label"><h5>Email Address</h5></label>
+      <input name="email" class="form-control" id="exampleInputEmail1">
+    </div>
+    <div class="col-12">
+      <label for="exampleInputPassword1" class="form-label"><h5>Password</h5></label>
+      <input name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    
+  </div>
+  </div>
+  <div class="col-12 mt-3">
+    <button type="submit" class="btn btn-light">Submit</button>
+    
+  </div>
+  </form>
