@@ -11,11 +11,11 @@
     </div>
     <div class="col-12">
       <label for="exampleInputEmail1" class="form-label"><h5>Email Address</h5></label>
-      <input name="email" class="form-control" id="exampleInputEmail1">
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1">
     </div>
     <div class="col-12">
       <label for="exampleInputPassword1" class="form-label"><h5>Password</h5></label>
-      <input name="password" class="form-control" id="exampleInputPassword">
+      <input type="password" name="password" class="form-control" id="exampleInputPassword">
     </div>
     
   </div>

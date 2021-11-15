@@ -24,8 +24,10 @@ class AdminController extends Controller
                 'email'=>$request->email,
                 'password'=>$request->password 
              ]);
+        
+             return redirect('/home');
 
-          return redirect()->back();
+        //  return redirect()->back();
         // return $request->only(['name','email']);
         // return $request->except('name');
 

@@ -87,7 +87,31 @@
 
                         {{-- table  --}}
 
-                        @include('table.table')
+                        {{-- @include('table.table') --}}
+
+                        <table class="table table-dark ">
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Password</th>
+                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                        
+                              @foreach ($data as $item)
+                              <tr>
+                                <th scope="row">3</th>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->password}}</td>
+                                
+                              </tr>
+                              @endforeach 
+                            </tbody>
+                          </table>
+
+
 
                         <div class="app-inner-layout__wrapper">
                             <div class="app-inner-layout__sidebar">
