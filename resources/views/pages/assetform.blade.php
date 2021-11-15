@@ -2,7 +2,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
 <form class="row col-5 m-auto">
-<form action="{{route('ektanam')}}" method="POST">
+<form action="{{route('AssetCreated')}}" method="POST">
 
     <div class="col-6 mt-5">
         <label for="inputAssetname" class="form-label"><h6>Asset Name</h6></label>

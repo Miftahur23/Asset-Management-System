@@ -45,6 +45,8 @@ Route::prefix('emp')->group(function () {
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
 Route::get('/firstpage',[HomeController::class,'Firstpage'])->name('Firstpage');
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
+
+
 // Route::get('/signupform',[SignupController::class,'Signup'])->name('Signup');
 
 // Route::post('/account/store', [HomeController::class,'AccountStore'])->name('ektanam');
