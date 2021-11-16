@@ -12,14 +12,12 @@
                                 <div class="page-title-heading">
                                  <h2>Dashboard</h2> 
                                 </div>
-                                <div class="page-title-actions">
-                                    
-                                    <button type="button" class="btn btn-success">
-                                            
-                                        + Create Asset 
-                                    </button>
-                                
-                                </div>        </div>
+                                <div class="page-title-actions"> 
+                                    <a href="{{route('AssetCreated')}}" type="button" class="btn btn-success">
+                                        + Create Asset
+                                    </a>
+                                </div>       
+                            </div>
                         </div>
                     </div>                <div class="app-inner-layout app-inner-layout-page">
                         {{-- <div class="app-inner-bar">
