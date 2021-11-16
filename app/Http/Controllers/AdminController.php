@@ -42,22 +42,22 @@ class AdminController extends Controller
 
     public function Assetinfo(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
-        // Assetinfo::create([
-        //         'asset_name'=>$request->asset_name,
-        //         'asset_id'=>$request->asset_id,
-        //         'category'=>$request->category,
-        //         'quantity'=>$request->quantity, 
-        //         'cost'=>$request->cost,
-        //         'date_purchased'=>$request->date_purchased,
-        //         'description'=>$request->description,
-        //         'serial_no'=>$request->serial_no, 
-        //      ]);
+         Assetinfo::create([
+                 'asset_name'=>$request->asset_name,
+                 'asset_id'=>$request->asset_id,
+                 'category'=>$request->category,
+                 'quantity'=>$request->quantity, 
+                 'cost'=>$request->cost,
+                 'purchased_date'=>$request->purchased_date,
+                 'description'=>$request->description,
+                 'serial_no'=>$request->serial_no, 
+              ]);
         
-        //      return redirect('/home');
+              return redirect('/home');
 
-        //  return redirect()->back();
+        // return redirect()->back();
         // return $request->only(['name','email']);
         // return $request->except('name');
 
