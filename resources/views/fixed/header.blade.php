@@ -22,10 +22,10 @@
                             Dashboard
                         </a>
 
-                        <a href="{{url('/dashboard')}}" class="nav-link">
+                        <a href=" " class="nav-link">
                             Employeelist
                         </a>
-                        <a href="{{url('/dashboard')}}" class="nav-link">
+                        <a href="{{route('show.asset')}}" class="nav-link">
                             Assetlist
                         </a>
 

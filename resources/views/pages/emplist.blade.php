@@ -1,5 +1,5 @@
 @extends('master')  
-    @section('dashboard')
+    @section('emplist')
         
    
            
@@ -37,7 +37,7 @@
                         
                               @foreach ($data as $item)
                               <tr>
-                                <th scope="row">{{$item->id}}</th>
+                                <th scope="row">3</th>
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->password}}</td>
                                 

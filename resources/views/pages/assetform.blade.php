@@ -25,7 +25,7 @@
         <input name="cost" type="number" class="form-control" id="inputCost" required>
       </div>
       <div class="col-6 mt-3">
-        <label for="inputDatepurchased" class="form-label"><h6>Date Purchased</h6></label>
+        <label for="inputDatepurchased" class="form-label"><h6>Purchased_Date</h6></label>
         <input name="purchased_date" type="Date" class="form-control" id="inputDatepurchased" required>
       </div>
     <div class="col-6 mt-3">

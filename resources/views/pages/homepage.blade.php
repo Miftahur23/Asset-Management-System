@@ -1,5 +1,5 @@
 @extends('master')  
-    @section('content')
+    @section('home')
 
         <div class="app-main">
             <div class="app-main__outer">

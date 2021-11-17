@@ -1,5 +1,6 @@
 @extends('master')  
-    @section('dashboard')
+    @section('assetlist')
+    @csrf
         
    
            
@@ -27,9 +28,14 @@
                         <table class="table table-dark ">
                             <thead>
                               <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Password</th>
+                                <th scope="col">Asset Name</th>
+                                <th scope="col">Asset ID</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Cost</th>
+                                <th scope="col">Purchased Date</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Serial NO</th>
                                 
                               </tr>
                             </thead>
@@ -37,9 +43,15 @@
                         
                               @foreach ($data as $item)
                               <tr>
-                                <th scope="row">{{$item->id}}</th>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->password}}</td>
+                                
+                                <td>{{$item->asset_name}}</td>
+                                <td>{{$item->asset_id}}</td>
+                                <td>{{$item->category}}</td>
+                                <td>{{$item->quantity}}</td>
+                                <td>{{$item->cost}}</td>
+                                <td>{{$item->purchased_date}}</td>
+                                <td>{{$item->description}}</td>
+                                <td>{{$item->serial_no}}</td>
                                 
                               </tr>
                               @endforeach 

@@ -28,34 +28,24 @@ class AdminController extends Controller
         
              return redirect('/home');
 
-        //  return redirect()->back();
-        // return $request->only(['name','email']);
-        // return $request->except('name');
-
-        // echo $request->input('name');
-        // echo '<br/>';
-        // echo $request->input('password');
-
-        
-        // return 'ok';
     }
 
     public function Assetinfo(Request $request)
     {
         // dd($request->all());
 
-         Assetinfo::create([
-                 'asset_name'=>$request->asset_name,
-                 'asset_id'=>$request->asset_id,
-                 'category'=>$request->category,
-                 'quantity'=>$request->quantity, 
-                 'cost'=>$request->cost,
-                 'purchased_date'=>$request->purchased_date,
-                 'description'=>$request->description,
-                 'serial_no'=>$request->serial_no, 
-              ]);
+        Assetinfo::create([
+                  'asset_name'=>$request->asset_name,
+                  'asset_id'=>$request->asset_id,
+                  'category'=>$request->category,
+                  'quantity'=>$request->quantity, 
+                  'cost'=>$request->cost,
+                  'purchased_date'=>$request->purchased_date,
+                  'description'=>$request->description,
+                  'serial_no'=>$request->serial_no, 
+               ]);
         
-              return redirect('/home');
+               return redirect('/home');
 
         // return redirect()->back();
         // return $request->only(['name','email']);
@@ -68,5 +58,14 @@ class AdminController extends Controller
         
         // return 'ok';
     }
+
+    public function ShowAsset(){
+
+        $data=Assetinfo::all();
+        //dd($data);
+        return view ('pages.assetlist', compact('data'));
+
+    }
+    
     
 }
