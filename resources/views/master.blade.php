@@ -26,7 +26,7 @@
 
     @yield('home')
     @yield('dashboard')
-    @yield('employeelist')
+    @yield('emplist')
     @yield('assetlist')
             
         

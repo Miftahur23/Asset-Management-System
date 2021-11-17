@@ -27,7 +27,7 @@
                         <table class="table table-dark ">
                             <thead>
                               <tr>
-                                <th scope="col">No</th>
+                                
                                 <th scope="col">Email</th>
                                 <th scope="col">Password</th>
                                 
@@ -37,7 +37,7 @@
                         
                               @foreach ($data as $item)
                               <tr>
-                                <th scope="row">{{$item->id}}</th>
+                                
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->password}}</td>
                                 

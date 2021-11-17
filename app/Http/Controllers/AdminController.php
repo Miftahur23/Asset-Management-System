@@ -66,6 +66,10 @@ class AdminController extends Controller
         return view ('pages.assetlist', compact('data'));
 
     }
+    public function ShowEmpinfo(){
+
+        return view('pages.emplist');
+    }
     
     
 }

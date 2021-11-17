@@ -28,10 +28,11 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
 
     Route::get('/loginpage',[AdminController::class,'Adminloginpage'])->name('Adminlogin');
-    Route::post('/loginpage',[AdminController::class,'Adminlogininfo'])->name('Adminlogindone');
+    Route::post('/logindone',[AdminController::class,'Adminlogininfo'])->name('Adminlogindone');
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
+    Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     
 });
 
@@ -40,6 +41,7 @@ Route::prefix('emp')->group(function () {
     Route::get('/loginpage',[EmploginpageController::class,'Emploginpage'])->name('Emplogin');
     Route::post('/loginpage',[EmploginpageController::class,'Emplogininfo'])->name('Emplogindone');
     Route::get('/regform',[EmpregformController::class,'Empregform'])->name('Empreg');
+    Route::post('/regdone',[EmpregformController::class,'Empregdone'])->name('Empregdone');
     Route::get('/have-an-account',[EmpregformController::class,'AlreadyHaveAnAccount']);
 });
 

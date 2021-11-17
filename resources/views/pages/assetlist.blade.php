@@ -11,7 +11,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>Dashboard</h2> 
+                                 <h2>AssetList</h2> 
                                 </div>
                                 <div class="page-title-actions"> 
                                     <a href="{{route('AssetCreated')}}" type="button" class="btn btn-success">
