@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EmployeeInfo;
 
+
 class EmpregformController extends Controller
 {
     public function Empregform()
@@ -19,13 +20,13 @@ class EmpregformController extends Controller
     {
         //dd($empinfo->all());
 
-        Empregdone::create([
+        EmployeeInfo::create([
             'fname'=>$empinfo->fname,
             'lname'=>$empinfo->lname,
             'email'=>$empinfo->email,
             'password'=>$empinfo->password,
             'password1'=>$empinfo->password1,
-            'dept'=>$empinfo->dept,
+            'deptarment'=>$empinfo->dept,
             'branch'=>$empinfo->branch,
             'address'=>$empinfo->address,
             'pnumber'=>$empinfo->pnumber

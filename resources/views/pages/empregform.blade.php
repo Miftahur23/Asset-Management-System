@@ -27,7 +27,7 @@
       </div>
       <div class="col-6 mt-3">
         <label for="inputDepartment" class="form-label"><h6>Department</h6></label>
-        <input name="department" type="text" class="form-control" id="inputDepartment" >
+        <input name="dept" type="text" class="form-control" id="inputDepartment" >
       </div>
     <div class="col-6 mt-3">
       <label for="inputBranch" class="form-label"><h6>Branch</h6></label>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
+use App\Models\Product;
+use App\Models\EmployeeInfo;
 
 class AdminController extends Controller
 {
@@ -28,6 +30,21 @@ class AdminController extends Controller
         
              return redirect('/home');
 
+    }
+    public function ProductForm()
+    {
+        return view('pages.productsform');
+    }
+
+    public function ProductEntry(Request $req){
+
+        Product::create([
+
+            'name'=>$req->productName,
+            'price'=>$req->price
+        ]);
+
+return redirect('/home');
     }
 
     public function Assetinfo(Request $request)
@@ -60,15 +77,20 @@ class AdminController extends Controller
     }
 
     public function ShowAsset(){
+        
+        //dd($data);
 
         $data=Assetinfo::all();
-        //dd($data);
+        
         return view ('pages.assetlist', compact('data'));
 
     }
     public function ShowEmpinfo(){
 
-        return view('pages.emplist');
+        //dd($data);
+        $data=EmployeeInfo::all();
+
+        return view('pages.emplist', compact ('data'));
     }
     
     
