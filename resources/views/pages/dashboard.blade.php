@@ -24,7 +24,7 @@
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
 
-                        <table class="table table-dark ">
+                        {{-- <table class="table table-dark ">
                             <thead>
                               <tr>
                                 
@@ -44,11 +44,7 @@
                               </tr>
                               @endforeach 
                             </tbody>
-                          </table>
-
-
-
-                        
+                        </table> --}}
                     </div>
                 </div>
             </div>

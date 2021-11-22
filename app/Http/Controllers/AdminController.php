@@ -64,7 +64,7 @@ return redirect('/home');
                   'empid'=>$request->empid, 
                ]);
         
-               return redirect('/home');
+               return redirect('admin/assetlist');
 
         // return redirect()->back();
         // return $request->only(['name','email']);
@@ -93,7 +93,6 @@ return redirect('/home');
         $data=EmployeeInfo::all();
 
         return view('pages.emplist', compact ('data'));
+
     }
-    
-    
 }

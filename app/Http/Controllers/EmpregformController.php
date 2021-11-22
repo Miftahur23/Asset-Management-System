@@ -32,6 +32,6 @@ class EmpregformController extends Controller
             'pnumber'=>$empinfo->pnumber
         ]);
 
-        return redirect('/home');
+        return redirect('/admin/employeelist');
     }
 }

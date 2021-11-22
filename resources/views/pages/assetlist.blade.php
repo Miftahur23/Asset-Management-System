@@ -53,7 +53,7 @@
                                 <td>{{$item->purchased_date}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->serial_no}}</td>
-                                <td>{{$item->employee_infos->fname}}</td>
+                                {{-- <td>{{$item->employee_infos->fname}}</td> --}}
                                 
                               </tr>
                               @endforeach 
