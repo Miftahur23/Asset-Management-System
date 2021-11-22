@@ -36,6 +36,7 @@
                                 <th scope="col">Purchased Date</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Serial NO</th>
+                                <th scope="col">Emp Name</th>
                                 
                               </tr>
                             </thead>
@@ -52,6 +53,7 @@
                                 <td>{{$item->purchased_date}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->serial_no}}</td>
+                                <td>{{$item->employee_infos->fname}}</td>
                                 
                               </tr>
                               @endforeach 

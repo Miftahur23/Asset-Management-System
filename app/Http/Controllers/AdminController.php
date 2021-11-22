@@ -16,7 +16,8 @@ class AdminController extends Controller
     }
     public function AssetCreated()
     {
-        return view ('pages.assetform');
+        $emp= EmployeeInfo::all();
+        return view ('pages.assetform', compact('emp'));
     }
 
     public function Adminlogininfo(Request $request)
@@ -59,7 +60,8 @@ return redirect('/home');
                   'cost'=>$request->cost,
                   'purchased_date'=>$request->purchased_date,
                   'description'=>$request->description,
-                  'serial_no'=>$request->serial_no, 
+                  'serial_no'=>$request->serial_no,
+                  'empid'=>$request->empid, 
                ]);
         
                return redirect('/home');

@@ -16,6 +16,20 @@
       <label for="inputCategory" class="form-label"><h6>Category</h6></label>
       <input name="category" type="text" class="form-control" id="inputCategory" required>
     </div>
+
+    <div class="col-12 mt-3">
+    <select name="empid" class="form-control form-control-lg">
+      <option> </option>
+
+      @foreach ($emp as $item)
+
+      <option  value="{{$item->id}}">{{$item->fname}}</option>
+
+      @endforeach
+
+    </select>
+  </div>
+
     <div class="col-6 mt-3">
       <label for="inputQuantity" class="form-label"><h6>Quantity</h6></label>
       <input name="quantity" type="number" class="form-control" id="inputQuantity" required>
