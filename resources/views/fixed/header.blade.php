@@ -29,10 +29,22 @@
                         <a href=" " class="nav-link">
                             Department
                         </a>
+                        
+                        <div class="dropdown show">
+                            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              EmployeeInfo
+                            </a>
+            
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="{{route('show.emplist')}}">Employee List</a>
+                              <a class="dropdown-item" href="{{route('show.emplogininfo')}}">Employee Login Info</a>
+                            </div>
 
-                        <a href="{{route('show.emplist')}}" class="nav-link">
+                        </div>
+                          
+                        {{-- <a href="{{route('show.emplist')}}" class="nav-link">
                             Employeelist
-                        </a>
+                        </a> --}}
                         <a href="{{route('show.asset')}}" class="nav-link">
                             Assetlist
                         </a>

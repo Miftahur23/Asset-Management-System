@@ -7,6 +7,7 @@ use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
 use App\Models\Product;
 use App\Models\EmployeeInfo;
+use App\Models\Emplogininfo;
 
 class AdminController extends Controller
 {
@@ -61,10 +62,10 @@ return redirect('/home');
                   'purchased_date'=>$request->purchased_date,
                   'description'=>$request->description,
                   'serial_no'=>$request->serial_no,
-                  'empid'=>$request->empid, 
+                  'employeeinfos_id'=>$request->empid, 
                ]);
         
-               return redirect('admin/assetlist');
+               return redirect()->route('show.asset')->with('success', 'Asset Created');
 
         // return redirect()->back();
         // return $request->only(['name','email']);
@@ -74,7 +75,6 @@ return redirect('/home');
         // echo '<br/>';
         // echo $request->input('password');
 
-        
         // return 'ok';
     }
 
@@ -95,4 +95,14 @@ return redirect('/home');
         return view('pages.emplist', compact ('data'));
 
     }
+
+    public function ShowEmploginfo(){
+
+        //dd($data);
+        $data=Emplogininfo::all();
+
+        return view('pages.emplogininfo', compact ('data'));
+
+    }
+    
 }

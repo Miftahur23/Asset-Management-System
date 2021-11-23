@@ -11,11 +11,7 @@ class EmployeeInfo extends Model
 
     protected $guarded=[];
 
-    // public function asset_infos()
-
-    // {
-    //     return $this-> hasMany(AssetInfo::class);
-    // }
+    
 
 
 }

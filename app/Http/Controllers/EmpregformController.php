@@ -32,6 +32,6 @@ class EmpregformController extends Controller
             'pnumber'=>$empinfo->pnumber
         ]);
 
-        return redirect('/admin/employeelist');
+        return redirect('/admin/employeelist')->with('success', 'Emplopyee Registered');
     }
 }

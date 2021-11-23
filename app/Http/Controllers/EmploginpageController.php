@@ -21,7 +21,7 @@ class EmploginpageController extends Controller
                'password'=>$request->password 
             ]);
 
-         return redirect()->back();
+         return redirect('/home');
         // return $request->only(['name','email']);
         // return $request->except('name');
 

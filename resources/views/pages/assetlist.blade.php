@@ -1,9 +1,7 @@
 @extends('master')  
-    @section('assetlist')
-    @csrf
-        
-   
-           
+ @section('assetlist')
+
+
         <div class="app-main">
             <div class="app-main__outer">
                 <div class="app-main__inner">
@@ -24,10 +22,16 @@
                     <div class="app-inner-layout app-inner-layout-page">
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
-
+                    @if(session()->has('success'))
+                        <p class="alert alert-success">
+                            {{session()->get('success')}}
+                        </p>
+                    @endif
+                    
                         <table class="table table-dark ">
                             <thead>
                               <tr>
+                                <th scope="col">No</th>
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Asset ID</th>
                                 <th scope="col">Category</th>
@@ -42,9 +46,10 @@
                             </thead>
                             <tbody>
                         
-                              @foreach ($data as $item)
+                              @foreach ($data as $key=>$item)
                               <tr>
-                                
+                                {{-- @dd($data)->all(); --}}
+                                <td>{{$key+1}}</td>
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->asset_id}}</td>
                                 <td>{{$item->category}}</td>
@@ -53,7 +58,7 @@
                                 <td>{{$item->purchased_date}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->serial_no}}</td>
-                                {{-- <td>{{$item->employee_infos->fname}}</td> --}}
+                                <td>{{$item->employeeinfos->fname}}</td>
                                 
                               </tr>
                               @endforeach 

@@ -17,7 +17,7 @@ class CreateAssetInfosTable extends Migration
             $table->id();
             $table->string('asset_name');
             $table->double('asset_id');
-            $table->unsignedBigInteger('empid')->nullable();
+            $table->double('employeeinfos_id');
             $table->string('category');
             $table->double('quantity');
             $table->double('cost');

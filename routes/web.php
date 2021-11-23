@@ -35,6 +35,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
+    Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
+    
     
 });
 

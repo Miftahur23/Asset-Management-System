@@ -4,7 +4,7 @@
 
 <form action="{{route('Empregdone')}}" method="POST" class="row col-5 m-auto">
   @csrf
-
+  
     <div class="col-6 mt-1">
         <label for="inputFirstname" class="form-label"><h6>First Name</h6></label>
         <input name="fname" type="name" class="form-control" id="inputFirstname">

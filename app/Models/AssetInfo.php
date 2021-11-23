@@ -11,9 +11,9 @@ class AssetInfo extends Model
     //protected $fillable = [ 'email', 'password', ];
     protected $guarded=[];
 
-    // public function employee_infos()
+    public function employeeinfos()
 
-    // {
-    //     return $this-> belongsTo(EmployeeInfo::class);
-    // }
+    {
+        return $this-> belongsTo(EmployeeInfo::class);
+    }
 }

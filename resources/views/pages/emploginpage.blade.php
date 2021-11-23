@@ -5,7 +5,7 @@
     
   @csrf
   
-    <div class="col-12">
+    <div class="col-12 mt-5 pt-5">
       <label for="exampleInputEmployeeName" class="form-label"><h5>Employee Name</h5></label>
       <input name="name" class="form-control" id="exampleInputEmployeeName" >
     </div>
