@@ -24,6 +24,10 @@ class AdminController extends Controller
     public function Adminlogininfo(Request $request)
     {
         //dd($request->all());
+        $request->validate([
+            'email'=>'required| min:15',
+            'password'=>'required'
+        ]);
 
         Adminlogininfo::create([
                 'email'=>$request->email,

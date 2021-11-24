@@ -1,8 +1,16 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
+@if ($errors->any())
+<div class="alert alert-warning" role="alert">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+        @endforeach
+    </ul> 
+</div>
+@endif
 
-  <form action="{{route('Emplogindone')}}" class="row col-5 m-auto" method="POST">
-    
+  <form action="{{route('Emplogindone')}}" class="row col-5 m-auto" method="POST">  
   @csrf
   
     <div class="col-12 mt-5 pt-5">

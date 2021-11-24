@@ -15,6 +15,11 @@ class EmploginpageController extends Controller
     {
         //dd($request->all());
 
+        $request->validate([
+            'name'=>'required| min:15',
+            'email'=>'required'
+        ]);
+
          Emplogininfo::create([
                'name'=>$request->name,
                'email'=>$request->email,
