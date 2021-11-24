@@ -9,7 +9,7 @@ class EmploginpageController extends Controller
 {
     public function Emploginpage()
     {
-        return view ('pages.emploginpage');
+        return view ('pages.employee.emploginpage');
     }
     public function Emplogininfo(Request $request)
     {

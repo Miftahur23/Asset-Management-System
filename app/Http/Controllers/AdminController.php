@@ -13,12 +13,12 @@ class AdminController extends Controller
 {
     public function Adminloginpage()
     {
-        return view ('pages.adminloginpage');
+        return view ('pages.admin.adminloginpage');
     }
     public function AssetCreated()
     {
         $emp= EmployeeInfo::all();
-        return view ('pages.assetform', compact('emp'));
+        return view ('pages.asset.assetform', compact('emp'));
     }
 
     public function Adminlogininfo(Request $request)
@@ -84,7 +84,7 @@ return redirect('/home');
 
         $data=Assetinfo::all();
         
-        return view ('pages.assetlist', compact('data'));
+        return view ('pages.asset.assetlist', compact('data'));
 
     }
     public function ShowEmpinfo(){
@@ -92,7 +92,7 @@ return redirect('/home');
         //dd($data);
         $data=EmployeeInfo::all();
 
-        return view('pages.emplist', compact ('data'));
+        return view('pages.employee.emplist', compact ('data'));
 
     }
 
@@ -101,7 +101,7 @@ return redirect('/home');
         //dd($data);
         $data=Emplogininfo::all();
 
-        return view('pages.emplogininfo', compact ('data'));
+        return view('pages.employee.emplogininfo', compact ('data'));
 
     }
     

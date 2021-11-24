@@ -10,7 +10,7 @@ class EmpregformController extends Controller
 {
     public function Empregform()
     {
-        return view ('pages.empregform');
+        return view ('pages.employee.empregform');
     }
     public function AlreadyHaveAnAccount()
     {
