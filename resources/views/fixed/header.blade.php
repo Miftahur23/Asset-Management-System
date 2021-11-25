@@ -22,11 +22,11 @@
                             Dashboard
                         </a>
 
-                        <a href=" " class="nav-link">
+                        <a href="{{route('show.branch')}}" class="nav-link">
                             Branch
                         </a>
 
-                        <a href=" " class="nav-link">
+                        <a href="{{route('show.department')}}" class="nav-link">
                             Department
                         </a>
                         

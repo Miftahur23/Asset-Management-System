@@ -8,6 +8,8 @@ use App\Models\AssetInfo;
 use App\Models\Product;
 use App\Models\EmployeeInfo;
 use App\Models\Emplogininfo;
+use App\Models\Branch;
+
 
 class AdminController extends Controller
 {
@@ -15,6 +17,42 @@ class AdminController extends Controller
     {
         return view ('pages.admin.adminloginpage');
     }
+
+    
+    public function ShowBranch()
+    {
+        return view ('pages.branch.branchlist');
+    }
+
+
+    public function CreateBranch()
+    {
+       
+         //return redirect('/home');
+        return view ('pages.branch.branchform');
+    }
+
+    public function StoreBranch(Request $req)
+    {
+       // dd($req->all());
+        Branch::create([
+            'name'=>$req->name,
+            'location'=>$req->location, 
+         ]);
+
+    }
+
+    public function ShowDepartment()
+    {
+        return view ('pages.department.departmentlist');
+    }
+    
+
+    public function CreateDepartment()
+    {
+        return view ('pages.department.deptform');
+    }
+
     public function AssetCreated()
     {
         $emp= EmployeeInfo::all();

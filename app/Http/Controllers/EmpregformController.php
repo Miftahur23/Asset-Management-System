@@ -19,6 +19,12 @@ class EmpregformController extends Controller
     public function Empregdone(Request $empinfo)
     {
         //dd($empinfo->all());
+        
+        $empinfo->validate([
+            'fname'=>'required',
+            'lname'=>'required'
+
+        ]);
 
         EmployeeInfo::create([
             'fname'=>$empinfo->fname,

@@ -36,6 +36,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
+    Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
+    Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
+    Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
+    Route::get('/departmentlist',[AdminController::class, 'ShowDepartment'])->name('show.department');
+    Route::get('/departmentinserted',[AdminController::class, 'CreateDepartment'])->name('create.department');
     
     
 });

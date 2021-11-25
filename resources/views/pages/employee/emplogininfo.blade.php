@@ -27,6 +27,7 @@
                         <table class="table table-dark ">
                             <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">Employee Name</th>
                                     <th scope="col">Email Address</th>
                                     <th scope="col">Password</th>
@@ -35,9 +36,9 @@
                                 </thead>
                                 <tbody>
                             
-                                  @foreach ($data as $item)
+                                  @foreach ($data as $key=>$item)
                                   <tr>
-                                    
+                                    <td>{{$key+1}}</td>
                                     <td>{{$item->name}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->password}}</td>

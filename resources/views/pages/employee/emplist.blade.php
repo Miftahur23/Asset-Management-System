@@ -33,6 +33,7 @@
                         <table class="table table-dark ">
                             <thead>
                                 <tr>
+                                    <th scope="col">No</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Email</th>
@@ -46,9 +47,9 @@
                                 </thead>
                                 <tbody>
                             
-                                  @foreach ($data as $item)
+                                  @foreach ($data as $key=>$item)
                                   <tr>
-                                    
+                                    <td>{{$key+1}}</td>
                                     <td>{{$item->fname}}</td>
                                     <td>{{$item->lname}}</td>
                                     <td>{{$item->email}}</td>
