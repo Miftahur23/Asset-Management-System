@@ -39,7 +39,6 @@ class AdminController extends Controller
             'name'=>$req->name,
             'location'=>$req->location, 
          ]);
-
     }
 
     public function ShowDepartment()
@@ -63,7 +62,7 @@ class AdminController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            'email'=>'required| min:15',
+            'email'=>'required',
             'password'=>'required'
         ]);
 
@@ -75,25 +74,36 @@ class AdminController extends Controller
              return redirect('/home');
 
     }
-    public function ProductForm()
-    {
-        return view('pages.productsform');
-    }
+//     public function ProductForm()
+//     {
+//         return view('pages.productsform');
+//     }
 
-    public function ProductEntry(Request $req){
+//     public function ProductEntry(Request $req){
 
-        Product::create([
+//         Product::create([
 
-            'name'=>$req->productName,
-            'price'=>$req->price
-        ]);
+//             'name'=>$req->productName,
+//             'price'=>$req->price
+//         ]);
 
-return redirect('/home');
-    }
+// return redirect('/home');
+//     }
 
     public function Assetinfo(Request $request)
     {
         // dd($request->all());
+
+        $request->validate([
+            'asset_name'=>'required',
+            'asset_id'=>'required',
+            'category'=>'required',
+            'quantity'=>'required',
+            'cost'=>'required',
+            'purchased_date'=>'required',
+            'serial_no'=>'required'
+
+        ]);
 
         Assetinfo::create([
                   'asset_name'=>$request->asset_name,
@@ -107,7 +117,7 @@ return redirect('/home');
                   'employeeinfos_id'=>$request->empid, 
                ]);
         
-               return redirect()->route('show.asset')->with('success', 'Asset Created');
+               return redirect()->route('show.asset')->with('success', 'Asset Created Successfully');
 
         // return redirect()->back();
         // return $request->only(['name','email']);
