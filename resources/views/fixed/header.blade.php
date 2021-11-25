@@ -1,16 +1,18 @@
 {{-- <link href="/css/bootstrap.min.css" rel="stylesheet"></head> --}}
 <div class="app-top-bar bg-plum-plate top-bar-text-light">
     <div class="container fiori-container">
+
+        <div class="top-bar-right">
+            <p style="color:white; font-size:50px">Manage Your Assets</p>
+        </div>
+
+
         <div class="top-bar-right">
             <ul class="nav">
-                <div class="btn-group ">
-                            <a type="button" class="btn btn-success " href="{{route('Firstpage')}}">
-                                    Logout 
-                            </a>   
-                </div>
-                </div>
-                </div>
-                </div>
+                
+        </div>
+    </div>
+</div>
                     <div class="app-header header-shadow">
                     <div class="container fiori-container">
 
@@ -61,15 +63,19 @@
                 <div class="search-wrapper">
                 <input type="text" placeholder="Search...">
                 </div>
-                <div class="header-btn-lg pr-0">
+                <div class="header-btn-lg pr-3">
                 <div class="widget-content p-0">
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
-                            <div class="btn-group">
+                            <div class="btn-group ">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     <img width="35" class="rounded" src="/media/siam.jpg" alt="">
-                                    <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
+
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('Firstpage')}}">
+                                            Logout 
+                                </a>   
+                        
                             </div>
                         </div>
                     </div>
