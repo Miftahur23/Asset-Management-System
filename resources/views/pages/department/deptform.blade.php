@@ -21,14 +21,33 @@
                         </div>
                     </div>               
                     <div class="app-inner-layout app-inner-layout-page">
+                      
 
-                      <center><form action="{{route('create.department')}}" method="POST">
+                      @if(session()->has('success'))
+                        <p class="alert alert-success">
+                          {{session()->get('success')}}
+                        </p>
+                      @endif
+
+                      @if ($errors->any())
+                      <div class="alert alert-warning" role="alert">
+                        <ul>
+                          @foreach ($errors->all() as $error)
+                            <li>{{$error}}</li>
+                          @endforeach
+                        </ul>
+                      </div>
+                      @endif
+
+
+
+                      <center><form action="{{route('store.department')}}" method="POST">
 
                         @csrf
                         
                         <div class="col-3 mt-5 ">
                             <label for="exampleInputName" class="form-label"><h3>Department Name</h3></label>
-                            <input type="name" name="name" class="form-control" id="exampleInputName">
+                            <input type="text" name="dname" class="form-control" id="exampleInputName">
                         </div>
                         
                         <div class="pt-2">

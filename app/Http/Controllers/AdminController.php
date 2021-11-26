@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\EmployeeInfo;
 use App\Models\Emplogininfo;
 use App\Models\Branch;
+use App\Models\Department;
 
 
 class AdminController extends Controller
@@ -35,10 +36,18 @@ class AdminController extends Controller
     public function StoreBranch(Request $req)
     {
        // dd($req->all());
+        $req->validate([
+            'name'=>'required',
+            'location'=>'required'
+
+        ]);
+
         Branch::create([
             'name'=>$req->name,
-            'location'=>$req->location, 
+            'location'=>$req->location
          ]);
+
+         return redirect()->back()->with('success', 'Branch Added');
     }
 
     public function ShowDepartment()
@@ -50,6 +59,21 @@ class AdminController extends Controller
     public function CreateDepartment()
     {
         return view ('pages.department.deptform');
+    }
+
+    public function StoreDepartment(Request $req)
+    {
+        $req->validate([
+            'dname'=>'required'
+        ]);
+
+        Department::create([
+
+            'dname'=>$req->dname
+
+        ]);
+
+        return redirect()->back()->with('success', 'Department Added');
     }
 
     public function AssetCreated()

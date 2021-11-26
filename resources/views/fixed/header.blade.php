@@ -24,17 +24,9 @@
                             Dashboard
                         </a>
 
-                        <a href="{{route('show.branch')}}" class="nav-link">
-                            Branch
-                        </a>
-
-                        <a href="{{route('show.department')}}" class="nav-link">
-                            Department
-                        </a>
-                        
                         <div class="dropdown show">
                             <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              EmployeeInfo
+                              Employees
                             </a>
             
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -47,12 +39,29 @@
                         {{-- <a href="{{route('show.emplist')}}" class="nav-link">
                             Employeelist
                         </a> --}}
-                        <a href="{{route('show.asset')}}" class="nav-link">
-                            Assetlist
+
+                        <div class="dropdown show">
+                            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Assets
+                            </a>
+            
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="{{route('show.asset')}}">Asset List</a>
+                              <a class="dropdown-item" href="">Asset Condition</a>
+                            </div>
+
+                        </div>
+
+                        <a href="{{route('show.branch')}}" class="nav-link">
+                            Branch
+                        </a>
+
+                        <a href="{{route('show.department')}}" class="nav-link">
+                            Department
                         </a>
 
                         <a href=" " class="nav-link">
-                            Orders
+                            Requests
                         </a>
 
                         <a href=" " class="nav-link">

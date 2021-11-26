@@ -3,15 +3,6 @@
     background-image: url('media/fpimg.jpg');
   }
   </style> --}}
-  @if ($errors->any())
-  <div class="alert alert-warning" role="alert">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{$error}}</li>
-          @endforeach
-      </ul> 
-  </div>
-  @endif
   
   @extends('master')  
   @section('dashboard')
@@ -31,7 +22,24 @@
                   <div class="app-inner-layout app-inner-layout-page">
 
                     
- 
+@if(session()->has('success'))
+    <p class="alert alert-success">
+      {{session()->get('success')}}
+    </p>
+@endif
+
+
+
+@if ($errors->any())
+  <div class="alert alert-warning" role="alert">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{$error}}</li>
+          @endforeach
+      </ul> 
+  </div>
+@endif
+
 <center><form action="{{route('store.branch')}}" method="POST">
 
   
