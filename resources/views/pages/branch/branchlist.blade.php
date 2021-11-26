@@ -24,27 +24,28 @@
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
 
-                        {{-- <table class="table table-dark ">
+                        <div class="container" style="width: 40%">
+                            <table class="table table-dark table-bordered mt-3">
                             <thead>
                               <tr>
-                                
-                                <th scope="col">Email</th>
-                                <th scope="col">Password</th>
+                                <th scope="col">No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Location</th>
                                 
                               </tr>
                             </thead>
                             <tbody>
                         
-                              @foreach ($data as $item)
+                              @foreach ($branches as $key=>$item)
                               <tr>
-                                
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->password}}</td>
+                                <td>{{$key+1}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->location}}</td>
                                 
                               </tr>
                               @endforeach 
                             </tbody>
-                        </table> --}}
+                        </table></div>
                     </div>
                 </div>
             </div>

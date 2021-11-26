@@ -19,7 +19,8 @@
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
 
-                        <table class="table table-dark ">
+                        <div class="container" style="width: 50%">
+                            <table class="table table-dark table-bordered mt-3">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -42,7 +43,7 @@
                                   </tr>
                                 @endforeach 
                             </tbody>
-                          </table>
+                          </table></div>
 
 
 

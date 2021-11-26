@@ -10,6 +10,7 @@ use App\Models\EmployeeInfo;
 use App\Models\Emplogininfo;
 use App\Models\Branch;
 use App\Models\Department;
+use App\Models\Stock;
 
 
 class AdminController extends Controller
@@ -22,7 +23,8 @@ class AdminController extends Controller
     
     public function ShowBranch()
     {
-        return view ('pages.branch.branchlist');
+        $branches=Branch::all();
+        return view ('pages.branch.branchlist', compact ('branches'));
     }
 
 
@@ -52,7 +54,8 @@ class AdminController extends Controller
 
     public function ShowDepartment()
     {
-        return view ('pages.department.departmentlist');
+        $dept=Department::all();
+        return view ('pages.department.departmentlist', compact('dept'));
     }
     
 
@@ -74,6 +77,36 @@ class AdminController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Department Added');
+    }
+
+    public function ShowRequest()
+    {
+        return 'ok';
+    }
+    
+    // public function CreateRequest()
+    // {
+    //     return 'ok';
+    // }
+
+    // public function StoreRequest()
+    // {
+    //     return 'ok';
+    // }
+
+    public function ShowStock()
+    {
+        return 'ok';
+    }
+
+    public function CreateStock()
+    {
+        return 'ok';
+    }
+
+    public function StoreStock()
+    {
+        return 'ok';
     }
 
     public function AssetCreated()
@@ -163,6 +196,14 @@ class AdminController extends Controller
         return view ('pages.asset.assetlist', compact('data'));
 
     }
+
+    
+    public function ShowAssetCondition(){
+        
+        return 'ok';
+
+    }
+
     public function ShowEmpinfo(){
 
         //dd($data);

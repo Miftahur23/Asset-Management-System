@@ -32,10 +32,12 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
-
-    Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
-    Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
+    Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
+    
+
+    // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
+    // Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
     
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
@@ -47,8 +49,14 @@ Route::prefix('admin')->group(function () {
     Route::get('/departmentlist',[AdminController::class, 'ShowDepartment'])->name('show.department');
     Route::get('/departmentform',[AdminController::class, 'CreateDepartment'])->name('create.department');
     Route::post('/departmentinsrted',[AdminController::class, 'StoreDepartment'])->name('store.department');
-    
-    
+
+    Route::get('/stocks', [AdminController::class, 'ShowStock'])->name('show.stock');
+    Route::get('/stockform', [AdminController::class, 'ShowStock'])->name('create.stock');
+    Route::post('/stocks', [AdminController::class, 'ShowStock'])->name('storestock');
+
+    Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.request');
+
+
 });
 
 Route::prefix('emp')->group(function () {

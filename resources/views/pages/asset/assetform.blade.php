@@ -38,11 +38,11 @@
 
                   <form action="{{route('Create.asset')}}" method="POST" class="row col-5 m-auto">
                     @csrf
-                      <div class="col-6 mt-5">
+                      <div class="col-6 mt-3">
                           <label for="inputAssetname" class="form-label"><h6>Asset Name</h6></label>
                           <input name="asset_name" type="name" class="form-control" id="inputAssetname" >
                         </div>
-                        <div class="col-6 mt-5">
+                        <div class="col-6 mt-3">
                           <label for="inputAssetid" class="form-label"><h6>Asset ID</h6></label>
                           <input name="asset_id" type="number" class="form-control" id="inputAssetid" >
                         </div>
@@ -85,7 +85,12 @@
                         <input name="serial_no" type="number" class="form-control" id="inputSerialno" >
                       </div>
 
-                      <div class="col-12 mt-3">
+                      <div class="form-group m-3">
+                        <label for="exampleFormControlFile1"><h6>Select Asset Image</h6></label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+
+                      <div class="col-12 mt-1">
                         <label for="inputDescription" class="form-label" ><h6>Description</h6></label>
                         <input name="description" type="text" class="form-control" style="height:100px" id="inputDescription" >
                       </div>

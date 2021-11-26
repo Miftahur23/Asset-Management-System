@@ -40,5 +40,8 @@
         
     </div>
 </div>
+
+@include('fixed.footer')
+
 <div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="/js/bootstrap.min.js"></script></body>
 </html>

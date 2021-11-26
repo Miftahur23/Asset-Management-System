@@ -47,7 +47,7 @@
             
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                               <a class="dropdown-item" href="{{route('show.asset')}}">Asset List</a>
-                              <a class="dropdown-item" href="">Asset Condition</a>
+                              <a class="dropdown-item" href="{{route('show.asset.condition')}}">Asset Condition</a>
                             </div>
 
                         </div>
@@ -60,11 +60,11 @@
                             Department
                         </a>
 
-                        <a href=" " class="nav-link">
+                        <a href="{{route('show.request')}}" class="nav-link">
                             Requests
                         </a>
 
-                        <a href=" " class="nav-link">
+                        <a href="{{route('show.stock')}}" class="nav-link">
                             Stock
                         </a>
 
