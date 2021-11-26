@@ -24,6 +24,12 @@
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
 
+                        @if(session()->has('success'))
+                            <p class="alert alert-success">
+                                {{session()->get('success')}}
+                            </p>
+                         @endif
+
                         <div class="container" style="width: 40%">
                             <table class="table table-dark table-bordered mt-3">
                             <thead>

@@ -49,7 +49,7 @@ class AdminController extends Controller
             'location'=>$req->location
          ]);
 
-         return redirect()->back()->with('success', 'Branch Added');
+         return redirect()->route('show.branch')->with('success', 'Branch Added');
     }
 
     public function ShowDepartment()
@@ -76,8 +76,10 @@ class AdminController extends Controller
 
         ]);
 
-        return redirect()->back()->with('success', 'Department Added');
+        return redirect()->route('show.department')->with('success', 'Department Added');
     }
+
+    
 
     public function ShowRequest()
     {
@@ -109,12 +111,7 @@ class AdminController extends Controller
         return 'ok';
     }
 
-    public function AssetCreated()
-    {
-        $emp= EmployeeInfo::all();
-        return view ('pages.asset.assetform', compact('emp'));
-    }
-
+    
     public function Adminlogininfo(Request $request)
     {
         //dd($request->all());
@@ -146,6 +143,13 @@ class AdminController extends Controller
 
 // return redirect('/home');
 //     }
+
+
+    public function AssetCreated()
+    {
+        $emp= EmployeeInfo::all();
+        return view ('pages.asset.assetform', compact('emp'));
+    }
 
     public function Assetinfo(Request $request)
     {

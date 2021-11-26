@@ -23,11 +23,7 @@
                     <div class="app-inner-layout app-inner-layout-page">
                       
 
-                      @if(session()->has('success'))
-                        <p class="alert alert-success">
-                          {{session()->get('success')}}
-                        </p>
-                      @endif
+                      
 
                       @if ($errors->any())
                       <div class="alert alert-warning" role="alert">
