@@ -33,6 +33,7 @@
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Asset Image</th>
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Asset ID</th>
                                 <th scope="col">Category</th>
@@ -41,7 +42,7 @@
                                 <th scope="col">Purchased Date</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Serial NO</th>
-                                <th scope="col">Emp Name</th>
+                                
                                 
                               </tr>
                             </thead>
@@ -51,15 +52,21 @@
                               <tr>
                                 {{-- @dd($data)->all(); --}}
                                 <td>{{$key+1}}</td>
+
+                                <th>
+                                    <img style="border-radius: 8px;" width="150px;" src=" {{url('/uploads/products/'.$item->image)}}" alt="product">
+                                </th>
+
+                                
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->asset_id}}</td>
-                                <td>{{$item->category}}</td>
+                                <td>{{$item->categories->name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->cost}}</td>
                                 <td>{{$item->purchased_date}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->serial_no}}</td>
-                                <td>{{$item->employeeinfos->fname}}</td>
+                                
                                 
                               </tr>
                               @endforeach 

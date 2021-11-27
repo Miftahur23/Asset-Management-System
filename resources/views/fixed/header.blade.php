@@ -47,6 +47,7 @@
             
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                               <a class="dropdown-item" href="{{route('show.asset')}}">Asset List</a>
+                              <a class="dropdown-item" href="{{route('show.category')}}">Asset Category</a>
                               <a class="dropdown-item" href="{{route('show.asset.condition')}}">Asset Condition</a>
                             </div>
 

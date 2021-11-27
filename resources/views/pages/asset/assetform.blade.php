@@ -36,7 +36,7 @@
               </div>
   @endif
 
-                  <form action="{{route('Create.asset')}}" method="POST" class="row col-5 m-auto">
+                  <form action="{{route('Create.asset')}}" method="POST" class="row col-5 m-auto" enctype="multipart/form-data">
                     @csrf
                       <div class="col-6 mt-3">
                           <label for="inputAssetname" class="form-label"><h6>Asset Name</h6></label>
@@ -46,21 +46,18 @@
                           <label for="inputAssetid" class="form-label"><h6>Asset ID</h6></label>
                           <input name="asset_id" type="number" class="form-control" id="inputAssetid" >
                         </div>
-                      <div class="col-12 mt-3">
-                        <label for="inputCategory" class="form-label"><h6>Category</h6></label>
-                        <input name="category" type="text" class="form-control" id="inputCategory" >
-                      </div>
+                      
                   
 
                       {{-- relation --}}
                       
                     <div class="col-12 mt-3">
-                      <select name="empid" class="form-control form-control-lg">
-                        <option> </option>
+                      <select name="categoriesid" class="form-control form-control-md">
+                        <option>Select Category</option>
                   
-                        @foreach ($emp as $item)
+                        @foreach ($category as $item)
                   
-                        <option  value="{{$item->id}}">{{$item->fname}}</option>
+                        <option  value="{{$item->id}}">{{$item->name}}</option>
                   
                         @endforeach
                   
@@ -86,8 +83,8 @@
                       </div>
 
                       <div class="form-group m-3">
-                        <label for="exampleFormControlFile1"><h6>Select Asset Image</h6></label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <label for="inputImage"><h6>Select Asset Image</h6></label>
+                        <input type="file" name='product_image' class="form-control-file" id="inputImage">
                       </div>
 
                       <div class="col-12 mt-1">

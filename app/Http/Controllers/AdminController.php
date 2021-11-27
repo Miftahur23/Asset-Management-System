@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\EmployeeInfo;
 use App\Models\Emplogininfo;
@@ -147,8 +148,8 @@ class AdminController extends Controller
 
     public function AssetCreated()
     {
-        $emp= EmployeeInfo::all();
-        return view ('pages.asset.assetform', compact('emp'));
+        $category= Category::all();
+        return view ('pages.asset.assetform', compact('category'));
     }
 
     public function Assetinfo(Request $request)
@@ -158,7 +159,6 @@ class AdminController extends Controller
         $request->validate([
             'asset_name'=>'required',
             'asset_id'=>'required',
-            'category'=>'required',
             'quantity'=>'required',
             'cost'=>'required',
             'purchased_date'=>'required',
@@ -166,16 +166,31 @@ class AdminController extends Controller
 
         ]);
 
+                $image_name=null;
+
+                //checking if image exist in this request.
+
+                 if($request->hasFile('product_image'))
+                 {
+                     //generating file name
+                     $image_name=date('Ymdhis') .'.'. $request->file('product_image')->getClientOriginalExtension();
+
+                     //storing into project directory
+
+                     $request->file('product_image')->storeAs('/products',$image_name);
+
+                 }
+
         Assetinfo::create([
                   'asset_name'=>$request->asset_name,
                   'asset_id'=>$request->asset_id,
-                  'category'=>$request->category,
                   'quantity'=>$request->quantity, 
                   'cost'=>$request->cost,
                   'purchased_date'=>$request->purchased_date,
                   'description'=>$request->description,
                   'serial_no'=>$request->serial_no,
-                  'employeeinfos_id'=>$request->empid, 
+                  'categories_id'=>$request->categoriesid, 
+                  'image'=>$image_name
                ]);
         
                return redirect()->route('show.asset')->with('success', 'Asset Created Successfully');
@@ -200,6 +215,41 @@ class AdminController extends Controller
         return view ('pages.asset.assetlist', compact('data'));
 
     }
+
+
+
+    public function ShowCategory()
+    {
+        $categories=Category::all();
+        return view ('pages.category.categorylist', compact ('categories'));
+    }
+
+
+    public function CreateCategory()
+    {
+       
+         //return redirect('/home');
+        return view ('pages.category.categoryform');
+    }
+
+    public function StoreCategory(Request $req)
+    {
+       // dd($req->all());
+        $req->validate([
+            'name'=>'required',
+            'details'=>'required'
+
+        ]);
+
+        Category::create([
+            'name'=>$req->name,
+            'details'=>$req->details
+         ]);
+
+         return redirect()->route('show.category')->with('success', 'Category Added');
+    }
+
+
 
     
     public function ShowAssetCondition(){

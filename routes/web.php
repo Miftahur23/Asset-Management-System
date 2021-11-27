@@ -37,6 +37,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
     
 
+    Route::get('/categorylist',[AdminController::class, 'ShowCategory'])->name('show.category');
+    Route::get('/categoryform',[AdminController::class, 'CreateCategory'])->name('create.category');
+    Route::post('/categoryinserted',[AdminController::class, 'StoreCategory'])->name('store.category');
+
+
     // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
     // Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
     

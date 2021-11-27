@@ -17,13 +17,13 @@ class CreateAssetInfosTable extends Migration
             $table->id();
             $table->string('asset_name');
             $table->double('asset_id');
-            $table->double('employeeinfos_id');
-            $table->string('category');
+            $table->double('categories_id');
             $table->double('quantity');
             $table->double('cost');
             $table->string('purchased_date');
             $table->string('description');
             $table->double('serial_no');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
