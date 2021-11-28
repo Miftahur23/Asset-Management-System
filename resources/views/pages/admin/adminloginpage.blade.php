@@ -1,10 +1,14 @@
-<link href="/css/bootstrap.min.css" rel="stylesheet">
+{{-- <link href="/css/bootstrap.min.css" rel="stylesheet">
 {{-- <style>
   body {
     background-image: url('media/fpimg.jpg');
   }
   </style> --}}
+
+  <link href="/css/form/form.css" rel="stylesheet">
+
   @if ($errors->any())
+
   <div class="alert alert-warning" role="alert">
       <ul>
           @foreach ($errors->all() as $error)
@@ -12,9 +16,10 @@
           @endforeach
       </ul> 
   </div>
+
   @endif
  
-<center><form action="{{route('Adminlogindone')}}" method="POST">
+{{-- <center><form action="{{route('Adminlogindone')}}" method="POST">
 
   @csrf
   
@@ -34,4 +39,13 @@
   <div class="pt-2">
     <button type="submit" class="btn btn-light">Submit</button>
   </div>
-  </form></center>
+  </form></center> --}}
+
+  <form class="box" action="{{route('Adminlogindone')}}" method="post">
+
+    @csrf
+    <h1>Login</h1>
+    <input type="text" name="email" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="" value="Login">
+  </form>

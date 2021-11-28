@@ -17,7 +17,8 @@ class EmploginpageController extends Controller
 
         $request->validate([
             'name'=>'required| min:15',
-            'email'=>'required'
+            'email'=>'required',
+            'password'=>'required'
         ]);
 
          Emplogininfo::create([

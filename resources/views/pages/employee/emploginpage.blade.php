@@ -1,5 +1,5 @@
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-
+{{-- <link href="/css/bootstrap.min.css" rel="stylesheet"> --}}
+<link href="/css/form/form.css" rel="stylesheet">
 @if ($errors->any())
 <div class="alert alert-warning" role="alert">
     <ul>
@@ -10,7 +10,7 @@
 </div>
 @endif
 
-  <form action="{{route('Emplogindone')}}" class="row col-5 m-auto" method="POST">  
+  {{-- <form action="{{route('Emplogindone')}}" class="row col-5 m-auto" method="POST">  
   @csrf
   
     <div class="col-12 mt-5 pt-5">
@@ -32,4 +32,14 @@
     <button type="submit" class="btn btn-light">Submit</button>
     
   </div>
+  </form> --}}
+
+  <form class="box" action="{{route('Emplogindone')}}" method="post">
+
+    @csrf
+    <h1>Login</h1>
+    <input type="text" name="name" placeholder="Username">
+    <input type="text" name="email" placeholder="Useremail">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit"  value="Login">
   </form>
