@@ -11,3 +11,4 @@ class Adminlogininfo extends Model
     //protected $fillable = [ 'email', 'password', ];
     protected $guarded=[];
 }
+

@@ -87,15 +87,6 @@ class AdminController extends Controller
         return 'ok';
     }
     
-    // public function CreateRequest()
-    // {
-    //     return 'ok';
-    // }
-
-    // public function StoreRequest()
-    // {
-    //     return 'ok';
-    // }
 
     public function ShowStock()
     {
@@ -129,21 +120,6 @@ class AdminController extends Controller
              return redirect('/home');
 
     }
-//     public function ProductForm()
-//     {
-//         return view('pages.productsform');
-//     }
-
-//     public function ProductEntry(Request $req){
-
-//         Product::create([
-
-//             'name'=>$req->productName,
-//             'price'=>$req->price
-//         ]);
-
-// return redirect('/home');
-//     }
 
 
     public function AssetCreated()
@@ -277,3 +253,5 @@ class AdminController extends Controller
     }
     
 }
+
+

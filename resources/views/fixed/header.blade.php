@@ -78,13 +78,25 @@
                     <div class="widget-content-wrapper">
                         <div class="widget-content-left">
                             <div class="btn-group ">
+                                
+                                
+                                @if (Auth::check())
+                                <h6>{{Auth::User()->name}}</h6>
+                                
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                     <img width="35" class="rounded" src="/media/siam.jpg" alt="">
-                                </a>
+                                </a> 
 
-                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('Firstpage')}}">
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
                                             Logout 
-                                </a>   
+                                </a> 
+                                @else  
+
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
+                                    Login 
+                                </a> 
+
+                                @endif
                         
                             </div>
                         </div>

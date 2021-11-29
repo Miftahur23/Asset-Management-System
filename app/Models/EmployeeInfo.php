@@ -11,7 +11,10 @@ class EmployeeInfo extends Model
 
     protected $guarded=[];
 
-    
+    public function branches()
+    {
+        return $this-> belongsTo(Branch::class);
+    }
 
 
 }

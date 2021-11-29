@@ -1,4 +1,3 @@
-
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 
 @if ($errors->any())
@@ -10,6 +9,7 @@
     </ul> 
 </div>
 @endif
+
 
 <form action="{{route('Empregdone')}}" method="POST" class="row col-5 m-auto">
   @csrf
@@ -38,9 +38,17 @@
         <label for="inputDepartment" class="form-label"><h6>Department</h6></label>
         <input name="dept" type="text" class="form-control" id="inputDepartment" >
       </div>
-    <div class="col-6 mt-3">
-      <label for="inputBranch" class="form-label"><h6>Branch</h6></label>
-      <input name="branch" type="text" class="form-control" id="inputBranch" >
+    <div class="col-6 mt-5">
+      <select name="branches_id" class="form-control form-control-md">
+        <option>Select Branch</option>
+  
+        @foreach ($branches as $item)
+  
+        <option  value="{{$item->id}}">{{$item->name}}</option>
+  
+        @endforeach
+  
+      </select>
     </div>
     <div class="col-12 mt-3">
       <label for="inputAddress" class="form-label"><h6>Address</h6></label>

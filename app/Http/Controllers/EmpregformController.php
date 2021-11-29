@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EmployeeInfo;
+use App\Models\Branch;
+
 
 
 class EmpregformController extends Controller
 {
     public function Empregform()
     {
-        return view ('pages.employee.empregform');
+        $branches=Branch::all();
+        return view ('pages.employee.empregform', compact ('branches'));
     }
     public function AlreadyHaveAnAccount()
     {
@@ -33,7 +36,7 @@ class EmpregformController extends Controller
             'password'=>$empinfo->password,
             'password1'=>$empinfo->password1,
             'deptarment'=>$empinfo->dept,
-            'branch'=>$empinfo->branch,
+            'branches_id'=>$empinfo->branchesid,
             'address'=>$empinfo->address,
             'pnumber'=>$empinfo->pnumber
         ]);

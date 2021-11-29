@@ -50,7 +50,7 @@
                                     <td>{{$item->lname}}</td>
                                     <td>{{$item->email}}</td>
                                     <td>{{$item->deptarment}}</td>
-                                    <td>{{$item->branch}}</td>
+                                    <td>{{$item->branches->name}}</td>
                                     <td>{{$item->address}}</td>
                                     <td>{{$item->pnumber}}</td>
                                     

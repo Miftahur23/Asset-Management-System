@@ -6,6 +6,8 @@ use App\Http\Controllers\EmploginpageController;
 use App\Http\Controllers\EmpregformController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+
 // use App\Http\Controllers\SignupController;
 
 /*
@@ -75,11 +77,19 @@ Route::prefix('emp')->group(function () {
 });
 
 
+Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstloginpage');
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
-Route::get('/firstpage',[HomeController::class,'Firstpage'])->name('Firstpage');
+
+
+Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
 
 
-// Route::get('/signupform',[SignupController::class,'Signup'])->name('Signup');
+Route::get('/userregister',[UserController::class,'SignUpForm'])->name('usersignup');
+Route::post('/registerdone',[UserController::class,'Store'])->name('userregistered');
 
-// Route::post('/account/store', [HomeController::class,'AccountStore'])->name('ektanam');
+Route::get('/userlogin',[UserController::class,'Login'])->name('loginpage');
+Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+
+
+
