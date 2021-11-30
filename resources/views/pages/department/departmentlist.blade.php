@@ -42,7 +42,7 @@
                             </thead>
                             <tbody>
                         
-                              @foreach ($dept as $key=>$item)
+                              @foreach ($departments as $key=>$item)
                               <tr>
                                 
                                 <td>{{$key+1}}</td>

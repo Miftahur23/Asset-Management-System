@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EmployeeInfo;
 use App\Models\Branch;
+use App\Models\Department;
 
 
 
@@ -13,7 +14,8 @@ class EmpregformController extends Controller
     public function Empregform()
     {
         $branches=Branch::all();
-        return view ('pages.employee.empregform', compact ('branches'));
+        $departments=Department::all();
+        return view ('pages.employee.empregform', compact ('branches','departments'));
     }
     public function AlreadyHaveAnAccount()
     {
@@ -35,8 +37,8 @@ class EmpregformController extends Controller
             'email'=>$empinfo->email,
             'password'=>$empinfo->password,
             'password1'=>$empinfo->password1,
-            'deptarment'=>$empinfo->dept,
-            'branches_id'=>$empinfo->branchesid,
+            'departments_id'=>$empinfo->departments_id,
+            'branches_id'=>$empinfo->branches_id,
             'address'=>$empinfo->address,
             'pnumber'=>$empinfo->pnumber
         ]);

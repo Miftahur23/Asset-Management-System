@@ -34,12 +34,21 @@
         <label for="inputPassword1" class="form-label"><h6>Confirm Password</h6></label>
         <input name="password1" type="password" class="form-control" id="inputPassword1">
       </div>
-      <div class="col-6 mt-3">
-        <label for="inputDepartment" class="form-label"><h6>Department</h6></label>
-        <input name="dept" type="text" class="form-control" id="inputDepartment" >
+      <div class="col-6 mt-5">
+        <select name="departments_id" class="form-control form-control">
+          <option>Select Department</option>
+    
+          @foreach ($departments as $item)
+    
+          <option  value="{{$item->id}}">{{$item->dname}}</option>
+    
+          @endforeach
+    
+        </select>
       </div>
+      
     <div class="col-6 mt-5">
-      <select name="branches_id" class="form-control form-control-md">
+      <select name="branches_id" class="form-control form-control">
         <option>Select Branch</option>
   
         @foreach ($branches as $item)

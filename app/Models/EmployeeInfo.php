@@ -16,6 +16,9 @@ class EmployeeInfo extends Model
         return $this-> belongsTo(Branch::class);
     }
 
-
+    public function departments()
+    {
+        return $this-> belongsTo(Department::class);
+    }
 }
 

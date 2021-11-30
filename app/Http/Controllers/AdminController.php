@@ -55,8 +55,8 @@ class AdminController extends Controller
 
     public function ShowDepartment()
     {
-        $dept=Department::all();
-        return view ('pages.department.departmentlist', compact('dept'));
+        $departments=Department::all();
+        return view ('pages.department.departmentlist', compact('departments'));
     }
     
 

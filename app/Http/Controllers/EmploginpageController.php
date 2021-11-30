@@ -16,7 +16,7 @@ class EmploginpageController extends Controller
         //dd($request->all());
 
         $request->validate([
-            'name'=>'required| min:15',
+            'name'=>'required',
             'email'=>'required',
             'password'=>'required'
         ]);

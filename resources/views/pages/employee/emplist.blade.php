@@ -37,8 +37,6 @@
                                     <th scope="col">Branch</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Mobile No</th>
-                                    
-                                    
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -49,7 +47,7 @@
                                     <td>{{$item->fname}}</td>
                                     <td>{{$item->lname}}</td>
                                     <td>{{$item->email}}</td>
-                                    <td>{{$item->deptarment}}</td>
+                                    <td>{{$item->departments->dname}}</td>
                                     <td>{{$item->branches->name}}</td>
                                     <td>{{$item->address}}</td>
                                     <td>{{$item->pnumber}}</td>

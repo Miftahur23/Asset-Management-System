@@ -20,7 +20,7 @@ class CreateEmployeeInfos extends Migration
             $table->string('email');  
             $table->string('password');
             $table->string('password1');
-            $table->string('deptarment')->nullable();
+            $table->string('departments_id');
             $table->string('branches_id');
             $table->string('address');
             $table->double('pnumber');          

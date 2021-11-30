@@ -56,33 +56,10 @@
     <button type="submit" class="btn btn-light">Submit</button>
   </div>
   </form></center>
-                      {{-- table  --}}
-                      {{-- @include('table.table') --}}
-
-                      {{-- <table class="table table-dark ">
-                          <thead>
-                            <tr>
-                              
-                              <th scope="col">Email</th>
-                              <th scope="col">Password</th>
-                              
-                            </tr>
-                          </thead>
-                          <tbody>
-                      
-                            @foreach ($data as $item)
-                            <tr>
-                              
-                              <td>{{$item->email}}</td>
-                              <td>{{$item->password}}</td>
-                              
-                            </tr>
-                            @endforeach 
-                          </tbody>
-                      </table> --}}
-                  </div>
-              </div>
-          </div>
+                     
+        </div>
+        </div>
+        </div>
       </div>
   @endsection
 
