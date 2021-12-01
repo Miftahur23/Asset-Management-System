@@ -157,7 +157,6 @@ class AdminController extends Controller
             'asset_id'=>'required',
             'quantity'=>'required',
             'cost'=>'required',
-            'purchased_date'=>'required',
             'serial_no'=>'required'
 
         ]);
@@ -182,7 +181,6 @@ class AdminController extends Controller
                   'asset_id'=>$request->asset_id,
                   'quantity'=>$request->quantity, 
                   'cost'=>$request->cost,
-                  'purchased_date'=>$request->purchased_date,
                   'description'=>$request->description,
                   'serial_no'=>$request->serial_no,
                   'categories_id'=>$request->categoriesid, 

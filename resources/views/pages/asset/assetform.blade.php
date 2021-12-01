@@ -70,10 +70,6 @@
                           <label for="inputCost" class="form-label"><h6>Cost</h6></label>
                           <input name="cost" type="number" class="form-control" id="inputCost" >
                         </div>
-                        <div class="col-6 mt-3">
-                          <label for="inputDatepurchased" class="form-label"><h6>Purchased_Date</h6></label>
-                          <input name="purchased_date" type="Date" class="form-control" id="inputDatepurchased" >
-                        </div>
                       
                       <div class="col-6 mt-3">
                         <label for="inputSerialno" class="form-label"><h6>Serial No</h6></label>

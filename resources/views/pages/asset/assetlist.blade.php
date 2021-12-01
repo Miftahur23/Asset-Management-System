@@ -63,7 +63,7 @@
                                 <td>{{$item->categories->name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->cost}}</td>
-                                <td>{{$item->purchased_date}}</td>
+                                <td>{{$item->created_at}}</td>
                                 <td>{{$item->description}}</td>
                                 <td>{{$item->serial_no}}</td>
                                 

@@ -20,7 +20,6 @@ class CreateAssetInfosTable extends Migration
             $table->double('categories_id');
             $table->double('quantity');
             $table->double('cost');
-            $table->string('purchased_date');
             $table->string('description');
             $table->double('serial_no');
             $table->string('image')->nullable();

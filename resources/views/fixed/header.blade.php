@@ -2,17 +2,12 @@
 <div class="app-top-bar bg-plum-plate top-bar-text-light">
     <div class="container fiori-container">
 
-        <div class="top-bar-right">
+        <div class="top-bar-center">
             <p style="color:white; font-size:50px">Manage Your Assets</p>
-        </div>
-
-
-        <div class="top-bar-right">
-            <ul class="nav">
-                
-        </div>
+        </div> 
     </div>
 </div>
+
                     <div class="app-header header-shadow">
                     <div class="container fiori-container">
 
@@ -77,6 +72,10 @@
                             Purchase
                         </a>
 
+                        <a href="{{route('show.report')}}" class="nav-link">
+                            Report
+                        </a>
+
                         <div class="dropdown show">
                             <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Stock
@@ -89,43 +88,33 @@
 
                         </div>
 
-                        <a href="{{route('show.report')}}" class="nav-link">
-                            Report
-                        </a>
-
-                <div class="app-header-right">
+                
                 <div class="search-wrapper">
                 <input type="text" placeholder="Search...">
                 </div>
-                <div class="header-btn-lg pr-3">
-                <div class="widget-content p-0">
-                    <div class="widget-content-wrapper">
-                        <div class="widget-content-left">
-                            <div class="btn-group ">
+                <div class="btn-group ">
                                 
                                 
-                                @if (Auth::check())
-                                <h6>{{Auth::User()->name}}</h6>
-                                
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                    <img width="35" class="rounded" src="/media/siam.jpg" alt="">
-                                </a> 
+                    @if (Auth::check())
+                    <h6>{{Auth::User()->name}}</h6>
+                    
+                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                        <img width="35" class="rounded" src="/media/siam.jpg" alt="">
+                    </a> 
 
-                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
-                                            Logout 
-                                </a> 
-                                @else  
+                    <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
+                                Logout 
+                    </a> 
+                    @else  
 
-                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
-                                    Login 
-                                </a> 
+                    <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
+                        Login 
+                    </a> 
 
-                                @endif
-                        
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+            
                 </div>
+                
                 </div>
             </ul>        
         </div>
