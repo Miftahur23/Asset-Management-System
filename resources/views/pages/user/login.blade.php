@@ -18,7 +18,7 @@
   <form class="box" action="{{route('loggedin')}}" method="POST">
 
     @csrf
-    <h1>Login</h1>
+    <h1>Admin Login</h1>
     <input type="text" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" name="" value="Login">
