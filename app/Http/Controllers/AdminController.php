@@ -84,14 +84,34 @@ class AdminController extends Controller
 
     public function ShowRequest()
     {
-        return 'ok';
+        return 'Request';
+    }
+
+    public function ShowDistribution()
+    {
+        return 'Distribution';
+    }
+
+    public function ShowDesignation()
+    {
+        return 'Designation';
+    }
+
+    public function ShowPurchase()
+    {
+        return 'Purchase';
     }
     
 
-    public function ShowStock()
+    public function ShowActiveStock()
     {
-        return 'ok';
+        return 'Active Stock';
     }
+
+    public function ShowDamageStock()
+    {
+        return 'Damage Stock';
+    } 
 
     public function CreateStock()
     {
@@ -250,6 +270,11 @@ class AdminController extends Controller
 
         return view('pages.employee.emplogininfo', compact ('data'));
 
+    }
+
+    public function ShowReport() {
+
+        return 'report';
     }
     
 }

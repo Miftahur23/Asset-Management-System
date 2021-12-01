@@ -32,12 +32,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/loginpage',[AdminController::class, 'Adminloginpage'])->name('Adminlogin');
     Route::post('/logindone',[AdminController::class, 'Adminlogininfo'])->name('Adminlogindone');
 
+    //Asset
+
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     
     Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
     
+    //Category
 
     Route::get('/categorylist',[AdminController::class, 'ShowCategory'])->name('show.category');
     Route::get('/categoryform',[AdminController::class, 'CreateCategory'])->name('create.category');
@@ -47,23 +50,51 @@ Route::prefix('admin')->group(function () {
     // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
     // Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
     
+    //Employee
+
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
+
+    //Branch 
 
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
 
+
+    // Department
+
     Route::get('/departmentlist',[AdminController::class, 'ShowDepartment'])->name('show.department');
     Route::get('/departmentform',[AdminController::class, 'CreateDepartment'])->name('create.department');
     Route::post('/departmentinsrted',[AdminController::class, 'StoreDepartment'])->name('store.department');
 
-    Route::get('/stocks', [AdminController::class, 'ShowStock'])->name('show.stock');
+    //Stocks
+
+    Route::get('/activestocks', [AdminController::class, 'ShowActiveStock'])->name('show.active.stock');
+    Route::get('/damagestocks', [AdminController::class, 'ShowDamageStock'])->name('show.damage.stock');
     Route::get('/stockform', [AdminController::class, 'ShowStock'])->name('create.stock');
     Route::post('/stocks', [AdminController::class, 'ShowStock'])->name('storestock');
 
+    //Request 
+
     Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.request');
 
+    //Distribution 
+
+    Route::get('/distribution', [AdminController::class, 'ShowDistribution'])->name('show.distribution');
+
+    //Designation
+
+    Route::get('/designation', [AdminController::class, 'ShowRequest'])->name('show.designation');
+
+    //Puurchase
+
+    Route::get('/purchase', [AdminController::class, 'ShowRequest'])->name('show.purchase');
+
+    
+    //Report
+
+    Route ::get('/report',[AdminController::class, 'ShowReport'])->name('show.report');
 
 });
 
@@ -78,18 +109,25 @@ Route::prefix('emp')->group(function () {
 
 
 Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstloginpage');
+
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
 
-
-Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
+
 
 
 Route::get('/userregister',[UserController::class,'SignUpForm'])->name('usersignup');
 Route::post('/registerdone',[UserController::class,'Store'])->name('userregistered');
-
+Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
 Route::get('/userlogin',[UserController::class,'Login'])->name('loginpage');
 Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+
+
+
+
+
+
+
 
 
 

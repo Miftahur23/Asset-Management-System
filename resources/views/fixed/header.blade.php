@@ -41,7 +41,7 @@
                         </a> --}}
 
                         <div class="dropdown show">
-                            <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Assets
                             </a>
             
@@ -65,8 +65,32 @@
                             Requests
                         </a>
 
-                        <a href="{{route('show.stock')}}" class="nav-link">
-                            Stock
+                        <a href="{{route('show.distribution')}}" class="nav-link">
+                            Distribution 
+                        </a>
+
+                        <a href="{{route('show.designation')}}" class="nav-link">
+                            Designation
+                        </a>
+
+                        <a href="{{route('show.purchase')}}" class="nav-link">
+                            Purchase
+                        </a>
+
+                        <div class="dropdown show">
+                            <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Stock
+                            </a>
+            
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <a class="dropdown-item" href="{{route('show.active.stock')}}">Active Stock</a>
+                              <a class="dropdown-item" href="{{route('show.damage.stock')}}">Damage Stock</a>
+                            </div>
+
+                        </div>
+
+                        <a href="{{route('show.report')}}" class="nav-link">
+                            Report
                         </a>
 
                 <div class="app-header-right">
