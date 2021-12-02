@@ -1,10 +1,9 @@
-
-    <div class="wrapper d-flex align-items-stretch">
-    <nav id="sidebar" class="">
+<div class="wrapper d-flex align-items-stretch">
+<nav id="sidebar" class="">
     <div class="custom-menu">
-    <button type="button" id="sidebarCollapse" class="btn btn-primary">
-    <i class="fa fa-bars"></i>
-    </button>
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+            </button>
     </div>
 
     <div class="p-4 pt-5">
@@ -13,15 +12,16 @@
     <ul class="list-unstyled components mb-5">
 
         <li>
-            <a href="{{url('/home')}}" class="nav-link">
-                Home
-            </a>
-            <a href="{{url('/dashboard')}}" class="nav-link">
-                Dashboard
-            </a>
+                <a href="{{url('/home')}}" class="nav-link">
+                    Home
+                </a>
+                
+                <a href="{{url('/dashboard')}}" class="nav-link">
+                    Dashboard
+                </a>
     
             <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
-             <ul class="collapse list-unstyled" id="empSubmenu">
+            <ul class="collapse list-unstyled" id="empSubmenu">
                 <li>
                     <a href="{{route('show.emplist')}}">Employee List</a>  
                     <a href="{{route('show.emplogininfo')}}">Employee Login Info</a>
@@ -67,9 +67,6 @@
             Report
         </a>
 
-    
-
-    
     <a href="#stockSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stocks</a>
     <ul class="collapse list-unstyled" id="stockSubmenu">
     <li>
@@ -80,13 +77,13 @@
     </li>
     </ul>
     </div>
-    </nav>
+</nav>
     
-    <div id="content" class="p-4 p-md-5 pt-5">
+<div id="content" class="p-4 p-md-5 pt-5">
     
         @yield('home')
         @yield('dashboard')
         @yield('emplist')
         @yield('assetlist')
     </div>
-    </div>
+</div>
