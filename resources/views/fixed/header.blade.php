@@ -87,31 +87,31 @@
                         </div>
 
                 
-                <div class="search-wrapper">
-                <input type="text" placeholder="Search...">
-                </div>
-                <div class="btn-group ">
+                        <div class="search-wrapper">
+                            <input type="text" placeholder="Search...">
+                            </div>
+                            <div class="btn-group ">
+                                            
+                                            
+                                @if (Auth::check())
+                                <h6>{{Auth::User()->name}}</h6>
                                 
-                                
-                    @if (Auth::check())
-                    <h6>{{Auth::User()->name}}</h6>
-                    
-                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                        <img width="35" class="rounded" src="/media/siam.jpg" alt="">
-                    </a> 
-
-                    <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
-                                Logout 
-                    </a> 
-                    @else  
-
-                    <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
-                        Login 
-                    </a> 
-
-                    @endif
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    <img width="35" class="rounded" src="/media/siam.jpg" alt="">
+                                </a> 
             
-                </div>
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
+                                            Logout 
+                                </a> 
+                                @else  
+            
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
+                                    Login 
+                                </a> 
+            
+                                @endif
+                        
+                            </div>
                 
                 </div>
             </ul>        

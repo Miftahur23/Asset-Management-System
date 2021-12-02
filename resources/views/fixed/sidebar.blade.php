@@ -6,8 +6,10 @@
     <i class="fa fa-bars"></i>
     </button>
     </div>
+
     <div class="p-4 pt-5">
     <h4>Manage Your Assets</h4>
+
     <ul class="list-unstyled components mb-5">
 
         <li>
@@ -35,9 +37,7 @@
                 <a href="{{route('show.asset.condition')}}">Asset Condition</a>
             </li>
         </ul>
-    
 
-    
     
         <a href="{{route('show.branch')}}" class="nav-link">
             Branch
