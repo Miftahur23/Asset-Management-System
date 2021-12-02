@@ -29,9 +29,6 @@ Route::get('/', function () {
 });
 Route::prefix('admin')->group(function () {
 
-    Route::get('/loginpage',[AdminController::class, 'Adminloginpage'])->name('Adminlogin');
-    Route::post('/logindone',[AdminController::class, 'Adminlogininfo'])->name('Adminlogindone');
-
     //Asset
 
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');

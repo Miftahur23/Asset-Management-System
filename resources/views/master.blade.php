@@ -15,33 +15,33 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-<link href="/css/bootstrap.min.css" rel="stylesheet"></head>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/style.min.css" rel="stylesheet"></head>
 <body>
 <div class="app-container app-theme-white">
 
-    {{-- header --}}
-    @include('fixed.header')
+    {{-- sidebar --}}
+    
+    @include('fixed.sidebar')
 
-    {{-- content --}}
+    {{-- contents --}}
 
-    @yield('home')
-    @yield('dashboard')
-    @yield('emplist')
-    @yield('assetlist')
-            
         
 
     <div class="ui-theme-settings">
          
         {{-- sidemenubutton --}}
-
-        
-
         
     </div>
 </div>
 
 @include('fixed.footer')
 
-<div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="/js/bootstrap.min.js"></script></body>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/collapse.min.js"></script>
+</body>
 </html>

@@ -1,5 +1,5 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-
+<h1 class="display-5 text-center mt-4 mb-3">Employee Register</h1>
 @if ($errors->any())
 <div class="alert alert-warning" role="alert">
     <ul>
@@ -15,6 +15,7 @@
   @csrf
   
     <div class="col-6 mt-1">
+      
         <label for="inputFirstname" class="form-label"><h6>First Name</h6></label>
         <input name="fname" type="name" class="form-control" id="inputFirstname">
       </div>

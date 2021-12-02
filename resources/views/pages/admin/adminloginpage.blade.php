@@ -41,7 +41,7 @@
   </div>
   </form></center> --}}
 
-  <form class="box" action="{{route('Adminlogindone')}}" method="post">
+  <form class="box" action="{{route('loggedin')}}" method="post">
 
     @csrf
     <h1>Login</h1>

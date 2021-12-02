@@ -8,8 +8,8 @@
     </div>
 </div>
 
-                    <div class="app-header header-shadow">
-                    <div class="container fiori-container">
+                    {{-- <div class="app-header header-shadow">
+                    <div class="container fiori-container"> --}}
 
                         <a href="{{url('/home')}}" class="nav-link">
                             Home
@@ -31,9 +31,7 @@
 
                         </div>
                           
-                        {{-- <a href="{{route('show.emplist')}}" class="nav-link">
-                            Employeelist
-                        </a> --}}
+                        
 
                         <div class="dropdown show">
                             <a class="nav-link" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

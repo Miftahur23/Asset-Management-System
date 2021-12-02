@@ -30,8 +30,8 @@
 
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start">
 
-                        <li><a class="dropdown-item" href="{{route('Adminlogin')}}">Admin</a></li>
-                        <li><a class="dropdown-item" href="{{route('Emplogin')}}">Employee</a></li>
+                        <li><a class="dropdown-item" href="{{route('loginpage')}}">Admin</a></li>
+                        <li><a class="dropdown-item" href="{{route('usersignup')}}">Sign Up As Admin</a></li>
 
                         </ul>
                       
