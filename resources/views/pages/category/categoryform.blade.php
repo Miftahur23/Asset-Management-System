@@ -36,24 +36,24 @@
   </div>
 @endif
 
-<center><form action="{{route('store.category')}}" method="POST">
+<center><form action="{{route('store.category')}}" class="row" method="POST">
 
   
 
   @csrf
   
-  <div class="col-3 mt-5">
-      <label for="exampleInputName" class="form-label"><h3>Category Name</h3></label>
+  <div class="col-6 mt-5">
+      <label for="exampleInputName" class="form-label"><h5>Category Name</h5></label>
       <input type="name" name="name" class="form-control" id="exampleInputName">
       
     </div>
-    <div class="col-3">
-      <label for="exampleInputCategory" class="form-label"><h3>Category Details</h3></label>
+    <div class="col-6 mt-5">
+      <label for="exampleInputCategory" class="form-label"><h5>Category Details</h5></label>
       <input type="text" name="details" class="form-control" id="exampleInputCategory">
   </div>
   
-  <div class="pt-2">
-    <button type="submit" class="btn btn-light">Submit</button>
+  <div class="m-auto pt-5">
+    <button type="submit" class="btn btn-success">Submit</button>
   </div>
   </form></center>
                       {{-- table  --}}
