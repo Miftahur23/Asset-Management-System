@@ -11,7 +11,7 @@
                     <div class="container fiori-container">
                         <div class="page-title-wrapper">
                             <div class="page-title-heading">
-                             <h2>Add Assets</h2> 
+                             <h1>Add New Assets</h1> 
                             </div>
                         </div>
                     </div>
@@ -36,14 +36,14 @@
               </div>
   @endif
 
-                  <form action="{{route('Create.asset')}}" method="POST" class="row col-5 m-auto" enctype="multipart/form-data">
+                  <form action="{{route('Create.asset')}}" method="POST" class="row" enctype="multipart/form-data">
                     @csrf
                       <div class="col-6 mt-3">
-                          <label for="inputAssetname" class="form-label"><h6>Asset Name</h6></label>
+                          <label for="inputAssetname" class="form-label"><h5>Asset Name</h5></label>
                           <input name="asset_name" type="name" class="form-control" id="inputAssetname" >
                         </div>
                         <div class="col-6 mt-3">
-                          <label for="inputAssetid" class="form-label"><h6>Asset ID</h6></label>
+                          <label for="inputAssetid" class="form-label"><h5>Asset ID</h5></label>
                           <input name="asset_id" type="number" class="form-control" id="inputAssetid" >
                         </div>
                       
@@ -63,61 +63,38 @@
                     </div>
                   
                       <div class="col-6 mt-3">
-                        <label for="inputQuantity" class="form-label"><h6>Quantity</h6></label>
+                        <label for="inputQuantity" class="form-label"><h5>Quantity</h5></label>
                         <input name="quantity" type="number" class="form-control" id="inputQuantity" >
                       </div>
                       <div class="col-6 mt-3">
-                          <label for="inputCost" class="form-label"><h6>Cost</h6></label>
+                          <label for="inputCost" class="form-label"><h5>Cost</h5></label>
                           <input name="cost" type="number" class="form-control" id="inputCost" >
                         </div>
                       
                       <div class="col-6 mt-3">
-                        <label for="inputSerialno" class="form-label"><h6>Serial No</h6></label>
+                        <label for="inputSerialno" class="form-label"><h5>Serial No</h5></label>
                         <input name="serial_no" type="number" class="form-control" id="inputSerialno" >
                       </div>
 
                       <div class="form-group m-3">
-                        <label for="inputImage"><h6>Select Asset Image</h6></label>
+                        <label for="inputImage"><h5>Select Asset Image</h5></label>
                         <input type="file" name='product_image' class="form-control-file" id="inputImage">
                       </div>
 
                       <div class="col-12 mt-1">
-                        <label for="inputDescription" class="form-label" ><h6>Description</h6></label>
+                        <label for="inputDescription" class="form-label" ><h5>Description</h5></label>
                         <input name="description" type="text" class="form-control" style="height:100px" id="inputDescription" >
                       </div>
 
-                      <div class="d-flex justify-content-center align-items-center ml-4 pl-5">
-                        <div class="col-12  ml-1 pl-5 ">
-                      <div class="col-12 mt-3  ml-5 pl-5 ">
-                      <button type="submit" class="btn btn-success btn-lg">Create</button>
-                    </div> </div> </div>
+                      
+                        
+                      <div class="m-auto pt-5">
+                      <button type="submit" class="btn btn-success">Create</button>
+                    </div>  
                     
                   </div> 
                   </form>
                     {{-- table  --}}
-                    {{-- @include('table.table') --}}
-
-                    {{-- <table class="table table-dark ">
-                        <thead>
-                          <tr>
-                            
-                            <th scope="col">Email</th>
-                            <th scope="col">Password</th>
-                            
-                          </tr>
-                        </thead>
-                        <tbody>
-                    
-                          @foreach ($data as $item)
-                          <tr>
-                            
-                            <td>{{$item->email}}</td>
-                            <td>{{$item->password}}</td>
-                            
-                          </tr>
-                          @endforeach 
-                        </tbody>
-                    </table> --}}
                 </div>
             </div>
         </div>

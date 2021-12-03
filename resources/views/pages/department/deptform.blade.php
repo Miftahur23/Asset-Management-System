@@ -15,7 +15,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>Add New Department</h2> 
+                                 <h1>Add New Department</h1> 
                                 </div>       
                             </div>
                         </div>
@@ -37,17 +37,17 @@
 
 
 
-                      <center><form action="{{route('store.department')}}" method="POST">
+                      <center><form action="{{route('store.department')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
                         @csrf
                         
-                        <div class="col-3 mt-5 ">
-                            <label for="exampleInputName" class="form-label"><h3>Department Name</h3></label>
+                        <div class="col-12 mt-5 ">
+                            <label for="exampleInputName" class="form-label"><h5>Department Name</h5></label>
                             <input type="text" name="dname" class="form-control" id="exampleInputName">
                         </div>
                         
-                        <div class="pt-2">
-                          <button type="submit" class="btn btn-light">Submit</button>
+                        <div class=" m-auto pt-2">
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                         </form></center>      
                         {{-- table  --}}

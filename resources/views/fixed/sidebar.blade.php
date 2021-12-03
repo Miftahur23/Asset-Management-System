@@ -1,89 +1,123 @@
-<div class="wrapper d-flex align-items-stretch">
-<nav id="sidebar" class="">
-    <div class="custom-menu">
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-                <i class="fa fa-bars"></i>
-            </button>
-    </div>
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Manage Your Assets</h3>
+        </div>
 
-    <div class="p-4 pt-5">
-    <h4>Manage Your Assets</h4>
-
-    <ul class="list-unstyled components mb-5">
-
-        <li>
-                <a href="{{url('/home')}}" class="nav-link">
-                    Home
-                </a>
+        <ul class="list-unstyled components">
+            <li >
+                <a href="{{url('/home')}}">Home</a>
                 
-                <a href="{{url('/dashboard')}}" class="nav-link">
-                    Dashboard
-                </a>
-    
-            <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee</a>
-            <ul class="collapse list-unstyled" id="empSubmenu">
-                <li>
-                    <a href="{{route('show.emplist')}}">Employee List</a>  
-                    <a href="{{route('show.emplogininfo')}}">Employee Login Info</a>
-                </li>
-            </ul>
-    
+                <a href="{{url('/dashboard')}}">Dashboard</a>
+           
+                <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employees</a>
+                <ul class="collapse list-unstyled" id="empSubmenu">
+                    <li>
+                        <a href="{{route('show.emplist')}}">Employee List</a>
+                        <a href="{{route('show.emplogininfo')}}">Employee Login Info</a>
+                    </li>
+                </ul>
 
-        <a href="#assetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assets</a>
-        <ul class="collapse list-unstyled" id="assetSubmenu">
-            <li>
-                <a href="{{route('show.asset')}}">Asset List</a>
-                <a href="{{route('show.category')}}">Asset Category</a>
-                <a href="{{route('show.asset.condition')}}">Asset Condition</a>
+                <a href="#assetSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Assets</a>
+                <ul class="collapse list-unstyled" id="assetSubmenu">
+                    <li>
+                        <a href="{{route('show.asset')}}">Asset List</a>
+                        <a href="{{route('show.category')}}">Asset Category</a>
+                        <a href="{{route('show.asset.condition')}}">Asset Condition</a>
+                    </li>
+                </ul>
+
+                <a href="{{route('show.branch')}}">
+                    Branch
+                </a>
+
+                <a href="{{route('show.department')}}">
+                    Department
+                </a>
+
+                <a href="{{route('show.request')}}">
+                    Requests
+                </a>
+
+                <a href="{{route('show.distribution')}}">
+                    Distribution 
+                </a>
+
+                <a href="{{route('show.designation')}}">
+                    Designation
+                </a>
+
+                <a href="{{route('show.purchase')}}">
+                    Purchase
+                </a>
+
+                <a href="#stockSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stocks</a>
+                <ul class="collapse list-unstyled" id="stockSubmenu">
+                    <li>
+                        <a class="dropdown-item" href="{{route('show.active.stock')}}">Active Stock</a>
+                        <a class="dropdown-item" href="{{route('show.damage.stock')}}">Damage Stock</a>
+                    </li>
+                </ul>
+
+                <a href="{{route('show.report')}}">
+                    Report
+                </a>
+
+                
             </li>
         </ul>
+    </nav>
 
-    
-        <a href="{{route('show.branch')}}" class="nav-link">
-            Branch
-        </a>
+    <!-- Page Content  -->
+    <div id="content">
 
-        <a href="{{route('show.department')}}" class="nav-link">
-            Department
-        </a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
 
-        <a href="{{route('show.request')}}" class="nav-link">
-            Requests
-        </a>
+                <div class="input-group">
+                    <input type="search" class="form-control rounded m-auto" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+                    <button type="button" class="btn btn-primary mr-5 ">search</button>
+                </div>
 
-        <a href="{{route('show.distribution')}}" class="nav-link">
-            Distribution 
-        </a>
 
-        <a href="{{route('show.designation')}}" class="nav-link">
-            Designation
-        </a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ml-auto">
 
-        <a href="{{route('show.purchase')}}" class="nav-link">
-            Purchase
-        </a>
+                        
 
-        <a href="{{route('show.report')}}" class="nav-link">
-            Report
-        </a>
+                            <div class="btn-group ">
+                                            
+                                            
+                                @if (Auth::check())
+                                <h6>{{Auth::User()->name}}</h6>
+                                
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                                    <img width="35" class="rounded" src="/media/siam.jpg" alt="">
+                                </a> 
+            
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('firstloginpage')}}">
+                                            Logout 
+                                </a> 
+                                @else  
+            
+                                <a type="button" class="btn btn-success ml-4 rounded-pill " href="{{route('loginpage')}}">
+                                    Login 
+                                </a> 
+            
+                                @endif
+                        
+                            </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <a href="#stockSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Stocks</a>
-    <ul class="collapse list-unstyled" id="stockSubmenu">
-    <li>
-        <a class="dropdown-item" href="{{route('show.active.stock')}}">Active Stock</a>
-        <a class="dropdown-item" href="{{route('show.damage.stock')}}">Damage Stock</a>
-    </li>
-    </ul>
-    </li>
-    </ul>
-    </div>
-</nav>
-    
-<div id="content" class="p-4 p-md-5 pt-5">
-    
         @yield('home')
         @yield('dashboard')
         @yield('emplist')
         @yield('assetlist')
+
     </div>
 </div>

@@ -14,7 +14,7 @@
                       <div class="container fiori-container">
                           <div class="page-title-wrapper">
                               <div class="page-title-heading">
-                               <h2>Add New Branch</h2> 
+                               <h1>Add New Branch</h1> 
                               </div>
                           </div>
                       </div>
@@ -36,24 +36,24 @@
   </div>
 @endif
 
-<center><form action="{{route('store.branch')}}" method="POST">
+<center><form action="{{route('store.branch')}}" class="row" method="POST">
 
   
 
   @csrf
   
-  <div class="col-3 mt-5">
-      <label for="exampleInputName" class="form-label"><h3>Branch Name</h3></label>
+  <div class="col-6 mt-5">
+      <label for="exampleInputName" class="form-label"><h5>Branch Name</h5></label>
       <input type="name" name="name" class="form-control" id="exampleInputName">
       
     </div>
-    <div class="col-3">
-      <label for="exampleInputLocation" class="form-label"><h3>Branch Location</h3></label>
+    <div class="col-6 mt-5">
+      <label for="exampleInputLocation" class="form-label"><h5>Branch Location</h5></label>
       <input type="text" name="location" class="form-control" id="exampleInputLocation">
   </div>
   
-  <div class="pt-2">
-    <button type="submit" class="btn btn-light">Submit</button>
+  <div class="m-auto pt-5">
+    <button type="submit" class="btn btn-success">Submit</button>
   </div>
   </form></center>
                      

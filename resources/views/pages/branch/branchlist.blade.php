@@ -10,7 +10,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>BranchList</h2> 
+                                 <h2>Branch List</h2> 
                                 </div>
                                 <div class="page-title-actions"> 
                                     <a href="{{route('create.branch')}}" type="button" class="btn btn-success">

@@ -1,5 +1,5 @@
 @extends('master')  
-    @section('dashboard')
+    @section('home')
         
    
            
@@ -10,7 +10,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>Home</h2> 
+                                 <h1>Home</h1> 
                                 </div>       
                             </div>
                         </div>

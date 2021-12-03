@@ -16,7 +16,10 @@
     <meta name="msapplication-tap-highlight" content="no">
 
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/style.min.css" rel="stylesheet"></head>
+<link href="/css/sidebar.css" rel="stylesheet">
+ 
+
+</head>
 <body>
 <div class="app-container app-theme-white">
 
@@ -38,10 +41,8 @@
 @include('fixed.footer')
 
 
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/collapse.min.js"></script>
+<script src="js/sidebar.js"></script>
 </body>
 </html>
