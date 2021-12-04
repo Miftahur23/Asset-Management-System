@@ -7,6 +7,7 @@ use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Req;
 use App\Models\EmployeeInfo;
 use App\Models\Emplogininfo;
 use App\Models\Branch;
@@ -84,17 +85,36 @@ class AdminController extends Controller
 
     public function ShowRequest()
     {
-        return 'Request';
+        $data= Req::all();
+        return view('pages.request.reqlist', compact ('data'));
     }
+
+    public function CreateRequest()
+    {
+        return view('pages.request.reqform');
+    }
+
+    public function StoreRequest(Request $req)
+    {
+        //dd($req->all());
+         $req->validate([
+             'name'=>'required',
+             'quantity'=>'required'
+ 
+         ]);
+ 
+         Req::create([
+             'asset_name'=>$req->name,
+             'quantity'=>$req->quantity
+          ]);
+ 
+          return redirect()->route('show.reqlist')->with('success', 'Asset Requested');
+    }
+
 
     public function ShowDistribution()
     {
         return 'Distribution';
-    }
-
-    public function ShowDesignation()
-    {
-        return 'Designation';
     }
 
     public function ShowPurchase()

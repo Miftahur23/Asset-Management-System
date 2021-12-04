@@ -1,5 +1,5 @@
 @extends('master')  
-    @section('emplist')
+    @section('reqlist')
         
    
            
@@ -10,12 +10,13 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>Employee List</h2> 
-                                </div> 
+                                 <h2>Request List</h2> 
+                                </div>
+
+                                </div>
+                                    <a class="btn btn-md btn-success m-auto" role="button" href="{{route('create.request')}}">Request</a>
+                                </div>
                                 
-                                </div>
-                                    <a class="btn btn-md btn-success mt-3" role="button" href={{route('Empreg')}} >Register</a>
-                                </div>
                             </div>
                         </div>
                     </div>               
@@ -34,13 +35,9 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Department</th>
-                                    <th scope="col">Branch</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Mobile No</th>
+                                    <th scope="col">Asset Name</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Status</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -48,13 +45,8 @@
                                   @foreach ($data as $key=>$item)
                                   <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->fname}}</td>
-                                    <td>{{$item->lname}}</td>
-                                    <td>{{$item->email}}</td>
-                                    <td>{{$item->departments->dname}}</td>
-                                    <td>{{$item->branches->name}}</td>
-                                    <td>{{$item->address}}</td>
-                                    <td>{{$item->pnumber}}</td>
+                                    <td>{{$item->asset_name}}</td>
+                                    <td>{{$item->quantity}}</td>
                                     
                                   </tr>
                                 @endforeach 

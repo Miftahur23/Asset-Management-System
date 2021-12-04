@@ -35,9 +35,7 @@
 
                         </ul>
                       
-                    </div>
-                        <a class="btn btn-lg btn-success mt-3" role="button" href={{route('Empreg')}} >Register</a>
-                    </div>
+                    
                     
     </div>
 

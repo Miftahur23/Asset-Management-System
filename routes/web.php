@@ -7,6 +7,7 @@ use App\Http\Controllers\EmpregformController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Req;
 
 // use App\Http\Controllers\SignupController;
 
@@ -74,19 +75,17 @@ Route::prefix('admin')->group(function () {
 
     //Request 
 
-    Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.request');
+    Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
+    Route::get('/requestform', [AdminController::class, 'CreateRequest'])->name('create.request');
+    Route::post('/storerequest', [AdminController::class, 'StoreRequest'])->name('store.request');
 
     //Distribution 
 
     Route::get('/distribution', [AdminController::class, 'ShowDistribution'])->name('show.distribution');
 
-    //Designation
-
-    Route::get('/designation', [AdminController::class, 'ShowRequest'])->name('show.designation');
-
     //Puurchase
 
-    Route::get('/purchase', [AdminController::class, 'ShowRequest'])->name('show.purchase');
+    Route::get('/purchase', [AdminController::class, 'ShowPurchase'])->name('show.purchase');
 
     
     //Report

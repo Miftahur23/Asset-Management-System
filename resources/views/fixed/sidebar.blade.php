@@ -10,7 +10,7 @@
                 <a href="{{url('/home')}}">Home</a>
                 
                 <a href="{{url('/dashboard')}}">Dashboard</a>
-           
+            
                 <a href="#empSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employees</a>
                 <ul class="collapse list-unstyled" id="empSubmenu">
                     <li>
@@ -36,16 +36,12 @@
                     Department
                 </a>
 
-                <a href="{{route('show.request')}}">
+                <a href="{{route('show.reqlist')}}">
                     Requests
                 </a>
 
                 <a href="{{route('show.distribution')}}">
                     Distribution 
-                </a>
-
-                <a href="{{route('show.designation')}}">
-                    Designation
                 </a>
 
                 <a href="{{route('show.purchase')}}">
@@ -118,6 +114,7 @@
         @yield('dashboard')
         @yield('emplist')
         @yield('assetlist')
+        @yield('reqlist')
 
     </div>
 </div>
