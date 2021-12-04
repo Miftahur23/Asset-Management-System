@@ -10,7 +10,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h2>Empoyee List</h2> 
+                                 <h2>Employee List</h2> 
                                 </div>  
                             </div>
                         </div>

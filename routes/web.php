@@ -113,12 +113,12 @@ Route::get('/dashboard',[DashboardController::class,'Dashboard']);
 
 
 
-Route::get('/userregister',[UserController::class,'SignUpForm'])->name('usersignup');
+Route::get('/adminregister',[UserController::class,'SignUpForm'])->name('usersignup');
 Route::post('/registerdone',[UserController::class,'Store'])->name('userregistered');
 
 
 Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
-Route::get('/userlogin',[UserController::class,'Login'])->name('loginpage');
+Route::get('/adminlogin',[UserController::class,'Login'])->name('loginpage');
 Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
 
 
