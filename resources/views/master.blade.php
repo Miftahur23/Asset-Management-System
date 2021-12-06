@@ -1,48 +1,77 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
-    />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
-
-    <!-- Disable tap highlight on IE -->
-    <meta name="msapplication-tap-highlight" content="no">
-
-<link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="/css/sidebar.css" rel="stylesheet">
- 
-
-</head>
-<body>
-<div class="app-container app-theme-white">
-
-    {{-- sidebar --}}
-    
-    @include('fixed.sidebar')
-
-    {{-- contents --}}
-
-        
-
-    <div class="ui-theme-settings">
-         
-        {{-- sidemenubutton --}}
-        
-    </div>
-</div>
-
-@include('fixed.footer')
+    <head>
+        <link href="/css/datatable.css" rel="stylesheet" />
+        <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="/js/fontawsome.js"></script>
+    </head>
 
 
+    <body class="sb-nav-fixed">
 
-<script src="js/bootstrap.min.js"></script>
-<script src="js/sidebar.js"></script>
-</body>
+        {{-- navbar --}}
+        @include('fixed.navbar')
+
+
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+
+                        <div class="nav">
+
+                            @include('fixed.sidebar')
+                            {{-- sidebar --}}
+
+                        </div>
+                    </div>
+
+
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Miftahur Rahman
+                    </div>
+                </nav>
+            </div>
+
+
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4 pt-3">
+                        <div class="card mb-4">
+                            <div class="card-body">
+
+                                {{-- contents --}}
+                                @yield('home')
+                                @yield('dashboard')
+                                @yield('emplist')
+                                @yield('assetlist')
+                                @yield('reqlist')
+
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/bundle.min.js"></script>
+        <script src="/js/datatable.js"></script>
+        <script src="/js/demo-datatable.js"></script>
+    </body>
 </html>
