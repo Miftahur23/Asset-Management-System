@@ -114,23 +114,23 @@ class AdminController extends Controller
 
     public function ShowDistribution()
     {
-        return 'Distribution';
+        return view('pages.distribution.distlist');
     }
 
     public function ShowPurchase()
     {
-        return 'Purchase';
+        return view('pages.purchase.purchaselist');
     }
     
 
     public function ShowActiveStock()
     {
-        return 'Active Stock';
+        return view('pages.stock.activestock');
     }
 
     public function ShowDamageStock()
     {
-        return 'Damage Stock';
+        return view('pages.stock.damagestock');
     } 
 
     public function CreateStock()

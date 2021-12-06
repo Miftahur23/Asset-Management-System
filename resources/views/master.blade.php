@@ -29,7 +29,7 @@
 
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Miftahur Rahman
+                        <h6>{{Auth::User()->name}}</h6>
                     </div>
                 </nav>
             </div>
@@ -47,6 +47,10 @@
                                 @yield('emplist')
                                 @yield('assetlist')
                                 @yield('reqlist')
+                                @yield('distribution')
+                                @yield('purchase')
+                                @yield('activestock')
+                                @yield('damagestock')
 
                             </div>
                         </div>

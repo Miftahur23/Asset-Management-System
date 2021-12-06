@@ -37,6 +37,9 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Asset Name</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Requested By</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Branch</th>
                                     <th scope="col">Status</th>
                                   </tr>
                                 </thead>
@@ -47,6 +50,11 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td>Pending</td>
+
                                     
                                   </tr>
                                 @endforeach 

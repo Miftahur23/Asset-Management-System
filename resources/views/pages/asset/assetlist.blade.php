@@ -14,10 +14,6 @@
                                     <a href="{{route('AssetCreated')}}" type="button" class="btn btn-success">
                                         + Create Asset
                                     </a>
-
-                                    <a href="{{route('AssetCreated')}}" type="button" class="btn btn-success">
-                                        Request Asset
-                                    </a>
                                 
                                 </div>               
                     <div class="app-inner-layout app-inner-layout-page">
