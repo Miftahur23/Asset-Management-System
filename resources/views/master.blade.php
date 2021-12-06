@@ -69,8 +69,8 @@
             </div>
         </div>
 
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/bundle.min.js"></script>
+        <script src="/js/bootstrap.js"></script>
+        <script src="/js/bundle.js"></script>
         <script src="/js/datatable.js"></script>
         <script src="/js/demo-datatable.js"></script>
     </body>

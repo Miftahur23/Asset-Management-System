@@ -23,9 +23,9 @@ use App\Http\Controllers\Req;
 */
 
 Route::get('/', function () {
-    return view('master');
+    //return view('master');
     //return view ('pages.empregform');
-    //return view ('pages.firstpage');
+    return view ('pages.firstpage');
     //return view ('pages.assetform');
 });
 Route::prefix('admin')->group(function () {

@@ -9,7 +9,6 @@
 
     {{-- @include('fixed.header') --}}
 <div class="p-5 m-5 bg-dark">
-    <div class="container fiori-container ">
           
           {{-- <div class="top-bar-middle">
               <h1>Offix</h1>
@@ -21,7 +20,7 @@
                           Create Account
                       </a> --}}
 
-                    <div class="btn-group ">
+                    {{-- <div class="btn-group ">
                         <button type="button " class="btn btn-lg btn-success dropdown-toggle mt-3" data-toggle="dropdown" aria-expanded="false">
 
                         Login
@@ -34,19 +33,24 @@
                         <li><a class="dropdown-item" href="{{route('usersignup')}}">Sign Up As Admin</a></li>
 
                         </ul>
-                      
-                    
-                    
-    </div>
+                    </div> --}}
 
-    
-</div>
-<p class="p-5 m-5 bg-dark text-center text-success font-weight-bold mt-5 pt-5 display-1">Manage Your Assets</p>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          Login/Signup
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{{route('loginpage')}}">Login</a></li>
+                          <li><a class="dropdown-item" href="{{route('usersignup')}}">Signup</a></li>
+                        </ul>
+                    </div>
+        </div>
+
+<p class="p-5 m-5 bg-white text-center text-success font-weight-bold mt-5 pt-5 display-1">Manage Your Assets</p>
     {{-- content --}}
 
     @yield('content')
+<script  src="/js/bootstrap.js"></script>
 
-<div class="app-drawer-overlay d-none animated fadeIn"></div>
-<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </body>
 </html>
