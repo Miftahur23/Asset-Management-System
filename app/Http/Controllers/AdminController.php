@@ -230,7 +230,15 @@ class AdminController extends Controller
 
     }
 
+    public function EmpShowAsset(){
+        
+        //dd($data);
 
+        $data=Assetinfo::all();
+        
+        return view ('employee.asset.assetlist', compact('data'));
+
+    }
 
     public function ShowCategory()
     {

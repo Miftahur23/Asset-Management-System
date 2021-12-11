@@ -50,7 +50,7 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
-                                    <td> </td>
+                                    <td>{{Auth::User()->name}}</h6></td>
                                     <td> </td>
                                     <td> </td>
                                     <td>Pending</td>

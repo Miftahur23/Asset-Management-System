@@ -31,10 +31,11 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
 
     //Asset
-
+    
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
+    Route::get('/empassetlist', [AdminController::class, 'EmpShowAsset'])->name('emp.show.asset');
     
     Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
     
@@ -107,6 +108,7 @@ Route::prefix('emp')->group(function () {
 Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstloginpage');
 
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
+Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
 
 Route::get('/dashboard',[DashboardController::class,'Dashboard']);
 
@@ -117,8 +119,10 @@ Route::post('/registerdone',[UserController::class,'Store'])->name('userregister
 
 
 Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
-Route::get('/adminlogin',[UserController::class,'Login'])->name('loginpage');
+Route::get('/userlogin',[UserController::class,'UserLogin'])->name('userloginpage');
+Route::get('/adminlogin',[UserController::class,'AdminLogin'])->name('adminloginpage');
 Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
 
 

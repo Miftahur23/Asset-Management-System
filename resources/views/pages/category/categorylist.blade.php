@@ -30,13 +30,14 @@
                             </p>
                          @endif
 
-                        <div class="container" style="width: 40%">
+                        <div class="container" style="width: 100%">
                             <table class="table table-dark table-bordered mt-3">
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Details</th>
+                                <th scope="col">Action</th>
                                 
                               </tr>
                             </thead>
@@ -47,6 +48,10 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->details}}</td>
+                                <td>
+                                    <a class="btn btn-primary" href="#">View</a>
+                                    <a class="btn btn-danger" href="#">Delete</a>
+                                </td>
                                 
                               </tr>
                               @endforeach 

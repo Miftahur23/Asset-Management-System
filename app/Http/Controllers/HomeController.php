@@ -12,6 +12,11 @@ class HomeController extends Controller
         return view ('pages.homepage');
     }
 
+    public function EmployeeHomepage()
+    {
+        return view('employee.master');
+    }
+
     public function Firstpage()
     {
         return view ('pages.firstpage');

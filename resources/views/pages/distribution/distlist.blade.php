@@ -31,6 +31,7 @@
                               <tr>
                                 
                                 <th scope="col">No</th>
+                                <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Branch</th>

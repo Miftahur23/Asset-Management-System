@@ -41,10 +41,16 @@ class UserController extends Controller
         return redirect()->route('Firstpage');
     }
 
-    public function Login()
+    public function AdminLogin()
     {
         
-        return view('pages.user.login');
+        return view('pages.user.adminlogin');
+    }
+
+    public function UserLogin()
+    {
+        
+        return view('pages.user.userlogin');
     }
 
     public function LoggedIn(Request $req)
@@ -61,4 +67,20 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
+
+    public function UserLoggedIn(Request $req)
+    {
+        // @dd($req->all());
+
+        if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
+        {
+
+            return redirect()->route('EmployeeHomepage');
+        }  
+        else
+        {
+            return redirect()->back();
+        }
+    }
+    
 }    
