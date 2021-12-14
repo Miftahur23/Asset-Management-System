@@ -38,7 +38,7 @@ class UserController extends Controller
     {
         $user=Auth::user();
         Auth::logout($user);
-        return redirect()->route('Firstpage');
+        return redirect()->route('Firstpage')->with('loginmessage','Logged In');
     }
 
     public function AdminLogin()
@@ -60,11 +60,11 @@ class UserController extends Controller
         if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
         {
 
-            return redirect()->route('Homepage');
+            return redirect()->route('Homepage')->with('loginmessage','Logged In');
         }  
         else
         {
-            return redirect()->back();
+            return redirect()->back()->with('invalid','Invalid Username or Password');
         }
     }
 

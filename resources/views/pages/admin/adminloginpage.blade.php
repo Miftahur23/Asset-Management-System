@@ -7,6 +7,12 @@
 
   <link href="/css/form/form.css" rel="stylesheet">
 
+                    @if(session()->has('invalid'))
+                        <p class="alert alert-warning">
+                            {{session()->get('invalid')}}
+                        </p>
+                    @endif
+
   @if ($errors->any())
 
   <div class="alert alert-warning" role="alert">

@@ -37,6 +37,13 @@
 
             <div id="layoutSidenav_content">
                 <main>
+
+                    @if(session()->has('loginmessage'))
+                        <p class="alert alert-success">
+                            {{session()->get('loginmessage')}}
+                        </p>
+                    @endif
+                    
                     <div class="container-fluid px-4 pt-3">
                         <div class="card mb-4">
                             <div class="card-body">

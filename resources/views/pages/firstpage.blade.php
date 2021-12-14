@@ -5,6 +5,15 @@
 <head>
     <link href="/css/bootstrap.min.css" rel="stylesheet"></head>
 <body>
+
+    @if(session()->has('loginmessage'))
+    <p class="alert alert-success">
+        {{session()->get('loginmessage')}}
+    </p>
+@endif
+                    
+
+    
     {{-- header --}}
 
     {{-- @include('fixed.header') --}}
@@ -15,6 +24,9 @@
           </div> --}}
           
         <div class="top-bar col-md-12 text-center">
+            
+
+            
 
                       {{-- <a href="{{route('Signup')}}" class="nav-link">
                           Create Account

@@ -1,7 +1,6 @@
 @extends('master')  
     @section('home')
-        
-   
+
            
         <div class="app-main">
             <div class="app-main__outer">
