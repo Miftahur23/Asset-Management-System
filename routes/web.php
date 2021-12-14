@@ -36,6 +36,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     Route::get('/empassetlist', [AdminController::class, 'EmpShowAsset'])->name('emp.show.asset');
+
+    Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
     
     Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
     
@@ -44,6 +46,9 @@ Route::prefix('admin')->group(function () {
     Route::get('/categorylist',[AdminController::class, 'ShowCategory'])->name('show.category');
     Route::get('/categoryform',[AdminController::class, 'CreateCategory'])->name('create.category');
     Route::post('/categoryinserted',[AdminController::class, 'StoreCategory'])->name('store.category');
+
+    Route::get('/deletecategory/{category_id}',[AdminController::class, 'DeleteCategory'])->name('delete.category');
+
 
 
     // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');

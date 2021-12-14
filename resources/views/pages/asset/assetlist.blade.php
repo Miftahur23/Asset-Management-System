@@ -59,7 +59,7 @@
                                 
                                 <td>{{$item->asset_name}}</td>
                                 <td>
-                                    <a class="btn btn-primary" href="#">View</a>
+                                    <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">View</a>
                                     <a class="btn btn-danger" href="#">Delete</a>
                                 </td>
 

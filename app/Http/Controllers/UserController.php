@@ -72,9 +72,12 @@ class UserController extends Controller
     {
         // @dd($req->all());
 
-        if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
-        {
+        if( Auth::attempt([ 
+            'email'=>$req->email,
+            'password'=>$req->password
+            ]))
 
+        {
             return redirect()->route('EmployeeHomepage');
         }  
         else

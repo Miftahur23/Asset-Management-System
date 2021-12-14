@@ -30,6 +30,12 @@
                             </p>
                          @endif
 
+                         @if(session()->has('delete'))
+                            <p class="alert alert-danger">
+                                {{session()->get('delete')}}
+                            </p>
+                         @endif
+
                         <div class="container" style="width: 100%">
                             <table class="table table-dark table-bordered mt-3">
                             <thead>
@@ -50,7 +56,7 @@
                                 <td>{{$item->details}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="#">View</a>
-                                    <a class="btn btn-danger" href="#">Delete</a>
+                                    <a class="btn btn-danger" href="{{route('delete.category', $item->id)}}">Delete</a>
                                 </td>
                                 
                               </tr>

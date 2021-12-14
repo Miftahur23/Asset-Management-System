@@ -230,6 +230,16 @@ class AdminController extends Controller
 
     }
 
+    public function DetailsAsset($details_id){
+        
+        //dd($data);
+
+        $details=AssetInfo::find($details_id);
+        
+        return view ('pages.asset.assetdetails',compact('details'));
+
+    }
+
     public function EmpShowAsset(){
         
         //dd($data);
@@ -269,6 +279,14 @@ class AdminController extends Controller
          ]);
 
          return redirect()->route('show.category')->with('success', 'Category Added');
+    }
+
+    public function DeleteCategory($delcategory){
+        
+        Category::find($delcategory)->delete();
+
+        return redirect()->back()->with('delete', 'Category Deleted');
+
     }
 
 
