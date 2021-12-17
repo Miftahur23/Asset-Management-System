@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function Homepage()
     {
-        return view ('pages.homepage');
+        return view ('admin.homepage');
     }
 
     public function EmployeeHomepage()
@@ -19,7 +19,7 @@ class HomeController extends Controller
 
     public function Firstpage()
     {
-        return view ('pages.firstpage');
+        return view ('admin.firstpage');
     }
 
     public function AccountStore(Request $request)

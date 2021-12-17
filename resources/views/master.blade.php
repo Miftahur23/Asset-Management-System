@@ -10,7 +10,7 @@
     <body class="sb-nav-fixed">
 
         {{-- navbar --}}
-        @include('fixed.navbar')
+        @include('admin.fixed.navbar')
 
 
         <div id="layoutSidenav">
@@ -20,7 +20,7 @@
 
                         <div class="nav">
 
-                            @include('fixed.sidebar')
+                            @include('admin.fixed.sidebar')
                             {{-- sidebar --}}
 
                         </div>
@@ -49,16 +49,7 @@
                             <div class="card-body">
 
                                 {{-- contents --}}
-                                @yield('home')
-                                @yield('dashboard')
-                                @yield('emplist')
-                                @yield('assetlist')
-                                @yield('reqlist')
-                                @yield('distribution')
-                                @yield('purchase')
-                                @yield('activestock')
-                                @yield('damagestock')
-                                @yield('report')
+                                @yield('content')
 
                             </div>
                         </div>
@@ -66,18 +57,8 @@
                 </main>
 
 
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                @include('admin.fixed.footer')
+
             </div>
         </div>
 

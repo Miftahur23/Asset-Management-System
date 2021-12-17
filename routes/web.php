@@ -25,7 +25,7 @@ use App\Http\Controllers\Req;
 Route::get('/', function () {
     //return view('master');
     //return view ('pages.empregform');
-    return view ('pages.firstpage');
+    return view ('admin.firstpage');
     //return view ('pages.assetform');
 });
 Route::prefix('admin')->group(function () {
@@ -35,6 +35,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
+    Route::get('deleteasset/{asset_id}', [AdminController::class, 'DeleteAsset'])->name(('delete.asset'));
     Route::get('/empassetlist', [AdminController::class, 'EmpShowAsset'])->name('emp.show.asset');
 
     Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
@@ -57,6 +58,7 @@ Route::prefix('admin')->group(function () {
     //Employee
 
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
+    Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
     Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
 
     //Branch 
@@ -64,6 +66,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
+    Route::get('/branchdeleted/{branch_id}',[AdminController::class, 'DelBranch'])->name('delete.branch');
 
 
     // Department
@@ -71,6 +74,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/departmentlist',[AdminController::class, 'ShowDepartment'])->name('show.department');
     Route::get('/departmentform',[AdminController::class, 'CreateDepartment'])->name('create.department');
     Route::post('/departmentinsrted',[AdminController::class, 'StoreDepartment'])->name('store.department');
+    Route::get('/departmentdeleted/{dept_id}',[AdminController::class, 'DelDepartment'])->name('delete.dept');
 
     //Stocks
 
@@ -115,7 +119,7 @@ Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstlo
 Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
 Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
 
-Route::get('/dashboard',[DashboardController::class,'Dashboard']);
+Route::get('/dashboard',[AdminController::class,'Dashboard']);
 
 
 

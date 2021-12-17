@@ -15,7 +15,7 @@ class EmpregformController extends Controller
     {
         $branches=Branch::all();
         $departments=Department::all();
-        return view ('pages.employee.empregform', compact ('branches','departments'));
+        return view ('admin.employee.empregform', compact ('branches','departments'));
     }
     public function AlreadyHaveAnAccount()
     {

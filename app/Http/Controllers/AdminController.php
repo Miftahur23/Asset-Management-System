@@ -19,14 +19,20 @@ class AdminController extends Controller
 {
     public function Adminloginpage()
     {
-        return view ('pages.admin.adminloginpage');
+        return view ('admin.login.adminloginpage');
     }
+
+    public function Dashboard()
+    {
+        return view ('admin.dashboard');
+    }
+
 
     
     public function ShowBranch()
     {
         $branches=Branch::all();
-        return view ('pages.branch.branchlist', compact ('branches'));
+        return view ('admin.branch.branchlist', compact ('branches'));
     }
 
 
@@ -34,7 +40,7 @@ class AdminController extends Controller
     {
        
          //return redirect('/home');
-        return view ('pages.branch.branchform');
+        return view ('admin.branch.branchform');
     }
 
     public function StoreBranch(Request $req)
@@ -54,16 +60,23 @@ class AdminController extends Controller
          return redirect()->route('show.branch')->with('success', 'Branch Added');
     }
 
+    public function DelBranch($delbranch)
+    {
+        Branch::find($delbranch)->delete();
+
+        return redirect()->back()->with('delete', 'Branch Deleted');
+    }
+
     public function ShowDepartment()
     {
         $departments=Department::all();
-        return view ('pages.department.departmentlist', compact('departments'));
+        return view ('admin.department.departmentlist', compact('departments'));
     }
     
 
     public function CreateDepartment()
     {
-        return view ('pages.department.deptform');
+        return view ('admin.department.deptform');
     }
 
     public function StoreDepartment(Request $req)
@@ -81,17 +94,23 @@ class AdminController extends Controller
         return redirect()->route('show.department')->with('success', 'Department Added');
     }
 
+    public function DelDepartment($deldept)
+    {
+        Department::find($deldept)->delete();
+        return redirect()->back()->with('delete', 'Department Deleted');
+    }
+
     
 
     public function ShowRequest()
     {
         $data= Req::all();
-        return view('pages.request.reqlist', compact ('data'));
+        return view('admin.request.reqlist', compact ('data'));
     }
 
     public function CreateRequest()
     {
-        return view('pages.request.reqform');
+        return view('admin.request.reqform');
     }
 
     public function StoreRequest(Request $req)
@@ -114,23 +133,23 @@ class AdminController extends Controller
 
     public function ShowDistribution()
     {
-        return view('pages.distribution.distlist');
+        return view('admin.distribution.distlist');
     }
 
     public function ShowPurchase()
     {
-        return view('pages.purchase.purchaselist');
+        return view('admin.purchase.purchaselist');
     }
     
 
     public function ShowActiveStock()
     {
-        return view('pages.stock.activestock');
+        return view('admin.stock.activestock');
     }
 
     public function ShowDamageStock()
     {
-        return view('pages.stock.damagestock');
+        return view('admin.stock.damagestock');
     } 
 
     public function CreateStock()
@@ -165,7 +184,7 @@ class AdminController extends Controller
     public function AssetCreated()
     {
         $category= Category::all();
-        return view ('pages.asset.assetform', compact('category'));
+        return view ('admin.asset.assetform', compact('category'));
     }
 
     public function Assetinfo(Request $request)
@@ -226,7 +245,7 @@ class AdminController extends Controller
 
         $data=Assetinfo::all();
         
-        return view ('pages.asset.assetlist', compact('data'));
+        return view ('admin.asset.assetlist', compact('data'));
 
     }
 
@@ -236,9 +255,21 @@ class AdminController extends Controller
 
         $details=AssetInfo::find($details_id);
         
-        return view ('pages.asset.assetdetails',compact('details'));
+        return view ('admin.asset.assetdetails',compact('details'));
 
     }
+
+
+    
+
+    public function DeleteAsset($delasset)
+    {
+        AssetInfo::find($delasset)->delete();
+
+        return redirect()->back()->with('delete', 'Asset deleted');
+    }
+
+    
 
     public function EmpShowAsset(){
         
@@ -253,7 +284,7 @@ class AdminController extends Controller
     public function ShowCategory()
     {
         $categories=Category::all();
-        return view ('pages.category.categorylist', compact ('categories'));
+        return view ('admin.category.categorylist', compact ('categories'));
     }
 
 
@@ -261,7 +292,7 @@ class AdminController extends Controller
     {
        
          //return redirect('/home');
-        return view ('pages.category.categoryform');
+        return view ('admin.category.categoryform');
     }
 
     public function StoreCategory(Request $req)
@@ -303,16 +334,24 @@ class AdminController extends Controller
         //dd($data);
         $data=EmployeeInfo::all();
 
-        return view('pages.employee.emplist', compact ('data'));
+        return view('admin.employee.emplist', compact ('data'));
 
     }
+
+    public function DetailsEmployee($details_id)
+    {
+        $details=EmployeeInfo::find($details_id);
+
+        return view ('admin.employee.empdetails', compact('details'));
+    }
+
 
     public function ShowEmploginfo(){
 
         //dd($data);
         $data=Emplogininfo::all();
 
-        return view('pages.employee.emplogininfo', compact ('data'));
+        return view('admin.employee.emplogininfo', compact ('data'));
 
     }
 

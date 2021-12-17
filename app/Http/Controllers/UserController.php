@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function SignUpForm()
     {
-        return view('pages.user.usersignup');
+        return view('admin.user.usersignup');
     }
 
     public function Store(Request $req)
@@ -38,19 +38,19 @@ class UserController extends Controller
     {
         $user=Auth::user();
         Auth::logout($user);
-        return redirect()->route('Firstpage')->with('loginmessage','Logged In');
+        return redirect()->route('firstloginpage')->with('logoutmessage','Logged Out');
     }
 
     public function AdminLogin()
     {
         
-        return view('pages.user.adminlogin');
+        return view('admin.user.adminlogin');
     }
 
     public function UserLogin()
     {
         
-        return view('pages.user.userlogin');
+        return view('admin.user.userlogin');
     }
 
     public function LoggedIn(Request $req)
