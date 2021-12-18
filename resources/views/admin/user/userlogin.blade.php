@@ -12,6 +12,12 @@
   </div>
 
   @endif
+
+  @if(session()->has('invalid'))
+  <p class="alert alert-warning">
+      {{session()->get('invalid')}}
+  </p>
+  @endif
  
 
 

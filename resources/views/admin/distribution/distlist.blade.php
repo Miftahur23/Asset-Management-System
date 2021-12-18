@@ -38,18 +38,32 @@
                                 
                               </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                         
-                              @foreach ($departments as $key=>$item)
+                            @foreach ($assetdata as $key=>$item)
                               <tr>
-                                
                                 <td>{{$key+1}}</td>
+                                <td>{{$item->asset_name}}</td>
+                                <td>{{$item->quantity}}</td>
+
+                            @endforeach 
+                              
+                            @foreach ($departments as $key=>$item)
+
                                 <td>{{$item->dname}}</td>
+
+                            @endforeach 
+
+                            @foreach ($branches as $key=>$item)
                                 
+                                <td>{{$item->name}}</td>
+
                               </tr>
-                              @endforeach 
-                            </tbody> --}}
-                        </table> </div>
+                            @endforeach 
+
+                            </tbody>
+                        </table> 
+                    </div>
                     </div>
                 </div>
             </div>

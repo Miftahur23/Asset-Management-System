@@ -32,6 +32,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
+                                    <th scope="col">Image</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     {{-- <th scope="col">Email</th>
@@ -47,7 +48,13 @@
                             
                                   @foreach ($data as $key=>$item)
                                   <tr>
+
                                     <td>{{$key+1}}</td>
+
+                                    <th>
+                                        <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/employee/'.$item->employee_image)}}" alt="product">
+                                    </th>
+
                                     <td>{{$item->fname}}</td>
                                     <td>{{$item->lname}}</td>
                                     {{-- <td>{{$item->email}}</td>

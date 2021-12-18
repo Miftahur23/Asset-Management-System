@@ -17,13 +17,15 @@
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
                         <th>
-                            <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/products/'.$details->image)}}" alt="product">
+                            <img style="border-radius: 8px;" width="200px;" height="200px;" src=" {{url('/uploads/employee/'.$details->employee_image)}}" alt="product">
                         </th>
+
+                        <br><br>
                         
                         <p><b>Name: {{$details->fname}} {{$details->lname}}</b></p>
                         <p><b>Email: {{$details->email}}</b></p>
-                        <p><b>Department: {{$details->departments_id}}</b></p>
-                        <p><b>Branch: {{$details->branches_id}}</b></p>
+                        <p><b>Department: {{$details->departments->dname}}</b></p>
+                        <p><b>Branch: {{$details->branches->name}}</b></p>
                         <p><b>Address: {{$details->address}}</b></p>
                         <p><b>Mobile No: {{$details->pnumber}}</b></p>
                         

@@ -55,7 +55,7 @@
                             </thead>
                             <tbody>
                         
-                              @foreach ($data as $key=>$item)
+                              @foreach ($assetdata as $key=>$item)
                               <tr>
                                 {{-- @dd($data)->all(); --}}
                                 <td>{{$key+1}}</td>

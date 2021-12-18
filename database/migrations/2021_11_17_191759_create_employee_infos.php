@@ -15,6 +15,7 @@ class CreateEmployeeInfos extends Migration
     {
         Schema::create('employee_infos', function (Blueprint $table) {
             $table->id();
+            $table->string('employee_image')->nullable();
             $table->string('fname');
             $table->string('lname');
             $table->string('email');  

@@ -11,6 +11,7 @@
         {{session()->get('logoutmessage')}}
     </p>
     @endif
+
     {{-- header --}}
 
     {{-- @include('fixed.header') --}}
@@ -21,28 +22,6 @@
           </div> --}}
           
         <div class="top-bar col-md-12 text-center">
-            
-
-            
-
-                      {{-- <a href="{{route('Signup')}}" class="nav-link">
-                          Create Account
-                      </a> --}}
-
-                    {{-- <div class="btn-group ">
-                        <button type="button " class="btn btn-lg btn-success dropdown-toggle mt-3" data-toggle="dropdown" aria-expanded="false">
-
-                        Login
-
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start">
-
-                        <li><a class="dropdown-item" href="{{route('loginpage')}}">Admin</a></li>
-                        <li><a class="dropdown-item" href="{{route('usersignup')}}">Sign Up As Admin</a></li>
-
-                        </ul>
-                    </div> --}}
 
                     <div class="btn-group">
                         <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

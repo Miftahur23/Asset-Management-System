@@ -133,7 +133,11 @@ class AdminController extends Controller
 
     public function ShowDistribution()
     {
-        return view('admin.distribution.distlist');
+        $assetdata=AssetInfo::all();
+        $branches=Branch::all();
+        $departments=Department::all();
+        
+        return view('admin.distribution.distlist', compact('assetdata','branches','departments'));
     }
 
     public function ShowPurchase()
@@ -243,9 +247,9 @@ class AdminController extends Controller
         
         //dd($data);
 
-        $data=Assetinfo::all();
+        $assetdata=Assetinfo::all();
         
-        return view ('admin.asset.assetlist', compact('data'));
+        return view ('admin.asset.assetlist', compact('assetdata'));
 
     }
 

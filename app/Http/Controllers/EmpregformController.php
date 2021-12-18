@@ -31,7 +31,24 @@ class EmpregformController extends Controller
 
         ]);
 
+
+            $image_name=null;
+
+                //checking if image exist in this request.
+
+                 if($empinfo->hasFile('employee_image'))
+                 {
+                     //generating file name
+                     $image_name=date('Ymdhis') .'.'. $empinfo->file('employee_image')->getClientOriginalExtension();
+
+                     //storing into project directory
+
+                     $empinfo->file('employee_image')->storeAs('/employee',$image_name);
+
+                 }
+
         EmployeeInfo::create([
+            'employee_image'=>$image_name,
             'fname'=>$empinfo->fname,
             'lname'=>$empinfo->lname,
             'email'=>$empinfo->email,
