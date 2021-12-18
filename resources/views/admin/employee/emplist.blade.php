@@ -18,6 +18,7 @@
                                 </div>
                             </div>               
                     <div class="app-inner-layout app-inner-layout-page">
+
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
 
@@ -26,6 +27,13 @@
                             {{session()->get('success')}}
                         </p>
                     @endif
+
+                    @if(session()->has('delete'))
+                        <p class="alert alert-success">
+                            {{session()->get('delete')}}
+                        </p>
+                    @endif
+
 
                     <div class="container" style="width: 100%">
                         <table class="table table-dark table-bordered mt-3">
@@ -65,7 +73,7 @@
                                     <td>
                                         <a class="btn btn-primary" href="{{route('details.emp', $item->id)}}">Details</a>
                                         <a class="btn btn-warning" href="#">Edit</a>
-                                        <a class="btn btn-danger" href="#">Delete</a>
+                                        <a class="btn btn-danger" href="{{route('delete.emp', $item->id)}}">Delete</a>
     
                                     </td>
                                     

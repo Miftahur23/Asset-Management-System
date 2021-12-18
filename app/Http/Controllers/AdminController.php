@@ -349,6 +349,13 @@ class AdminController extends Controller
         return view ('admin.employee.empdetails', compact('details'));
     }
 
+    public function DeleteEmployee($delete_id)
+    {
+        $delete=EmployeeInfo::find($delete_id)->delete();
+
+        return redirect()->back()->with('delete', 'Employee Removed');
+    }
+
 
     public function ShowEmploginfo(){
 

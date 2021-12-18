@@ -59,6 +59,11 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
+    Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
+    Route::get('/empdelete/{delete_id}', [AdminController::class, 'DeleteEmployee'])->name('delete.emp');
+    
+    
+
     Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
 
     //Branch 

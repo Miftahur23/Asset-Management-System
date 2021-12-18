@@ -46,17 +46,7 @@
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
 
-                            @endforeach 
-                              
-                            @foreach ($departments as $key=>$item)
-
-                                <td>{{$item->dname}}</td>
-
-                            @endforeach 
-
-                            @foreach ($branches as $key=>$item)
-                                
-                                <td>{{$item->name}}</td>
+                            
 
                               </tr>
                             @endforeach 
