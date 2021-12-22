@@ -11,7 +11,12 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                  <h2>Distributions</h2> 
-                                </div>      
+                                </div> 
+                                <div class="page-title-actions"> 
+                                    <a href="{{route('create.distribution')}}" type="button" class="btn btn-success">
+                                        Distribute Your Asset
+                                    </a>
+                                </div>     
                             </div>
                         </div>
                     </div>               
@@ -40,11 +45,13 @@
                             </thead>
                             <tbody>
                         
-                            @foreach ($assetdata as $key=>$item)
+                            @foreach ($distasset as $key=>$item)
                               <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
+                                <td>{{$item->department}}</td>
+                                <td>{{$item->branch}}</td>
 
                             
 

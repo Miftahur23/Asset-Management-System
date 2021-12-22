@@ -96,7 +96,9 @@ Route::prefix('admin')->group(function () {
 
     //Distribution 
 
-    Route::get('/distribution', [AdminController::class, 'ShowDistribution'])->name('show.distribution');
+    Route::get('/distributionlist', [AdminController::class, 'ShowDistribution'])->name('show.distribution');
+    Route::get('/distributionform', [AdminController::class, 'CreateDistribution'])->name('create.distribution');
+    Route::post('/storedistribution', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
 
     //Puurchase
 

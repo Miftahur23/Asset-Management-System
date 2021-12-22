@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Req;
 use App\Models\EmployeeInfo;
-use App\Models\Emplogininfo;
+use App\Models\Distribution;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Stock;
@@ -133,11 +133,35 @@ class AdminController extends Controller
 
     public function ShowDistribution()
     {
-        $assetdata=AssetInfo::all();
-        $branches=Branch::all();
-        $departments=Department::all();
+        $distasset=Distribution::all();
+        return view('admin.distribution.distlist', compact('distasset'));
+    }
+
+    public function CreateDistribution()
+    {
+
+        return view('admin.distribution.distform');
+    }
         
-        return view('admin.distribution.distlist', compact('assetdata','branches','departments'));
+
+    public function StoreDistribution(Request $request)
+    {
+        $request->validate([
+            'asset_name'=>'required',
+            'quantity'=>'required',
+            'dname'=>'required',
+            'bname'=>'required'
+        ]);
+
+        Distribution::create([
+                'asset_name'=>$request->asset_name,
+                'quantity'=>$request->quantity,
+                'department'=>$request->dname,
+                'branch'=>$request->bname 
+             ]);
+        
+             return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
+            
     }
 
     public function ShowPurchase()
