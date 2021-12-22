@@ -28,7 +28,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><h6>{{Auth::User()->name}}</h6></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="{{route('firstloginpage')}}">Logout</a></li>
+                <li><a class="dropdown-item" href="{{route('logoutpage')}}">Logout</a></li>
             </ul>
 
             @endif

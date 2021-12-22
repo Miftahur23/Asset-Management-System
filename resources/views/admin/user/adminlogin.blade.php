@@ -1,6 +1,12 @@
 
   <link href="/css/form/form.css" rel="stylesheet">
 
+  @if(session()->has('logoutmessage'))
+    <p class="alert alert-warning>
+        {{session()->get('logoutmessage')}}
+    </p>
+    @endif
+
   @if ($errors->any())
 
   <div class="alert alert-warning" role="alert">

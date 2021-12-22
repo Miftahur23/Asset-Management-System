@@ -1,10 +1,10 @@
 {{-- sidebar --}}
 
-<a class="nav-link" href="{{url('/home')}}">
+<a class="nav-link" href="{{url('/admin/home')}}">
     Home
 </a>
 
-<a class="nav-link" href="{{url('/dashboard')}}">
+<a class="nav-link" href="{{route('admin.dashboard')}}">
     Dashboard
 </a>
 

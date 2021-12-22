@@ -45,6 +45,7 @@ class UserController extends Controller
     {
         
         return view('admin.user.adminlogin');
+        
     }
 
     public function UserLogin()
@@ -56,6 +57,7 @@ class UserController extends Controller
     public function LoggedIn(Request $req)
     {
         // @dd($req->all());
+
 
         if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
         {

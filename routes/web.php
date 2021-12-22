@@ -22,13 +22,29 @@ use App\Http\Controllers\Req;
 |
 */
 
-Route::get('/', function () {
-    //return view('master');
-    //return view ('pages.empregform');
-    return view ('admin.firstpage');
-    //return view ('pages.assetform');
-});
-Route::prefix('admin')->group(function () {
+Route::get('/userlogin',[UserController::class,'UserLogin'])->name('userloginpage');
+
+Route::get('/adminlogin',[UserController::class,'AdminLogin'])->name('adminloginpage');
+Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+
+Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
+
+
+
+
+Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
+
+    Route::get('/', function () {
+        //return view('master');
+        //return view ('pages.empregform');
+        return view ('admin.firstpage');
+        //return view ('pages.assetform');
+    });
+
+    //logout
+
+    Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
+
 
     //Asset
     
@@ -50,7 +66,9 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/deletecategory/{category_id}',[AdminController::class, 'DeleteCategory'])->name('delete.category');
 
+    //Dashboard
 
+    Route::get('/dashboard',[AdminController::class,'Dashboard'])->name('admin.dashboard');
 
     // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
     // Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
@@ -123,22 +141,17 @@ Route::prefix('emp')->group(function () {
 
 Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstloginpage');
 
-Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
+//goja-mil
+
+Route::get('/admin/home',[HomeController::class,'Homepage'])->name('Homepage');
 Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
 
-Route::get('/dashboard',[AdminController::class,'Dashboard']);
+
 
 
 
 Route::get('/adminregister',[UserController::class,'SignUpForm'])->name('usersignup');
 Route::post('/registerdone',[UserController::class,'Store'])->name('userregistered');
-
-
-Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
-Route::get('/userlogin',[UserController::class,'UserLogin'])->name('userloginpage');
-Route::get('/adminlogin',[UserController::class,'AdminLogin'])->name('adminloginpage');
-Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
-Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
 
 
