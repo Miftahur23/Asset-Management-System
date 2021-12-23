@@ -50,7 +50,7 @@ class AdminController extends Controller
 
     public function EditedBranch()
     {
-        
+
         return redirect()->route('show.branch')->with('edited','Branch Edited Successfully');
     }
 
