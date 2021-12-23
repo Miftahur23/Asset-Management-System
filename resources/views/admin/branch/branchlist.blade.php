@@ -30,6 +30,12 @@
                             </p>
                          @endif
 
+                         @if (session()->has('edited'))
+                         <p class="alert alert-success">
+                             {{session()->get('edited')}}
+                         </p>
+                         @endif
+
                          @if (session()->has('delete'))
                          <p class="alert alert-success">
                              {{session()->get('delete')}}
@@ -56,7 +62,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->location}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="#">Edit</a>
+                                    <a class="btn btn-warning" href="{{route('edit.branch')}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.branch', $item->id)}}">Delete</a>
                                 </td>
                                 

@@ -43,6 +43,17 @@ class AdminController extends Controller
         return view ('admin.branch.branchform');
     }
 
+    public function EditBranch()
+    {
+        return view ('admin.branch.edit');
+    }
+
+    public function EditedBranch()
+    {
+        
+        return redirect()->route('show.branch')->with('edited','Branch Edited Successfully');
+    }
+
     public function StoreBranch(Request $req)
     {
        // dd($req->all());

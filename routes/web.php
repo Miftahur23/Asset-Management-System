@@ -88,6 +88,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
+    Route::get('/branchedit',[AdminController::class, 'EditBranch'])->name('edit.branch');
+    Route::patch('/branchedited',[AdminController::class, 'EditedBranch'])->name('edited.branch');
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
     Route::get('/branchdeleted/{branch_id}',[AdminController::class, 'DelBranch'])->name('delete.branch');
 
