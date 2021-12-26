@@ -10,10 +10,6 @@
                                 <div class="page-title-heading">
                                  <h2>Request List</h2> 
                                 </div>
-
-                                </div>
-                                    <a class="btn btn-md btn-success m-auto" role="button" href="{{route('create.request')}}">Request</a>
-                                </div>
                                 
                             </div>
                         </div>
@@ -36,8 +32,9 @@
                                     <th scope="col">Asset Name</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Requested By</th>
-                                    <th scope="col">Department</th>
-                                    <th scope="col">Branch</th>
+                                    {{-- <th scope="col">Department</th>
+                                    <th scope="col">Branch</th> --}}
+                                    <th scope="col">Action</th>
                                     <th scope="col">Status</th>
                                   </tr>
                                 </thead>
@@ -49,11 +46,17 @@
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
                                     <td>{{Auth::User()->name}}</h6></td>
-                                    <td> </td>
-                                    <td> </td>
+
                                     <td>
-                                        <a class="btn btn-warning" href="#">Pending</a>
+                                        <a class="btn btn-warning" href="#">Accept<a>
+                                        <a class="btn btn-warning" href="#">Reject</a>
                                     </td>
+
+                                    <td>
+                                        <a class="btn btn-warning" href="{{route('view.request')}}">Pending</a>
+                                    </td>
+
+                                    
                                   </tr>
                                 @endforeach 
 

@@ -30,7 +30,7 @@
   </div>
 @endif
 
-<center><form action="{{route('edited.branch')}}" class="row" method="POST">
+<center><form action="{{route('edited.branch', $br->id)}}" class="row" method="POST">
 @method('PATCH')
   
 
@@ -38,12 +38,16 @@
   
   <div class="col-6 mt-5">
       <label for="exampleInputName" class="form-label"><h5>Branch Name</h5></label>
-      <input type="name" name="name" class="form-control" id="exampleInputName">
-      
+      <input id="name"
+      type="text"
+      class="form-control"
+      name="name"
+      value="{{ old('name') ?? $br->name}}">   
     </div>
+
     <div class="col-6 mt-5">
       <label for="exampleInputLocation" class="form-label"><h5>Branch Location</h5></label>
-      <input type="text" name="location" class="form-control" id="exampleInputLocation">
+      <input type="text" name="location" class="form-control" value="{{ old('location') ?? $br->location}}">
   </div>
   
   <div class="m-auto pt-5">

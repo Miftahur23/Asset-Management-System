@@ -68,7 +68,7 @@
                                 <td>{{$item->asset_name}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">Details</a>
-                                    <a class="btn btn-success" href="#">Request</a>
+                                    <a class="btn btn-success" href="{{route('create.request')}}">Request</a>
                                     <a class="btn btn-danger" href="{{route('delete.asset', $item->id)}}">Delete</a>
 
                                 </td>

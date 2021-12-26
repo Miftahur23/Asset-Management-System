@@ -43,14 +43,19 @@ class AdminController extends Controller
         return view ('admin.branch.branchform');
     }
 
-    public function EditBranch()
+    public function EditBranch($edit)
     {
-        return view ('admin.branch.edit');
+        //dd($edit);
+        $br=Branch::find($edit);
+        return view ('admin.branch.edit',compact('br'));
     }
 
-    public function EditedBranch()
+    public function EditedBranch($edit)
     {
+        
 
+        $br=Branch::find($edit);
+        $br->update(request()->all());
         return redirect()->route('show.branch')->with('edited','Branch Edited Successfully');
     }
 
@@ -140,6 +145,25 @@ class AdminController extends Controller
  
           return redirect()->route('show.reqlist')->with('success', 'Asset Requested');
     }
+
+    public function ViewRequest()
+    {
+
+            return view('admin.request.confirmreq');
+
+        }
+    
+
+    // public function ConfirmRequest(Request $req, $id)
+    // {
+    //     Req::find($id)->update([
+    //         'status'=>$request->status
+    //     ]);
+
+    //     return view('admin.request.confirmreq');
+    // }
+
+    
 
 
     public function ShowDistribution()

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Emplogininfo;
+use App\Models\AssetInfo;
 
 class EmploginpageController extends Controller
 {
@@ -37,6 +37,15 @@ class EmploginpageController extends Controller
 
         
         // return 'ok';
+    }
+    public function EmpShowAsset(){
+        
+        //dd($data);
+
+        $empassetdata=Assetinfo::all();
+        
+        return view ('employee.asset.assetlist', compact('empassetdata'));
+
     }
 }
 

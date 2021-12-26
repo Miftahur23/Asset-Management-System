@@ -62,7 +62,7 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->location}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="{{route('edit.branch')}}">Edit</a>
+                                    <a class="btn btn-warning" href="{{route('edit.branch',$item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.branch', $item->id)}}">Delete</a>
                                 </td>
                                 

@@ -62,7 +62,16 @@ class UserController extends Controller
         if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
         {
 
-            return redirect()->route('Homepage')->with('loginmessage','Logged In');
+            //dd(Auth::user()->id);
+
+            if(Auth::user()->role=='admin')
+            {
+
+                return redirect()->route('Homepage')->with('loginmessage','Logged In');
+                
+            }
+
+            return redirect()->route('EmployeeHomepage')->with('loginmessage','Logged In');
         }  
         else
         {

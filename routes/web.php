@@ -52,7 +52,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     Route::get('deleteasset/{asset_id}', [AdminController::class, 'DeleteAsset'])->name(('delete.asset'));
-    Route::get('/empassetlist', [AdminController::class, 'EmpShowAsset'])->name('emp.show.asset');
 
     Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
     
@@ -88,8 +87,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
-    Route::get('/branchedit',[AdminController::class, 'EditBranch'])->name('edit.branch');
-    Route::patch('/branchedited',[AdminController::class, 'EditedBranch'])->name('edited.branch');
+    Route::get('/branchedit/{edit_id}',[AdminController::class, 'EditBranch'])->name('edit.branch');
+    Route::patch('/branchedited/{edited_id}',[AdminController::class, 'EditedBranch'])->name('edited.branch');
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
     Route::get('/branchdeleted/{branch_id}',[AdminController::class, 'DelBranch'])->name('delete.branch');
 
@@ -113,6 +112,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
     Route::get('/requestform', [AdminController::class, 'CreateRequest'])->name('create.request');
     Route::post('/storerequest', [AdminController::class, 'StoreRequest'])->name('store.request');
+    Route::get('/viewrequest', [AdminController::class, 'ViewRequest'])->name('view.request');
+    // Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
 
     //Distribution 
 
@@ -138,6 +139,8 @@ Route::prefix('emp')->group(function () {
     Route::get('/regform',[EmpregformController::class,'Empregform'])->name('Empreg');
     Route::post('/regdone',[EmpregformController::class,'Empregdone'])->name('Empregdone');
     Route::get('/have-an-account',[EmpregformController::class,'AlreadyHaveAnAccount']);
+    
+    Route::get('/empassetlist', [EmploginpageController::class, 'EmpShowAsset'])->name('emp.show.asset');
 });
 
 
