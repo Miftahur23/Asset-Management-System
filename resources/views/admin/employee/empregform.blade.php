@@ -96,7 +96,7 @@
       <button type="submit" class="btn btn-success">Register</button>
     
     
-    <a href="{{route('Emplogin')}}"><button type="button" class="btn btn-success">Already Have An Account</button></a>
+    <a href="#"><button type="button" class="btn btn-success">Already Have An Account</button></a>
   </div> 
   
 </div> 

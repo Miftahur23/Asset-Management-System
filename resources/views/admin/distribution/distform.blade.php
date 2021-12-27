@@ -53,15 +53,31 @@
                             <input type="number" name="quantity" class="form-control" id="exampleInputquantity">
                         </div>
                         
-                        <div class="col-6 mt-5 ">
-                            <label for="exampleInputdeptName" class="form-label"><h5>Department Name</h5></label>
-                            <input type="text" name="dname" class="form-control" id="exampledeptName">
+                        <div class="col-6 mt-5">
+                          <select name="departments_id" class="form-control form-control">
+                            <option>Select Department</option>
+                      
+                            @foreach ($departments as $item)
+                      
+                            <option  value="{{$item->id}}">{{$item->dname}}</option>
+                      
+                            @endforeach
+                      
+                          </select>
                         </div>
-
-                        <div class="col-6 mt-5 ">
-                            <label for="exampleInputbranchName" class="form-label"><h5>Branch Name</h5></label>
-                            <input type="text" name="bname" class="form-control" id="examplebranchName">
-                        </div>
+                        
+                      <div class="col-6 mt-5">
+                        <select name="branches_id" class="form-control form-control">
+                          <option>Select Branch</option>
+                      
+                          @foreach ($branches as $item)
+                      
+                          <option  value="{{$item->id}}">{{$item->name}}</option>
+                      
+                          @endforeach
+                      
+                        </select>
+                      </div>
                         
                         <div class="  pt-2">
                           <button type="submit" class="btn btn-success">Submit</button>

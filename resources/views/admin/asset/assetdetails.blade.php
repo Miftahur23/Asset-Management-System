@@ -22,9 +22,11 @@
                         
                         <div class>
                         <p><b>Name: {{$details->asset_name}}</b></p>
-                        <p><b>Quantity: {{$details->categories_id}}</b></p>
+                        <p><b>Category: {{$details->categories->name}}</b></p>
+                        <p><b>Quantity: {{$details->quantity}}</b></p>
                         <p><b>Price: {{$details->cost}}</b></p>
                         <p><b>Decription: {{$details->description}}</b></p>
+                        <p><b>Purchased Date: {{$details->created_at}}</b></p>
 
                         </div>
 

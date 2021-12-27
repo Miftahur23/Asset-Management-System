@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\EmploginpageController;
-use App\Http\Controllers\EmpregformController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Req;
 
@@ -22,11 +20,11 @@ use App\Http\Controllers\Req;
 |
 */
 
-Route::get('/userlogin',[UserController::class,'UserLogin'])->name('userloginpage');
+
 
 Route::get('/adminlogin',[UserController::class,'AdminLogin'])->name('adminloginpage');
-Route::post('/userloggedin',[UserController::class,'LoggedIn'])->name('loggedin');
 
+Route::post('/adminloggedin',[UserController::class,'AdminLoggedIn'])->name('loggedin');
 Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
 
@@ -69,9 +67,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/dashboard',[AdminController::class,'Dashboard'])->name('admin.dashboard');
 
-    // Route::get('/produclist', [AdminController::class, 'ProductForm'])->name('show.productform');
-    // Route::post('/entrydone', [AdminController::class, 'ProductEntry'])->name('product.entry');
-    
     //Employee
 
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
@@ -88,7 +83,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
     Route::get('/branchedit/{edit_id}',[AdminController::class, 'EditBranch'])->name('edit.branch');
+
     Route::patch('/branchedited/{edited_id}',[AdminController::class, 'EditedBranch'])->name('edited.branch');
+    
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
     Route::get('/branchdeleted/{branch_id}',[AdminController::class, 'DelBranch'])->name('delete.branch');
 
@@ -134,13 +131,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
 Route::prefix('emp')->group(function () {
 
-    Route::get('/loginpage',[EmploginpageController::class,'Emploginpage'])->name('Emplogin');
-    Route::post('/loginpage',[EmploginpageController::class,'Emplogininfo'])->name('Emplogindone');
-    Route::get('/regform',[EmpregformController::class,'Empregform'])->name('Empreg');
-    Route::post('/regdone',[EmpregformController::class,'Empregdone'])->name('Empregdone');
-    Route::get('/have-an-account',[EmpregformController::class,'AlreadyHaveAnAccount']);
+    Route::get('/regform',[EmployeeController::class,'Empregform'])->name('Empreg');
+    Route::post('/regdone',[EmployeeController::class,'Empregdone'])->name('Empregdone');
+    Route::get('/have-an-account',[EmployeeController::class,'AlreadyHaveAnAccount']);
     
-    Route::get('/empassetlist', [EmploginpageController::class, 'EmpShowAsset'])->name('emp.show.asset');
+    Route::get('/empassetlist', [EmployeeController::class, 'EmpShowAsset'])->name('emp.show.asset');
 });
 
 

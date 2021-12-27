@@ -48,13 +48,7 @@ class UserController extends Controller
         
     }
 
-    public function UserLogin()
-    {
-        
-        return view('admin.user.userlogin');
-    }
-
-    public function LoggedIn(Request $req)
+    public function AdminLoggedIn(Request $req)
     {
         // @dd($req->all());
 

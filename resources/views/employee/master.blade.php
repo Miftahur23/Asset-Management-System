@@ -43,7 +43,7 @@
 
                                 {{-- contents --}}
                                 
-                                @yield('assetlist')
+                                @yield('content')
 
                             </div>
                         </div>

@@ -22,17 +22,5 @@ class HomeController extends Controller
         return view ('admin.firstpage');
     }
 
-    public function AccountStore(Request $request)
-    {
-        dd($request->all());
-        // Account::create([
-
-        //      'name'=>$request->name,
-        //      'email'=>$request->email,
-        //      'password'=>$request->password
-            
-        //  ]);
-
-        // return redirect()->back();
-    }
+    
 }

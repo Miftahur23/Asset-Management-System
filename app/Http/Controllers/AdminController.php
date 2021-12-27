@@ -174,8 +174,9 @@ class AdminController extends Controller
 
     public function CreateDistribution()
     {
-
-        return view('admin.distribution.distform');
+        $branches=Branch::all();
+        $departments=Department::all();
+        return view('admin.distribution.distform', compact ('branches','departments'));
     }
         
 
@@ -184,15 +185,15 @@ class AdminController extends Controller
         $request->validate([
             'asset_name'=>'required',
             'quantity'=>'required',
-            'dname'=>'required',
-            'bname'=>'required'
+            'departments_id'=>'required',
+            'branches_id'=>'required'
         ]);
 
         Distribution::create([
                 'asset_name'=>$request->asset_name,
                 'quantity'=>$request->quantity,
-                'department'=>$request->dname,
-                'branch'=>$request->bname 
+                'departments_id'=>$request->departments_id,
+                'branches_id'=>$request->branches_id
              ]);
         
              return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');

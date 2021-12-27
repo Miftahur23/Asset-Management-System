@@ -9,4 +9,14 @@ class Distribution extends Model
 {
     use HasFactory;
     protected $guarded=[];
+
+    public function branches()
+    {
+        return $this-> belongsTo(Branch::class);
+    }
+
+    public function departments()
+    {
+        return $this-> belongsTo(Department::class);
+    }
 }

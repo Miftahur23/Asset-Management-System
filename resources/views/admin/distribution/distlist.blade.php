@@ -50,8 +50,8 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
-                                <td>{{$item->department}}</td>
-                                <td>{{$item->branch}}</td>
+                                <td>{{$item->departments->dname}}</td>
+                                <td>{{$item->branches->name}}</td>
 
                             
 

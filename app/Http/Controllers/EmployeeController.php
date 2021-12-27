@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AssetInfo;
 use App\Models\EmployeeInfo;
 use App\Models\Branch;
 use App\Models\Department;
 
-
-
-class EmpregformController extends Controller
+class EmployeeController extends Controller
 {
+
     public function Empregform()
     {
         $branches=Branch::all();
@@ -61,5 +61,21 @@ class EmpregformController extends Controller
         ]);
 
         return redirect('/admin/employeelist')->with('success', 'Emplopyee Registered');
+    
+    
     }
+
+    public function EmpShowAsset(){
+        
+        //dd($data);
+
+        $empassetdata=AssetInfo::all();
+        
+        return view ('employee.asset.assetlist', compact('empassetdata'));
+
+    }
+
+
 }
+
+

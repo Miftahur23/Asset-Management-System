@@ -17,8 +17,8 @@ class CreateDistributionsTable extends Migration
             $table->id();
             $table->string('asset_name');
             $table->double('quantity');
-            $table->string('department_id');
-            $table->string('branch');
+            $table->string('departments_id');
+            $table->string('branches_id');
             $table->timestamps();
         });
     }
