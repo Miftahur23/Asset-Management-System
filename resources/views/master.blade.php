@@ -3,6 +3,7 @@
     <head>
         <link href="/css/datatable.css" rel="stylesheet" />
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <title>Manage Assets</title>
         <script src="/js/fontawsome.js"></script>
     </head>
 

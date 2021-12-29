@@ -40,6 +40,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Asset Image</th>
                                 <th scope="col">Asset Name</th>
+                                <th scope="col">Category</th>
                                 <th scope="col">Action</th>
 
                                 {{-- <th scope="col">Asset ID</th>
@@ -66,9 +67,11 @@
 
                                 
                                 <td>{{$item->asset_name}}</td>
+                                <td>{{$item->categories->name}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">Details</a>
                                     <a class="btn btn-success" href="{{route('create.request')}}">Request</a>
+                                    <a class="btn btn-warning" href="{{route('edit.asset',$item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.asset', $item->id)}}">Delete</a>
 
                                 </td>

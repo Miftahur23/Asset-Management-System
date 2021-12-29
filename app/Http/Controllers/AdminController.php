@@ -257,10 +257,7 @@ class AdminController extends Controller
 
         $request->validate([
             'asset_name'=>'required',
-            'asset_id'=>'required',
-            'quantity'=>'required',
             'cost'=>'required',
-            'serial_no'=>'required'
 
         ]);
 
@@ -280,12 +277,9 @@ class AdminController extends Controller
                  }
 
         Assetinfo::create([
-                  'asset_name'=>$request->asset_name,
-                  'asset_id'=>$request->asset_id,
-                  'quantity'=>$request->quantity, 
+                  'asset_name'=>$request->asset_name, 
                   'cost'=>$request->cost,
                   'description'=>$request->description,
-                  'serial_no'=>$request->serial_no,
                   'categories_id'=>$request->categoriesid, 
                   'image'=>$image_name
                ]);
@@ -324,13 +318,44 @@ class AdminController extends Controller
     }
 
 
-    
-
     public function DeleteAsset($delasset)
     {
         AssetInfo::find($delasset)->delete();
 
         return redirect()->back()->with('delete', 'Asset deleted');
+    }
+
+    
+
+    public function EditAsset($editasset)
+    {
+        $edit=AssetInfo::find($editasset);
+
+        //return redirect()->back()->with('delete', 'Asset deleted');
+        $category= Category::all();
+        return view('admin.asset.edit', compact('category'), compact('edit'));
+    }
+
+    public function EditedAsset($editasset)
+    {
+        $edit=AssetInfo::find($editasset);
+
+        $image_name=$edit->image;
+
+                //checking if image exist in this request.
+
+                 if($request->hasFile('product_image'))
+                 {
+                     //generating file name
+                     $image_name=date('Ymdhis') .'.'. $request->file('product_image')->getClientOriginalExtension();
+
+                     //storing into project directory
+
+                     $request->file('product_image')->storeAs('/products',$image_name);
+
+                 }
+
+
     }
 
     

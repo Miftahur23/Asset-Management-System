@@ -22,7 +22,7 @@
                         
                         <div class>
                         <p><b>Name: {{$details->asset_name}}</b></p>
-                        <p><b>Category: {{$details->categories->name}}</b></p>
+                        {{-- <p><b>Category: {{$details->categories->name}}</b></p> --}}
                         <p><b>Quantity: {{$details->quantity}}</b></p>
                         <p><b>Price: {{$details->cost}}</b></p>
                         <p><b>Decription: {{$details->description}}</b></p>

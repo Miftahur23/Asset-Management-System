@@ -38,7 +38,7 @@
                         
                         <div class="col-6 mt-5 ">
                             <label for="exampleInputName" class="form-label"><h5>Asset Name</h5></label>
-                            <input type="text" name="name" class="form-control" id="exampleInputName">
+                            <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="exampleInputName">
                         </div>
 
                         <div class="col-6 mt-5 ">

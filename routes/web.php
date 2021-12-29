@@ -49,7 +49,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
     Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
-    Route::get('deleteasset/{asset_id}', [AdminController::class, 'DeleteAsset'])->name(('delete.asset'));
+    Route::get('/deleteasset/{asset_id}', [AdminController::class, 'DeleteAsset'])->name(('delete.asset'));
+    Route::get('/editasset/{asset_id}', [AdminController::class, 'EditAsset'])->name(('edit.asset'));
+    Route::put('/editedasset/{asset_id}', [AdminController::class, 'EditedAsset'])->name(('edited.asset'));
 
     Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
     
@@ -82,8 +84,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
+    
     Route::get('/branchedit/{edit_id}',[AdminController::class, 'EditBranch'])->name('edit.branch');
-
     Route::patch('/branchedited/{edited_id}',[AdminController::class, 'EditedBranch'])->name('edited.branch');
     
     Route::post('/branchinserted',[AdminController::class, 'StoreBranch'])->name('store.branch');
