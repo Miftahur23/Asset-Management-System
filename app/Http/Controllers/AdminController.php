@@ -301,6 +301,17 @@ class AdminController extends Controller
         
         //dd($data);
 
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $assets = AssetInfo::with('category')
+                ->where('asset_name','LIKE','%'.$key.'%')
+                ->orWhere('category','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.asset.assetlist',compact('assets','key'));
+        }
+
         $assetdata=Assetinfo::all();
         
         return view ('admin.asset.assetlist', compact('assetdata'));
