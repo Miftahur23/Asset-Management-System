@@ -17,6 +17,7 @@ class CreateReqsTable extends Migration
             $table->id();
             $table->string('asset_name');
             $table->double('quantity');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

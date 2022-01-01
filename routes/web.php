@@ -22,10 +22,10 @@ use App\Http\Controllers\Req;
 
 
 
-Route::get('/adminlogin',[UserController::class,'AdminLogin'])->name('adminloginpage');
+Route::get('/login',[UserController::class,'Login'])->name('loginpage');
 
-Route::post('/adminloggedin',[UserController::class,'AdminLoggedIn'])->name('loggedin');
-Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
+Route::post('/loggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+//Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
 
 
@@ -40,7 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     });
 
     //logout
-
+    Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
     Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
 
 
@@ -109,10 +109,11 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     //Request 
 
     Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
-    Route::get('/requestform', [AdminController::class, 'CreateRequest'])->name('create.request');
+    Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->name('create.request');
     Route::post('/storerequest', [AdminController::class, 'StoreRequest'])->name('store.request');
-    Route::get('/viewrequest', [AdminController::class, 'ViewRequest'])->name('view.request');
-    // Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
+
+    Route::get('/viewrequest/{viewreq_id}', [AdminController::class, 'ViewRequest'])->name('view.request');
+    Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
 
     //Distribution 
 
@@ -131,7 +132,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
 });
 
-Route::prefix('emp')->group(function () {
+Route::prefix('employee')->group(function () {
 
     Route::get('/regform',[EmployeeController::class,'Empregform'])->name('Empreg');
     Route::post('/regdone',[EmployeeController::class,'Empregdone'])->name('Empregdone');
@@ -141,12 +142,12 @@ Route::prefix('emp')->group(function () {
 });
 
 
-Route::get('/firstloginpage',[HomeController::class,'Firstpage'])->name('firstloginpage');
+Route::get('/',[HomeController::class,'Firstpage'])->name('firstloginpage');
 
 //goja-mil
 
-Route::get('/admin/home',[HomeController::class,'Homepage'])->name('Homepage');
-Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
+
+//Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
 
 
 

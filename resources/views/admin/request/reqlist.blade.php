@@ -34,8 +34,8 @@
                                     <th scope="col">Requested By</th>
                                     {{-- <th scope="col">Department</th>
                                     <th scope="col">Branch</th> --}}
-                                    <th scope="col">Action</th>
                                     <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -48,13 +48,30 @@
                                     <td>{{Auth::User()->name}}</h6></td>
 
                                     <td>
-                                        <a class="btn btn-warning" href="#">Accept<a>
-                                        <a class="btn btn-warning" href="#">Reject</a>
+                                    @if ($item->status=='Pending')
+                                        <a class="btn btn-warning" href="{{route('view.request',$item->id)}}">Pending</a>
+                                   
+                                    @elseif($item->status=='Confirmed')
+                                        <a class="btn btn-warning" href="#">Confirmed</a>
+
+                                    @else
+                                        <a class="btn btn-warning" href="#">Pending<a>
+                                    @endif
                                     </td>
 
                                     <td>
-                                        <a class="btn btn-warning" href="{{route('view.request')}}">Pending</a>
+                                        @if ($item->status=='Pending')
+                                            <a class="btn btn-warning" href="#">Accept<a>
+                                            <a class="btn btn-warning" href="#">Reject<a>  
+                                        @elseif($item->status=='Confirmed')
+    
+                                        @else
+                                            <a class="btn btn-warning" href="{{route('view.request',$item->id)}}">Pending<a>
+                                            <a class="btn btn-warning" href="#">Confirmed<a>
+                                        @endif
                                     </td>
+
+                                    
 
                                     
                                   </tr>

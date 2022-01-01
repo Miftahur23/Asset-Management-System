@@ -6,6 +6,23 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
 
+                    <form action="{{route('show.asset')}}" method="GET">
+                        <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-success">Search</button>
+                            </div>
+                        </div>
+                        </form>
+                        @if($key)
+                        <h4>
+                            Your are searching for: {{$key}}. found: {{$assets->count()}}
+                        </h4>
+                        @endif
+
                             <div class="page-title-wrapper">
                                     <div class="page-title-heading">
                                         <h2>Asset List</h2> 
@@ -56,7 +73,7 @@
                             </thead>
                             <tbody>
                         
-                              @foreach ($assetdata as $key=>$item)
+                              @foreach ($assets as $key=>$item)
                               <tr>
                                 {{-- @dd($data)->all(); --}}
                                 <td>{{$key+1}}</td>
@@ -70,21 +87,11 @@
                                 <td>{{$item->categories->name}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">Details</a>
-                                    <a class="btn btn-success" href="{{route('create.request')}}">Request</a>
+                                    <a class="btn btn-success" href="{{route('create.request',$item->id)}}">Request</a>
                                     <a class="btn btn-warning" href="{{route('edit.asset',$item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.asset', $item->id)}}">Delete</a>
 
                                 </td>
-
-
-                                {{-- <td>{{$item->asset_id}}</td>
-                                <td>{{$item->categories->name}}</td>
-                                <td>{{$item->quantity}}</td>
-                                <td>{{$item->cost}}</td>
-                                <td>{{$item->created_at}}</td>
-                                <td>{{$item->description}}</td>
-                                <td>{{$item->serial_no}}</td> --}}
-                                
                                 
                               </tr>
                               @endforeach 

@@ -124,9 +124,12 @@ class AdminController extends Controller
         return view('admin.request.reqlist', compact ('data'));
     }
 
-    public function CreateRequest()
+    public function CreateRequest($req)
     {
-        return view('admin.request.reqform');
+
+        $request=Req::find($req);
+
+        return view('admin.request.reqform',compact('request'));
     }
 
     public function StoreRequest(Request $req)
@@ -146,22 +149,27 @@ class AdminController extends Controller
           return redirect()->route('show.reqlist')->with('success', 'Asset Requested');
     }
 
-    public function ViewRequest()
+    public function ViewRequest($viewreq)
     {
+        $request=Req::find($viewreq);
 
-            return view('admin.request.confirmreq');
+        if ($request) 
+        {
+            
+            return view('admin.request.confirmreq',compact('request'));
 
         }
+    }
     
 
-    // public function ConfirmRequest(Request $req, $id)
-    // {
-    //     Req::find($id)->update([
-    //         'status'=>$request->status
-    //     ]);
+    public function ConfirmRequest(Request $viewreq, $id)
+    {
+        Req::find($id)->update([
+            'status'=>$viewreq->status
+        ]);
 
-    //     return view('admin.request.confirmreq');
-    // }
+        return view('admin.request.confirmreq');
+    }
 
     
 
@@ -305,16 +313,16 @@ class AdminController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $assets = AssetInfo::with('category')
+            $assets = AssetInfo::with('categories')
                 ->where('asset_name','LIKE','%'.$key.'%')
-                ->orWhere('category','LIKE','%'.$key.'%')
+               //->orWhere('','LIKE','%'.$key.'%')
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
+        $assets = Assetinfo::with('categories')->get();
+        return view('admin.asset.assetlist',compact('assets','key'));
 
-        $assetdata=Assetinfo::all();
         
-        return view ('admin.asset.assetlist', compact('assetdata'));
 
     }
 
@@ -344,10 +352,11 @@ class AdminController extends Controller
 
         //return redirect()->back()->with('delete', 'Asset deleted');
         $category= Category::all();
+
         return view('admin.asset.edit', compact('category'), compact('edit'));
     }
 
-    public function EditedAsset($editasset)
+    public function EditedAsset(Request $request, $editasset)
     {
         $edit=AssetInfo::find($editasset);
 
@@ -365,6 +374,19 @@ class AdminController extends Controller
                      $request->file('product_image')->storeAs('/products',$image_name);
 
                  }
+
+                 $edit->update([
+                    'asset_name'=>$request->asset_name, 
+                    'cost'=>$request->cost,
+                    'description'=>$request->description,
+                    'categories_id'=>$request->categoriesid, 
+                    'image'=>$image_name
+                 ]);
+
+
+                 return redirect()->route('show.asset')->with('success', 'Asset Edited Successfully');
+
+                 
 
 
     }

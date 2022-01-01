@@ -41,14 +41,14 @@ class UserController extends Controller
         return redirect()->route('firstloginpage')->with('logoutmessage','Logged Out');
     }
 
-    public function AdminLogin()
+    public function Login()
     {
         
         return view('admin.user.adminlogin');
         
     }
 
-    public function AdminLoggedIn(Request $req)
+    public function LoggedIn(Request $req)
     {
         // @dd($req->all());
 
@@ -65,7 +65,7 @@ class UserController extends Controller
                 
             }
 
-            return redirect()->route('EmployeeHomepage')->with('loginmessage','Logged In');
+            return redirect()->route('Homepage')->with('loginmessage','Logged In');
         }  
         else
         {

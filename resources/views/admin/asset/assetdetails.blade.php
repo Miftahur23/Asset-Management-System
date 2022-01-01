@@ -4,7 +4,7 @@
         
                      
                     
-                <div id="divToPrint">
+                <div id="AssetPrint">
 
                     <div class="app-inner-layout app-inner-layout-page">
                         {{-- table  --}}
@@ -25,7 +25,7 @@
 
                 </div>
 
-                <button class="btn btn-primary" type="submit" onClick="PrintDiv('divToPrint');" value="Print">Print</button>
+                <button class="btn btn-primary" type="submit" onClick="PrintDiv('AssetPrint');" value="Print">Print</button>
 
                     
 
@@ -46,4 +46,4 @@
         window.print();
         document.body.innerHTML = originalContents;
     }
-</script>
+    </script>

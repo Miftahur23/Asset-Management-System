@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Account;
 
 class HomeController extends Controller
 {
@@ -12,10 +11,10 @@ class HomeController extends Controller
         return view ('admin.homepage');
     }
 
-    public function EmployeeHomepage()
-    {
-        return view('employee.master');
-    }
+    // public function EmployeeHomepage()
+    // {
+    //     return view('employee.master');
+    // }
 
     public function Firstpage()
     {

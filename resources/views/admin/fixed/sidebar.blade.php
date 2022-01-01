@@ -1,5 +1,5 @@
 {{-- sidebar --}}
-
+@if(auth()->user()->role=='admin')
 <a class="nav-link" href="{{url('/admin/home')}}">
     Home
 </a>
@@ -19,6 +19,8 @@
         <a class="nav-link" href="{{route('show.emplogininfo')}}">Employee Login Info</a>
     </nav>
 </div>
+
+@endif
 
 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAssets" aria-expanded="false" aria-controls="collapseAssets">
     Assets

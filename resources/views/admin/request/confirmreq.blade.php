@@ -32,8 +32,8 @@
 
 
 
-                      <center><form action="#" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
-
+                      <center><form action="{{route('confirm.request',$request->id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                        @method('PUT')
                         @csrf
                         
                         <div class="col-6 mt-5 ">
@@ -48,12 +48,12 @@
 
                         <select class="form-select col-6 mt-3" aria-label="Default select example">
                           <option selected>Select</option>
-                          <option value="1">Accept</option>
-                          <option value="2">Reject</option>
+                          <option value="Confirmed">Accept</option>
+                          <option value="Pending">Reject</option>
                         </select>
                         
                         <div class=" m-auto pt-5">
-                          <button type="submit" class="btn btn-success">Confirm</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                         </form></center>      
                         {{-- table  --}}

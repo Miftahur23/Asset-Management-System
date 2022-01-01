@@ -32,8 +32,8 @@
 
 
 
-                      <center><form action="{{route('store.request')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
-
+                      <center><form action="{{route('store.request',$request)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                        
                         @csrf
                         
                         <div class="col-6 mt-5 ">

@@ -28,7 +28,7 @@
                           Login/Signup
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{{route('adminloginpage')}}">Login</a></li>
+                          <li><a class="dropdown-item" href="{{route('loginpage')}}">Login</a></li>
                           <li><a class="dropdown-item" href="{{route('usersignup')}}">Signup</a></li>
                         </ul>
                     </div>

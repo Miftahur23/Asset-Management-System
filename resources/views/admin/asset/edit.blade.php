@@ -38,7 +38,7 @@
               </div>
   @endif
 
-                  <form action="{{route('edited.asset'),$edit->id}}" method="POST" class="row" enctype="multipart/form-data">
+                  <form action="{{route('edited.asset',$edit->id)}}" method="POST" class="row" enctype="multipart/form-data">
 
                     @method('PUT')
                     @csrf
