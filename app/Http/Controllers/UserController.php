@@ -65,7 +65,7 @@ class UserController extends Controller
                 
             }
 
-            return redirect()->route('Homepage')->with('loginmessage','Logged In');
+            return redirect()->route('EmpHomepage')->with('loginmessage','Logged In');
         }  
         else
         {

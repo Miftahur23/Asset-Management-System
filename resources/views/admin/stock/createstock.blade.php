@@ -1,10 +1,5 @@
-{{-- <style>
-  body {
-    background-image: url('media/fpimg.jpg');
-  }
-  </style> --}}
-  @extends('master')  
-    @section('content')
+@extends('master')  
+@section('content')
         
    
            
@@ -15,7 +10,7 @@
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
-                                 <h1>Distribute Assets</h1> 
+                                 <h1>Create Stock</h1> 
                                 </div>       
                             </div>
                         </div>
@@ -37,9 +32,9 @@
 
 
 
-                      <center><form action="{{route('store.distribution')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                      <center><form action="{{route('store.stock')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
-                        {{-- {{route('store.distribution')}} --}}
+                        
 
                         @csrf
 
@@ -60,32 +55,13 @@
                             <label for="exampleInputquantity" class="form-label"><h5>Quantity</h5></label>
                             <input type="number" name="quantity" class="form-control" id="exampleInputquantity">
                         </div>
-                        
-                        <div class="col-6 mt-5">
-                          <select name="departments_id" class="form-control form-control">
-                            <option>Select Department</option>
-                      
-                            @foreach ($departments as $item)
-                      
-                            <option  value="{{$item->id}}">{{$item->dname}}</option>
-                      
-                            @endforeach
-                      
-                          </select>
+
+                        <div class="col-6 mt-2 ">
+                            <label for="exampleInputstock" class="form-label"><h5>Location</h5></label>
+                            <input type="text" name="location" class="form-control" id="exampleInputstock">
                         </div>
                         
-                      <div class="col-6 mt-5">
-                        <select name="branches_id" class="form-control form-control">
-                          <option>Select Branch</option>
-                      
-                          @foreach ($branches as $item)
-                      
-                          <option  value="{{$item->id}}">{{$item->name}}</option>
-                      
-                          @endforeach
-                      
-                        </select>
-                      </div>
+                        
                         
                         <div class="  pt-2">
                           <button type="submit" class="btn btn-success">Submit</button>

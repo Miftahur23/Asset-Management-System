@@ -7,9 +7,16 @@ use App\Models\AssetInfo;
 use App\Models\EmployeeInfo;
 use App\Models\Branch;
 use App\Models\Department;
+use App\Models\User;
 
 class EmployeeController extends Controller
 {
+
+    public function EmpHomepage()
+    {
+        
+        return view ('admin.homepage');
+    }
 
     public function Empregform()
     {
@@ -47,9 +54,22 @@ class EmployeeController extends Controller
 
                  }
 
+                 User::create([
+
+                    'email'=>$empinfo->email,
+                    'name'=>$empinfo->fname,
+                    'password'=>bcrypt($empinfo->password)
+
+                 ]);
+
+                 $lastuser=User::orderBy('created_at','desc')->first();
+                 $user=User::where('id',$lastuser)->get();
+                 //dd($lastuser);
+
+
         EmployeeInfo::create([
             'employee_image'=>$image_name,
-            'fname'=>$empinfo->fname,
+            'user_id'=>$lastuser->id,
             'lname'=>$empinfo->lname,
             'email'=>$empinfo->email,
             'password'=>$empinfo->password,

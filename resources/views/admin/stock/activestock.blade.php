@@ -11,7 +11,14 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                  <h2>Active Asset Infos</h2> 
-                                </div>      
+                                </div> 
+                                
+                                <div class="page-title-actions"> 
+                                    <a href="{{route('create.stock')}}" type="button" class="btn btn-success">
+                                        Create Stock
+                                    </a>
+                                </div> 
+
                             </div>
                         </div>
                     </div>               
@@ -33,22 +40,23 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
-                                <th scope="col">Department</th>
-                                <th scope="col">Branch</th>
+                                <th scope="col">Location</th>
                                 
                               </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                         
-                              @foreach ($departments as $key=>$item)
+                              @foreach ($stock as $key=>$item)
                               <tr>
                                 
                                 <td>{{$key+1}}</td>
-                                <td>{{$item->dname}}</td>
+                                <td>{{$item->asset->asset_name}}</td>
+                                <td>{{$item->quantity}}</td>
+                                <td>{{$item->location}}</td>
                                 
                               </tr>
                               @endforeach 
-                            </tbody> --}}
+                            </tbody>
                         </table> </div>
                     </div>
                 </div>

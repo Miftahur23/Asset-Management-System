@@ -30,11 +30,14 @@
 <div class="collapse" id="collapseAssets" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
         <a class="nav-link" href="{{route('show.asset')}}">Asset List</a>
+
+        @if(auth()->user()->role=='admin')
         <a class="nav-link" href="{{route('show.category')}}">Asset Category</a>
         <a class="nav-link" href="{{route('show.asset.condition')}}">Asset Condition</a>
+        @endif
     </nav>
 </div>
-
+@if(auth()->user()->role=='admin')
 <a class="nav-link" href="{{route('show.branch')}}">
     Branch
 </a>
@@ -42,11 +45,11 @@
 <a class="nav-link" href="{{route('show.department')}}">
     Department
 </a>
-
+@endif
 <a class="nav-link" href="{{route('show.reqlist')}}">
     Requests
 </a>
-
+@if(auth()->user()->role=='admin')
 <a class="nav-link" href="{{route('show.distribution')}}">
     Distribution 
 </a>
@@ -71,6 +74,8 @@
 <a class="nav-link" href="{{route('show.report')}}">
     Report
 </a>
+
+@endif
 
 
 

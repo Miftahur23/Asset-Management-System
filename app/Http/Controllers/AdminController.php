@@ -14,6 +14,8 @@ use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Stock;
 
+use Illuminate\Support\Facades\Auth;
+
 
 class AdminController extends Controller
 {
@@ -127,7 +129,9 @@ class AdminController extends Controller
     public function CreateRequest($req)
     {
 
-        $request=Req::find($req);
+        $request=AssetInfo::find($req);
+
+        //dd($request);
 
         return view('admin.request.reqform',compact('request'));
     }
@@ -143,10 +147,12 @@ class AdminController extends Controller
  
          Req::create([
              'asset_name'=>$req->name,
-             'quantity'=>$req->quantity
+             'requested_by'=>Auth::user()->name,
+             'quantity'=>$req->quantity,
+            //  'status'=>"Requested",
           ]);
  
-          return redirect()->route('show.reqlist')->with('success', 'Asset Requested');
+          return redirect()->route('show.asset')->with('success', 'Asset Requested');
     }
 
     public function ViewRequest($viewreq)
@@ -182,23 +188,24 @@ class AdminController extends Controller
 
     public function CreateDistribution()
     {
+        $asset=AssetInfo::all();
         $branches=Branch::all();
         $departments=Department::all();
-        return view('admin.distribution.distform', compact ('branches','departments'));
+        return view('admin.distribution.distform', compact ('asset','branches','departments'));
     }
         
 
     public function StoreDistribution(Request $request)
     {
         $request->validate([
-            'asset_name'=>'required',
+            'asset_id'=>'required',
             'quantity'=>'required',
             'departments_id'=>'required',
             'branches_id'=>'required'
         ]);
 
         Distribution::create([
-                'asset_name'=>$request->asset_name,
+                'asset_id'=>$request->asset_id,
                 'quantity'=>$request->quantity,
                 'departments_id'=>$request->departments_id,
                 'branches_id'=>$request->branches_id
@@ -216,7 +223,8 @@ class AdminController extends Controller
 
     public function ShowActiveStock()
     {
-        return view('admin.stock.activestock');
+        $stock=Stock::all();
+        return view('admin.stock.activestock',compact('stock'));
     }
 
     public function ShowDamageStock()
@@ -226,12 +234,27 @@ class AdminController extends Controller
 
     public function CreateStock()
     {
-        return 'ok';
+        
+        $asset=AssetInfo::all();
+        return view('admin.stock.createstock',compact('asset'));
     }
 
-    public function StoreStock()
+    public function StoreStock(Request $request)
     {
-        return 'ok';
+        $request->validate([
+            'asset_id'=>'required',
+            'quantity'=>'required',
+            'location'=>'required',
+        ]);
+
+        Stock::create([
+                'asset_id'=>$request->asset_id,
+                'quantity'=>$request->quantity,
+                'location'=>$request->location,
+             ]);
+        
+             return redirect()->route('show.active.stock')->with('success', 'Stock Created Successfully');
+            
     }
 
     
@@ -482,6 +505,20 @@ class AdminController extends Controller
 
         return view('admin.employee.emplogininfo', compact ('data'));
 
+    }
+
+
+    public function UpdateAction($action)
+    {
+        $updateaction=Req::find($action);
+
+        //dd($updateaction->status);
+        //dd(request()->all());
+        $updateaction->update([
+            'status'=>request()->status
+        ]);
+
+        return redirect()->back();
     }
 
     public function ShowReport() {

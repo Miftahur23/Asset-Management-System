@@ -19,6 +19,7 @@ class CreateAssetInfosTable extends Migration
             $table->double('categories_id');
             $table->double('cost');
             $table->string('description');
+            // $table->string('status')->default('Request');
             $table->string('image')->nullable();
             $table->timestamps();
         });

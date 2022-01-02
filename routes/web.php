@@ -103,8 +103,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/activestocks', [AdminController::class, 'ShowActiveStock'])->name('show.active.stock');
     Route::get('/damagestocks', [AdminController::class, 'ShowDamageStock'])->name('show.damage.stock');
-    Route::get('/stockform', [AdminController::class, 'ShowStock'])->name('create.stock');
-    Route::post('/stocks', [AdminController::class, 'ShowStock'])->name('storestock');
+    Route::get('/stockform', [AdminController::class, 'CreateStock'])->name('create.stock');
+    Route::post('/stocks', [AdminController::class, 'StoreStock'])->name('store.stock');
 
     //Request 
 
@@ -114,6 +114,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/viewrequest/{viewreq_id}', [AdminController::class, 'ViewRequest'])->name('view.request');
     Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
+    Route::patch('/updateaction/{action_id}', [AdminController::class, 'UpdateAction'])->name('update.action');
 
     //Distribution 
 
@@ -139,6 +140,7 @@ Route::prefix('employee')->group(function () {
     Route::get('/have-an-account',[EmployeeController::class,'AlreadyHaveAnAccount']);
     
     Route::get('/empassetlist', [EmployeeController::class, 'EmpShowAsset'])->name('emp.show.asset');
+    Route::get('/home', [EmployeeController::class, 'EmpHomepage'])->name('EmpHomepage');
 });
 
 

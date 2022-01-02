@@ -27,12 +27,14 @@
                                     <div class="page-title-heading">
                                         <h2>Asset List</h2> 
                                      </div>
+
+                                @if(auth()->user()->role=='admin')
                                 <div class="page-title-actions"> 
                                     <a href="{{route('AssetCreated')}}" type="button" class="btn btn-success">
                                         + Create Asset
                                     </a>
-                                
-                                </div>               
+                                </div>  
+                                @endif             
                     <div class="app-inner-layout app-inner-layout-page">
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
@@ -59,6 +61,7 @@
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Category</th>
                                 <th scope="col">Action</th>
+                                <th scope="col">Status</th>
 
                                 {{-- <th scope="col">Asset ID</th>
                                 <th scope="col">Category</th>
@@ -87,11 +90,18 @@
                                 <td>{{$item->categories->name}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">Details</a>
+                                    
                                     <a class="btn btn-success" href="{{route('create.request',$item->id)}}">Request</a>
+
+                                    @if(auth()->user()->role=='admin')
                                     <a class="btn btn-warning" href="{{route('edit.asset',$item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.asset', $item->id)}}">Delete</a>
+                                    @endif
 
                                 </td>
+
+                                <td></td>
+
                                 
                               </tr>
                               @endforeach 

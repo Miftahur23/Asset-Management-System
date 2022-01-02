@@ -34,8 +34,10 @@
                                     <th scope="col">Requested By</th>
                                     {{-- <th scope="col">Department</th>
                                     <th scope="col">Branch</th> --}}
-                                    <th scope="col">Status</th>
+
                                     <th scope="col">Action</th>
+                                    <th scope="col">Status</th>
+                                    
                                   </tr>
                                 </thead>
                                 <tbody>
@@ -45,30 +47,31 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
-                                    <td>{{Auth::User()->name}}</h6></td>
-
+                                    <td>{{$item->requested_by}}</h6></td>
                                     <td>
-                                    @if ($item->status=='Pending')
-                                        <a class="btn btn-warning" href="{{route('view.request',$item->id)}}">Pending</a>
-                                   
-                                    @elseif($item->status=='Confirmed')
-                                        <a class="btn btn-warning" href="#">Confirmed</a>
+                                        @if($item->status=='Pending')
 
-                                    @else
-                                        <a class="btn btn-warning" href="#">Pending<a>
-                                    @endif
+                                        <form action="{{route('update.action',$item->id)}}" method="POST">
+                                            @method('PATCH')
+                                            @csrf
+                                        <button class="btn btn-success ml-3" name="status" value="Accepted" type='submit'>Accept<a>
+                                        <button class="btn btn-danger mr-3" name="status" value="Rejected" type='submit'>Reject<a>
+                                        
+
+                                        </form>
+                                        @else
+                                        <h6>Action Taken</h6>
+                                        @endif
                                     </td>
 
                                     <td>
-                                        @if ($item->status=='Pending')
-                                            <a class="btn btn-warning" href="#">Accept<a>
-                                            <a class="btn btn-warning" href="#">Reject<a>  
-                                        @elseif($item->status=='Confirmed')
-    
-                                        @else
-                                            <a class="btn btn-warning" href="{{route('view.request',$item->id)}}">Pending<a>
-                                            <a class="btn btn-warning" href="#">Confirmed<a>
-                                        @endif
+                                        @if($item->status=='Pending')
+                                        <a class="btn btn-warning" >{{$item->status}}<a>
+                                            @elseif($item->status=='Accepted')
+                                        <a class="btn btn-success" >{{$item->status}}<a>
+                                            @else
+                                        <a class="btn btn-danger" >{{$item->status}}<a>
+                                            @endif
                                     </td>
 
                                     

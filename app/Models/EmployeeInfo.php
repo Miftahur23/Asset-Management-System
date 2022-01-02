@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class EmployeeInfo extends Model
 {
     use HasFactory;
@@ -19,6 +20,11 @@ class EmployeeInfo extends Model
     public function departments()
     {
         return $this-> belongsTo(Department::class);
+    }
+
+    public function users()
+    {
+        return $this-> belongsTo(User::class,'user_id','id');
     }
 }
 
