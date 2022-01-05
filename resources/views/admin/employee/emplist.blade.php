@@ -76,7 +76,7 @@
                                     <td>{{$item->pnumber}}</td>
                                     <td>
                                         <a class="btn btn-primary" href="{{route('details.emp', $item->id)}}">Details</a>
-                                        <a class="btn btn-warning" href="#">Edit</a>
+                                        <a class="btn btn-warning" href="{{route('edit.emp',$item->id)}}">Edit</a>
                                         <a class="btn btn-danger" href="{{route('delete.emp', $item->id)}}">Delete</a>
     
                                     </td>

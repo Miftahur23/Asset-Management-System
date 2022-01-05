@@ -63,6 +63,9 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/categoryform',[AdminController::class, 'CreateCategory'])->name('create.category');
     Route::post('/categoryinserted',[AdminController::class, 'StoreCategory'])->name('store.category');
 
+
+    Route::get('/editcategory/{category_id}',[AdminController::class, 'EditCategory'])->name('edit.category');
+    Route::patch('/updatecategory/{category_id}',[AdminController::class, 'UpdateCategory'])->name('update.category');
     Route::get('/deletecategory/{category_id}',[AdminController::class, 'DeleteCategory'])->name('delete.category');
 
     //Dashboard
@@ -75,6 +78,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
     Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
     Route::get('/empdelete/{delete_id}', [AdminController::class, 'DeleteEmployee'])->name('delete.emp');
+    Route::get('/empedit/{edit_id}', [AdminController::class, 'EditEmployee'])->name('edit.emp');
+    Route::put('/empupdate/{update_id}', [AdminController::class, 'UpdateEmployee'])->name('update.emp');
     
     
 

@@ -5,9 +5,11 @@
     @if(auth()->user()->role=='admin')
     <a class="navbar-brand ps-3" href="index.html">Admin</a>
 
-    @endif
+    @else
 
     <a class="navbar-brand ps-3" href="index.html">{{Auth::User()->name}}</a>
+
+    @endif
 
 
     <!-- Sidebar Toggle-->
@@ -24,19 +26,23 @@
     </form> --}}
     
     <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+    <ul class="navbar-nav" style="margin-left:900px;">
         <li class="nav-item dropdown">
 
 
             @if (Auth::check())
 
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                @if(auth()->user()->role=='admin')
                 <img width="35" class="rounded" src="/media/siam.jpg" alt="">
+                @else
+                {{Auth::User()->name}}
+                @endif
             </a>
 
             
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><h6>{{Auth::User()->name}}</h6></li>
+                <li><a class="dropdown-item" href="#">My Profile</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{{route('logoutpage')}}">Logout</a></li>
             </ul>

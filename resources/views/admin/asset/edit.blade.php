@@ -20,12 +20,6 @@
 
                     <img style="border-radius: 8px;" width="500px;" height="500px;" src=" {{url('/uploads/products/'.$edit->image)}}" alt="product">
 
-  @if(session()->has('success'))
-                  <p class="alert alert-success">
-                    {{session()->get('success')}}
-                  </p>
-  @endif
-
   @if ($errors->any())
               <div class="alert alert-warning" role="alert">
                 <ul>
@@ -61,14 +55,16 @@
                         {{-- <option>Select Category</option> --}}
                   
                         @foreach ($category as $item)
-                        <option  
+
+                              <option  
+
                                 @if($item->id==$edit->categories_id)
-
                                     selected
-
                                 @endif
 
-                                value="{{$item->id}}">{{$item->name}}</option>
+                                value="{{$item->id}}">{{$item->name}}
+
+                              </option>
                         @endforeach
                   
                       </select>

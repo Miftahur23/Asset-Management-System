@@ -7,14 +7,15 @@
                 <div class="app-main__inner">
 
                     <form action="{{route('show.asset')}}" method="GET">
-                        <div class="row">
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
-                            </div>
+                        <div class="row" style="margin-left: 700px">
+                            
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-success">Search</button>
                             </div>
+                            <div class="col">
+                                <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+                            </div>
+                            
                         </div>
                         </form>
                         @if($key)
@@ -62,14 +63,6 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Status</th>
-
-                                {{-- <th scope="col">Asset ID</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Quantity</th>
-                                <th scope="col">Cost</th>
-                                <th scope="col">Purchased Date</th>
-                                <th scope="col">Description</th>
-                                <th scope="col">Serial NO</th> --}}
                                 
                                 
                               </tr>

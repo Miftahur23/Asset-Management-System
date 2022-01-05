@@ -70,6 +70,7 @@ class EmployeeController extends Controller
         EmployeeInfo::create([
             'employee_image'=>$image_name,
             'user_id'=>$lastuser->id,
+            'fname'=>$empinfo->fname,
             'lname'=>$empinfo->lname,
             'email'=>$empinfo->email,
             'password'=>$empinfo->password,

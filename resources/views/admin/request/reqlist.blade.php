@@ -31,11 +31,13 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Asset Name</th>
                                     <th scope="col">Quantity</th>
-                                    <th scope="col">Requested By</th>
-                                    {{-- <th scope="col">Department</th>
-                                    <th scope="col">Branch</th> --}}
 
+                                    @if(auth()->user()->role=='admin')
+
+                                    <th scope="col">Requested By</th>
                                     <th scope="col">Action</th>
+                                    @endif
+
                                     <th scope="col">Status</th>
                                     
                                   </tr>
@@ -47,7 +49,11 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
+
+                                    @if(auth()->user()->role=='admin')
+
                                     <td>{{$item->requested_by}}</h6></td>
+
                                     <td>
                                         @if($item->status=='Pending')
 
@@ -63,6 +69,8 @@
                                         <h6>Action Taken</h6>
                                         @endif
                                     </td>
+
+                                    @endif
 
                                     <td>
                                         @if($item->status=='Pending')

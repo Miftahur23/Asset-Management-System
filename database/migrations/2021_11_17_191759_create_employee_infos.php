@@ -17,6 +17,7 @@ class CreateEmployeeInfos extends Migration
             $table->id();
             $table->string('employee_image')->nullable();
             $table->string('user_id');
+            $table->string('fname');
             $table->string('lname');
             $table->string('email');  
             $table->string('password');

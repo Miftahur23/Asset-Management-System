@@ -338,7 +338,7 @@ class AdminController extends Controller
             $key=request()->search;
             $assets = AssetInfo::with('categories')
                 ->where('asset_name','LIKE','%'.$key.'%')
-               //->orWhere('','LIKE','%'.$key.'%')
+                ->orWhere('categories->name','LIKE','%'.$key.'%')
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
@@ -416,15 +416,10 @@ class AdminController extends Controller
 
     
 
-    public function EmpShowAsset(){
-        
-        //dd($data);
+    
 
-        $data=Assetinfo::all();
-        
-        return view ('employee.asset.assetlist', compact('data'));
+    
 
-    }
 
     public function ShowCategory()
     {
@@ -455,6 +450,23 @@ class AdminController extends Controller
          ]);
 
          return redirect()->route('show.category')->with('success', 'Category Added');
+    }
+
+    public function EditCategory($edit)
+    {
+
+        $category=Category::find($edit);
+        return view('admin.category.edit',compact('category'));
+    }
+
+    public function UpdateCategory($edit)
+    {
+
+        
+        $category=Category::find($edit);
+        $category->update(request()->all());
+        return redirect()->route('show.category')->with('success','Category Updated Successfully');
+
     }
 
     public function DeleteCategory($delcategory){
@@ -490,6 +502,49 @@ class AdminController extends Controller
         return view ('admin.employee.empdetails', compact('details'));
     }
 
+    public function EditEmployee($edit_iddd)
+    {
+        $edit=EmployeeInfo::find($edit_iddd);
+        $department=Department::all();
+        $branch=Branch::all();
+
+        return view('admin.employee.edit', compact('edit','department','branch'));
+    }
+
+    public function UpdateEmployee(Request $request, $update_iddd)
+    
+    {
+        $edit=EmployeeInfo::find($update_iddd);
+
+        $image_name=$edit->image;
+
+        if($request->hasFile('employee_image'))
+
+        {
+
+            $image_name=date('Ymdhis').'.'. $request->file('employee_image')->getClientOriginalExtension();
+
+            $request->file('employee_image')->storeAs('/employee',$image_name);
+        }
+
+        $edit->update([
+
+            'employee_image'=>$image_name,
+            'fname'=>$request->fname,
+            'lname'=>$request->lname,
+            'departments_id'=>$request->departments_id,
+            'branches_id'=>$request->branches_id,
+            'address'=>$request->address,
+            'pnumber'=>$request->pnumber
+
+
+        ]);
+
+    
+
+        return redirect()->route('show.emplist')->with('success', 'Employee Information Updated');
+    }
+
     public function DeleteEmployee($delete_id)
     {
         $delete=EmployeeInfo::find($delete_id)->delete();
@@ -498,14 +553,7 @@ class AdminController extends Controller
     }
 
 
-    public function ShowEmploginfo(){
-
-        //dd($data);
-        $data=Emplogininfo::all();
-
-        return view('admin.employee.emplogininfo', compact ('data'));
-
-    }
+    
 
 
     public function UpdateAction($action)

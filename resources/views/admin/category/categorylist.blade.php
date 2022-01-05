@@ -8,6 +8,22 @@
                 <div class="app-main__inner">
                     <div class="app-page-title">
                         <div class="container fiori-container">
+
+                            <form action="#" method="GET" >
+
+                                <div class="row" style="margin-left: 700px">
+                            
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-success">Search</button>
+                                    </div>
+                                    <div class="col">
+                                        <input value="" type="text" placeholder="Search" name="search" class="form-control">
+                                    </div>
+                                    
+                                </div>
+                            
+                            </form>
+
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                  <h2>Category List</h2> 
@@ -55,7 +71,8 @@
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->details}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="#">Edit</a>
+
+                                    <a class="btn btn-warning" href="{{route('edit.category', $item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.category', $item->id)}}">Delete</a>
                                 </td>
                                 
