@@ -17,7 +17,7 @@
                             </div>
                             
                         </div>
-                        </form>
+                    </form>
                         @if($key)
                         <h4>
                             Your are searching for: {{$key}}. found: {{$assets->count()}}

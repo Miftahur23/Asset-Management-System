@@ -62,6 +62,8 @@ class EmployeeController extends Controller
 
                  ]);
 
+                 //why this
+
                  $lastuser=User::orderBy('created_at','desc')->first();
                  $user=User::where('id',$lastuser)->get();
                  //dd($lastuser);
@@ -86,15 +88,13 @@ class EmployeeController extends Controller
     
     }
 
-    public function EmpShowAsset(){
+    public function Profile()
+    {
         
-        //dd($data);
-
-        $empassetdata=AssetInfo::all();
-        
-        return view ('employee.asset.assetlist', compact('empassetdata'));
-
+       return view('admin.employee.profile');
     }
+
+    
 
 
 }

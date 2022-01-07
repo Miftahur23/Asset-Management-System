@@ -87,8 +87,18 @@ class AdminController extends Controller
 
     public function ShowDepartment()
     {
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $departments = Department::all()
+                ->where('dname','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.department.departmentlist', compact('departments','key'));
+        }
+
         $departments=Department::all();
-        return view ('admin.department.departmentlist', compact('departments'));
+        return view ('admin.department.departmentlist', compact('departments','key'));
     }
     
 
@@ -358,8 +368,6 @@ class AdminController extends Controller
         }
         $assets = Assetinfo::with('categories')->get();
         return view('admin.asset.assetlist',compact('assets','key'));
-
-        
 
     }
 

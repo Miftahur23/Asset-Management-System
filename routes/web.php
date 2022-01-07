@@ -76,7 +76,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/employeelist',[AdminController::class, 'ShowEmpinfo'])->name('show.emplist');
     Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
-    Route::get('/empdetails/{details_id}', [AdminController::class, 'DetailsEmployee'])->name('details.emp');
     Route::get('/empdelete/{delete_id}', [AdminController::class, 'DeleteEmployee'])->name('delete.emp');
     Route::get('/empedit/{edit_id}', [AdminController::class, 'EditEmployee'])->name('edit.emp');
     Route::put('/empupdate/{update_id}', [AdminController::class, 'UpdateEmployee'])->name('update.emp');
@@ -148,8 +147,10 @@ Route::prefix('employee')->group(function () {
     Route::post('/regdone',[EmployeeController::class,'Empregdone'])->name('Empregdone');
     Route::get('/have-an-account',[EmployeeController::class,'AlreadyHaveAnAccount']);
     
-    Route::get('/empassetlist', [EmployeeController::class, 'EmpShowAsset'])->name('emp.show.asset');
     Route::get('/home', [EmployeeController::class, 'EmpHomepage'])->name('EmpHomepage');
+    Route::get('/profile', [EmployeeController::class, 'Profile'])->name('profile');
+
+    
 });
 
 

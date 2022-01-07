@@ -42,7 +42,7 @@
 
             
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                <li><a class="dropdown-item" href="{{route('profile')}}">My Profile</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{{route('logoutpage')}}">Logout</a></li>
             </ul>

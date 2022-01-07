@@ -7,6 +7,26 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     <div class="app-page-title">
+
+                        <form action="{{route('show.department')}}" method="GET">
+                            <div class="row" style="margin-left: 700px">
+                                
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-success">Search</button>
+                                </div>
+                                <div class="col">
+                                    <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
+                                </div>
+                                
+                            </div>
+                        </form>
+
+                        @if($key)
+                        <h4>
+                            Your are searching for: {{$key}}. found: {{$departmens->count()}}
+                        </h4>
+                        @endif
+                        
                         <div class="container fiori-container">
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
