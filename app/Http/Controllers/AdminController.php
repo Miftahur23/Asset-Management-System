@@ -112,6 +112,20 @@ class AdminController extends Controller
         return redirect()->route('show.department')->with('success', 'Department Added');
     }
 
+    public function EditDepartment($editt_id)
+    {
+        //dd($editt_id);
+        $edit=Department::find($editt_id);
+        return view('admin.department.edit',compact('edit'));
+    }
+
+    public function UpdateDepartment($editt_id)
+    {
+        $edit=Department::find($editt_id);
+        $edit->update(request()->all());
+        return redirect()->route('show.department')->with('success','Department Updated Successfully');
+    }
+
     public function DelDepartment($deldept)
     {
         Department::find($deldept)->delete();
@@ -338,7 +352,7 @@ class AdminController extends Controller
             $key=request()->search;
             $assets = AssetInfo::with('categories')
                 ->where('asset_name','LIKE','%'.$key.'%')
-                ->orWhere('categories->name','LIKE','%'.$key.'%')
+                //->orWhere('categories->name','LIKE','%'.$key.'%')
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
@@ -516,7 +530,7 @@ class AdminController extends Controller
     {
         $edit=EmployeeInfo::find($update_iddd);
 
-        $image_name=$edit->image;
+        
 
         if($request->hasFile('employee_image'))
 

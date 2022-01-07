@@ -102,6 +102,10 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     Route::get('/departmentlist',[AdminController::class, 'ShowDepartment'])->name('show.department');
     Route::get('/departmentform',[AdminController::class, 'CreateDepartment'])->name('create.department');
     Route::post('/departmentinsrted',[AdminController::class, 'StoreDepartment'])->name('store.department');
+    
+    Route::get('/departmentedit/{edit_id}',[AdminController::class, 'EditDepartment'])->name('edit.dept');
+    Route::patch('/departmentupdate/{update_id}',[AdminController::class, 'UpdateDepartment'])->name('update.dept');
+
     Route::get('/departmentdeleted/{dept_id}',[AdminController::class, 'DelDepartment'])->name('delete.dept');
 
     //Stocks

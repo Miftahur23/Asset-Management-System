@@ -56,7 +56,7 @@
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->dname}}</td>
                                 <td>
-                                    <a class="btn btn-warning" href="#">Edit</a>
+                                    <a class="btn btn-warning" href="{{route('edit.dept', $item->id)}}">Edit</a>
                                     <a class="btn btn-danger" href="{{route('delete.dept', $item->id)}}">Delete</a>
                                 </td>
                                 
