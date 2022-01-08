@@ -18,11 +18,7 @@
                             
                         </div>
                     </form>
-                        @if($key)
-                        <h4>
-                            Your are searching for: {{$key}}. found: {{$assets->count()}}
-                        </h4>
-                        @endif
+                        
 
                             <div class="page-title-wrapper">
                                     <div class="page-title-heading">
@@ -35,7 +31,17 @@
                                         + Create Asset
                                     </a>
                                 </div>  
-                                @endif             
+                                @endif   
+                                
+                                <br>
+
+                                @if($key)
+                        <h5>
+                            Your are searching for: "{{$key}}" <br>
+                            found: {{$assets->count()}}
+                        </h5>
+                        @endif
+                        
                     <div class="app-inner-layout app-inner-layout-page">
                         {{-- table  --}}
                         {{-- @include('table.table') --}}

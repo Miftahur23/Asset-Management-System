@@ -143,8 +143,16 @@ class AdminController extends Controller
 
     public function ShowRequest()
     {
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $data = Req::where('requested_by','LIKE','%'.$key.'%')
+            ->orWhere('asset_name','LIKE','%'.$key.'%')->get();
+            return view('admin.request.reqlist', compact('data','key'));
+        }
         $data= Req::all();
-        return view('admin.request.reqlist', compact ('data'));
+        return view('admin.request.reqlist', compact ('data','key'));
     }
 
     public function CreateRequest($req)
