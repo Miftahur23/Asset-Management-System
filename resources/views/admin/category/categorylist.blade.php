@@ -9,7 +9,7 @@
                     <div class="app-page-title">
                         <div class="container fiori-container">
 
-                            <form action="#" method="GET" >
+                            <form action="{{route('show.category')}}" method="GET" >
 
                                 <div class="row" style="margin-left: 700px">
                             
@@ -17,12 +17,14 @@
                                         <button type="submit" class="btn btn-success">Search</button>
                                     </div>
                                     <div class="col">
-                                        <input value="" type="text" placeholder="Search" name="search" class="form-control">
+                                        <input value="{{$key}}" type="text" placeholder="Search" name="search" class="form-control">
                                     </div>
                                     
                                 </div>
                             
                             </form>
+
+                            
 
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
@@ -32,7 +34,17 @@
                                     <a href="{{route('create.category')}}" type="button" class="btn btn-success">
                                         + Add Category
                                     </a>
-                                </div>       
+                                </div> 
+                                
+                                <br>
+
+                            @if($key)
+                            <h5>
+                                Your are searching for: "{{$key}}" <br>
+                                Search Results: {{$categories->count()}}
+                            </h5>
+                            @endif
+
                             </div>
                         </div>
                     </div>               

@@ -13,7 +13,6 @@ use App\Models\Distribution;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Stock;
-
 use Illuminate\Support\Facades\Auth;
 
 
@@ -91,9 +90,7 @@ class AdminController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $departments = Department::all()
-                ->where('dname','LIKE','%'.$key.'%')
-                ->get();
+            $departments = Department::where('dname','LIKE','%'.$key.'%')->get();
             return view('admin.department.departmentlist', compact('departments','key'));
         }
 
@@ -245,6 +242,11 @@ class AdminController extends Controller
     }
     
 
+    public function CreatePurchase()
+    {
+        return view('admin.purchase.create');
+    }
+
     public function ShowActiveStock()
     {
         $stock=Stock::all();
@@ -335,7 +337,7 @@ class AdminController extends Controller
                   'asset_name'=>$request->asset_name, 
                   'cost'=>$request->cost,
                   'description'=>$request->description,
-                  'categories_id'=>$request->categoriesid, 
+                  'categories'=>$request->categoriesid, 
                   'image'=>$image_name
                ]);
         
@@ -360,13 +362,12 @@ class AdminController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $assets = AssetInfo::with('categories')
-                ->where('asset_name','LIKE','%'.$key.'%')
-                //->orWhere('categories->name','LIKE','%'.$key.'%')
+            $assets = AssetInfo::where('asset_name','LIKE','%'.$key.'%')
+                ->orWhere('categories','LIKE','%'.$key.'%')
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
-        $assets = Assetinfo::with('categories')->get();
+        $assets = Assetinfo::get();
         return view('admin.asset.assetlist',compact('assets','key'));
 
     }
@@ -445,8 +446,15 @@ class AdminController extends Controller
 
     public function ShowCategory()
     {
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $categories = Category::where('name','LIKE','%'.$key.'%')->get();
+            return view('admin.category.categorylist', compact('categories','key'));
+        }
         $categories=Category::all();
-        return view ('admin.category.categorylist', compact ('categories'));
+        return view ('admin.category.categorylist', compact ('categories','key'));
     }
 
 
@@ -538,7 +546,7 @@ class AdminController extends Controller
     {
         $edit=EmployeeInfo::find($update_iddd);
 
-        
+        $image_name=$edit->employee_image;
 
         if($request->hasFile('employee_image'))
 

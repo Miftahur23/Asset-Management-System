@@ -54,7 +54,7 @@
                         <option>Select Category</option>
                   
                         @foreach ($category as $item)
-                        <option  value="{{$item->id}}">{{$item->name}}</option>
+                        <option  value="{{$item->name}}">{{$item->name}}</option>
                         @endforeach
                   
                       </select>
@@ -84,7 +84,7 @@
                       <button type="submit" class="btn btn-success">Create</button>
                     </div>  
                     
-                  </div> 
+                  
                   </form>
                 </div>
             </div>

@@ -6,8 +6,8 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
 
-                    <form action="{{route('show.asset')}}" method="GET">
-                        <div class="row" style="margin-left: 700px">
+                    <form action="{{route('show.asset')}}" style="margin-left: 700px" method="GET">
+                        <div class="row" >
                             
                             <div class="col-md-4">
                                 <button type="submit" class="btn btn-success">Search</button>
@@ -80,7 +80,7 @@
 
                                 
                                 <td>{{$item->asset_name}}</td>
-                                <td>{{$item->categories->name}}</td>
+                                <td>{{$item->categories}}</td>
                                 <td>
                                     <a class="btn btn-primary" href="{{route('details.asset',$item->id)}}">Details</a>
                                     

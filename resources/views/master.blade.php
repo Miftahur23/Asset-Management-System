@@ -7,7 +7,8 @@
         <script src="/js/fontawsome.js"></script>
     </head>
 
-
+    
+    
     <body class="sb-nav-fixed">
 
         {{-- navbar --}}

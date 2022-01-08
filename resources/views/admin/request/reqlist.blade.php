@@ -60,7 +60,7 @@
                                         <form action="{{route('update.action',$item->id)}}" method="POST">
                                             @method('PATCH')
                                             @csrf
-                                        <button class="btn btn-success ml-3" name="status" value="Accepted" type='submit'>Accept<a>
+                                        <button class="btn btn-success ml-3"  href="{{route('create.purchase',$item->id)}}" name="status" value="Accepted" type='submit'>Accept<a>
                                         <button class="btn btn-danger mr-3" name="status" value="Rejected" type='submit'>Reject<a>
                                         
 

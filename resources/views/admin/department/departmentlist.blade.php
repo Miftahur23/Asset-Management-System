@@ -23,7 +23,7 @@
 
                         @if($key)
                         <h4>
-                            Your are searching for: {{$key}}. found: {{$departmens->count()}}
+                            Your are searching for: {{$key}}. found: {{$departments->count()}}
                         </h4>
                         @endif
                         

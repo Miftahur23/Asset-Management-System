@@ -133,6 +133,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     //Puurchase
 
     Route::get('/purchase', [AdminController::class, 'ShowPurchase'])->name('show.purchase');
+    Route::get('/createpurchase', [AdminController::class, 'CreatePurchase'])->name('create.purchase');
 
     
     //Report

@@ -11,7 +11,14 @@
                             <div class="page-title-wrapper">
                                 <div class="page-title-heading">
                                  <h2>Purchases</h2> 
-                                </div>      
+                                </div>   
+                                
+                                <div class="page-title-actions"> 
+                                    <a href="{{route('create.purchase')}}" type="button" class="btn btn-success">
+                                        + Purchase Extra Assets
+                                    </a>
+                                </div> 
+                                
                             </div>
                         </div>
                     </div>               
@@ -33,6 +40,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
+                                <th scope="col">Action</th>
                                 <th scope="col">Status</th>
                                 
                               </tr>
