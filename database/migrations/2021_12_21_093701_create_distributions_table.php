@@ -15,7 +15,7 @@ class CreateDistributionsTable extends Migration
     {
         Schema::create('distributions', function (Blueprint $table) {
             $table->id();
-            $table->string('asset_id');
+            $table->string('stock_id');
             $table->double('quantity');
             $table->string('departments_id');
             $table->string('branches_id');

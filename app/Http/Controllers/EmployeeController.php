@@ -8,6 +8,8 @@ use App\Models\EmployeeInfo;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class EmployeeController extends Controller
 {
@@ -65,7 +67,7 @@ class EmployeeController extends Controller
                  //why this
 
                  $lastuser=User::orderBy('created_at','desc')->first();
-                 $user=User::where('id',$lastuser)->get();
+                 //$user=User::where('id',$lastuser)->get();
                  //dd($lastuser);
 
 
@@ -90,8 +92,9 @@ class EmployeeController extends Controller
 
     public function Profile()
     {
-        
-       return view('admin.employee.profile');
+
+        $profile=EmployeeInfo::where('user_id',Auth::user()->id)->first();
+        return view('admin.employee.profile',compact('profile'));
     }
 
     

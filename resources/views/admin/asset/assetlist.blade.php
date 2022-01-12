@@ -35,7 +35,7 @@
                                 
                                 <br>
 
-                                @if($key)
+                        @if($key)
                         <h5>
                             Your are searching for: "{{$key}}" <br>
                             found: {{$assets->count()}}

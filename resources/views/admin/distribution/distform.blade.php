@@ -44,12 +44,12 @@
                         @csrf
 
                         <div class="col-6 mt-5 ">
-                          <select name="asset_id" class="form-control form-control">
+                          <select name="stock_id" class="form-control form-control">
                             <option>Select Asset</option>
                       
-                            @foreach ($asset as $item)
+                            @foreach ($stocks as $item)
                       
-                            <option  value="{{$item->id}}">{{$item->asset_name}}</option>
+                            <option  value="{{$item->asset->id}}">{{$item->asset->asset_name}}</option>
                       
                             @endforeach
                       

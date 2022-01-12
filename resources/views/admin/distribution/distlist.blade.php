@@ -49,7 +49,7 @@
                             @foreach ($distasset as $key=>$item)
                               <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$item->asset->asset_name}}</td>
+                                <td>{{$item->stock->asset->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->departments->dname}}</td>
                                 <td>{{$item->branches->name}}</td>

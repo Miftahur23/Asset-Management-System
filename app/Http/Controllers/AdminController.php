@@ -13,6 +13,7 @@ use App\Models\Distribution;
 use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Stock;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -151,7 +152,17 @@ class AdminController extends Controller
             ->orWhere('asset_name','LIKE','%'.$key.'%')->get();
             return view('admin.request.reqlist', compact('data','key'));
         }
-        $data= Req::all();
+
+        
+        if(Auth::User()->role=='admin')
+        {
+            $data= Req::all();
+
+        }
+        else
+        {
+            $data= Req::where('requested_by',Auth::User()->name)->get();
+        }
         return view('admin.request.reqlist', compact ('data','key'));
     }
 
@@ -165,7 +176,7 @@ class AdminController extends Controller
         return view('admin.request.reqform',compact('request'));
     }
 
-    public function StoreRequest(Request $req)
+    public function StoreRequest(Request $req, $req_id)
     {
         //dd($req->all());
          $req->validate([
@@ -175,6 +186,7 @@ class AdminController extends Controller
          ]);
  
          Req::create([
+             'asset_id'=>$req_id,
              'asset_name'=>$req->name,
              'requested_by'=>Auth::user()->name,
              'quantity'=>$req->quantity,
@@ -212,47 +224,93 @@ class AdminController extends Controller
     public function ShowDistribution()
     {
         $distasset=Distribution::all();
+       // $stocks=Stock::all();
         return view('admin.distribution.distlist', compact('distasset'));
     }
 
     public function CreateDistribution()
     {
-        $asset=AssetInfo::all();
+
+        
+        $stocks=Stock::all();
         $branches=Branch::all();
         $departments=Department::all();
-        return view('admin.distribution.distform', compact ('asset','branches','departments'));
+        return view('admin.distribution.distform', compact ('stocks','branches','departments'));
     }
         
 
     public function StoreDistribution(Request $request)
     {
+
         $request->validate([
-            'asset_id'=>'required',
+            'stock_id'=>'required',
             'quantity'=>'required',
             'departments_id'=>'required',
             'branches_id'=>'required'
         ]);
 
-        Distribution::create([
-                'asset_id'=>$request->asset_id,
+        // dd($request->all());
+        $quantity=0;
+        $stock=Stock::where('asset_id',$request->stock_id)->first();
+
+        // dd($stock);
+
+        if($stock->quantity >= $request->quantity)
+        {
+            Distribution::create([
+                'stock_id'=>$request->stock_id,
                 'quantity'=>$request->quantity,
                 'departments_id'=>$request->departments_id,
                 'branches_id'=>$request->branches_id
              ]);
-        
+
+             $quantity=$stock->quantity - $request->quantity;
+             $stock->update([
+                'quantity'=>$quantity
+             ]);
              return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
             
+           
+        }
+        else
+        {
+            return redirect()->back();
+        }
+
+
+        
     }
 
     public function ShowPurchase()
     {
-        return view('admin.purchase.purchaselist');
+        $purchase=Req::where('status','Accepted')->orwhere('status','Purchased')->get();
+        return view('admin.purchase.purchaselist',compact('purchase'));
     }
     
 
     public function CreatePurchase()
     {
-        return view('admin.purchase.create');
+        $asset=AssetInfo::all();
+        return view('admin.purchase.create',compact('asset'));
+    }
+
+    public function UpdatePurchase($purchase)
+    {
+        
+
+        $update=Req::where('id',$purchase)->first();
+        
+        $update->update([
+            'status'=>request()->status
+        ]);
+
+
+        $stock=Stock::where('asset_id',$update->asset_id)->first();
+        $stock->update([
+            'quantity'=>$update->quantity+$stock->quantity,
+            
+        ]);
+        return redirect()->back();
     }
 
     public function ShowActiveStock()
@@ -530,6 +588,15 @@ class AdminController extends Controller
         $data=EmployeeInfo::all();
 
         return view('admin.employee.emplist', compact ('data'));
+
+    }
+
+    public function ShowEmpLoginInfo(){
+
+        //dd($data);
+        $data=User::where('role','!=','admin')->get();
+
+        return view('admin.employee.logininfo', compact ('data'));
 
     }
 

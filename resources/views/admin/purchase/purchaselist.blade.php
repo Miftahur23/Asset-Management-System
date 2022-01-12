@@ -45,17 +45,38 @@
                                 
                               </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                         
-                              @foreach ($departments as $key=>$item)
+                              @foreach ($purchase as $key=>$item)
                               <tr>
                                 
                                 <td>{{$key+1}}</td>
-                                <td>{{$item->dname}}</td>
+                                <td>{{$item->asset_name}}</td>
+                                <td>{{$item->quantity}}</td>
+                                <td>
+
+                                    @if($item->status!='Purchased')
+                                        <form action="{{route('update.purchase',$item->id)}}" method="POST">
+                                            @method('PATCH')
+                                            @csrf
+                                        <button class="btn btn-success ml-3" name="status" value="Purchased" type='submit'>Purchase<a>
+                                        
+                                        </form>
+                                    @endif
+
+                                </td>
+
+                                <td>
+                                    @if($item->status!='Purchased')
+                                    <h5>Pending</h5>
+                                    @else
+                                    <h5>Purchased</h5>
+                                    @endif
+                                </td>
                                 
                               </tr>
                               @endforeach 
-                            </tbody> --}}
+                            </tbody>
                         </table> </div>
                     </div>
                 </div>

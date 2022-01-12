@@ -10,9 +10,15 @@ class Distribution extends Model
     use HasFactory;
     protected $guarded=[];
 
+
     public function asset()
     {
         return $this-> belongsTo(AssetInfo::class);
+    }
+
+    public function stock()
+    {
+        return $this-> belongsTo(Stock::class);
     }
 
     public function branches()

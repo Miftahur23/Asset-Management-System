@@ -27,10 +27,17 @@ Route::get('/login',[UserController::class,'Login'])->name('loginpage');
 Route::post('/loggedin',[UserController::class,'LoggedIn'])->name('loggedin');
 //Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
+Route::group(['middleware'=>'auth'],function() {
 
+Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
 
+Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
+Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->name('create.request');
+Route::post('/storerequest/{req_id}', [AdminController::class, 'StoreRequest'])->name('store.request');
 
-Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
+});
+
+Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
 
     Route::get('/', function () {
         //return view('master');
@@ -48,7 +55,6 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     
     Route::get('/homepage', [AdminController::class, 'AssetCreated'])->name('AssetCreated');
     Route::post('/created-form', [AdminController::class, 'Assetinfo'])->name('Create.asset');
-    Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
     Route::get('/deleteasset/{asset_id}', [AdminController::class, 'DeleteAsset'])->name(('delete.asset'));
     Route::get('/editasset/{asset_id}', [AdminController::class, 'EditAsset'])->name(('edit.asset'));
     Route::put('/editedasset/{asset_id}', [AdminController::class, 'EditedAsset'])->name(('edited.asset'));
@@ -82,7 +88,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
     
     
 
-    Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginfo'])->name('show.emplogininfo');
+    Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginInfo'])->name('show.emplogininfo');
 
     //Branch 
 
@@ -116,9 +122,8 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     //Request 
 
-    Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
-    Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->name('create.request');
-    Route::post('/storerequest', [AdminController::class, 'StoreRequest'])->name('store.request');
+    
+    
 
     Route::get('/viewrequest/{viewreq_id}', [AdminController::class, 'ViewRequest'])->name('view.request');
     Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
@@ -134,6 +139,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function() {
 
     Route::get('/purchase', [AdminController::class, 'ShowPurchase'])->name('show.purchase');
     Route::get('/createpurchase', [AdminController::class, 'CreatePurchase'])->name('create.purchase');
+    Route::patch('/updatepurchase/{purchase}', [AdminController::class, 'UpdatePurchase'])->name('update.purchase');
 
     
     //Report
