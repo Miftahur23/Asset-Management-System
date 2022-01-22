@@ -25,11 +25,16 @@ use App\Http\Controllers\Req;
 Route::get('/login',[UserController::class,'Login'])->name('loginpage');
 
 Route::post('/loggedin',[UserController::class,'LoggedIn'])->name('loggedin');
+
+Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
+
 //Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
 Route::group(['middleware'=>'auth'],function() {
 
 Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
+Route::get('/assignedassetlist', [AdminController::class, 'AssignedAsset'])->name('assigned.asset');
+Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
 
 Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
 Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->name('create.request');
@@ -48,8 +53,6 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
 
     //logout
     Route::get('/home',[HomeController::class,'Homepage'])->name('Homepage');
-    Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
-
 
     //Asset
     
@@ -59,7 +62,6 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::get('/editasset/{asset_id}', [AdminController::class, 'EditAsset'])->name(('edit.asset'));
     Route::put('/editedasset/{asset_id}', [AdminController::class, 'EditedAsset'])->name(('edited.asset'));
 
-    Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
     
     Route::get('/assetcondition', [AdminController::class, 'ShowAssetCondition'])->name('show.asset.condition');
     
@@ -86,9 +88,6 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::get('/empedit/{edit_id}', [AdminController::class, 'EditEmployee'])->name('edit.emp');
     Route::put('/empupdate/{update_id}', [AdminController::class, 'UpdateEmployee'])->name('update.emp');
     
-    
-
-    Route::get('/employeelogininfo',[AdminController::class, 'ShowEmploginInfo'])->name('show.emplogininfo');
 
     //Branch 
 
@@ -132,8 +131,10 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     //Distribution 
 
     Route::get('/distributionlist', [AdminController::class, 'ShowDistribution'])->name('show.distribution');
-    Route::get('/distributionform', [AdminController::class, 'CreateDistribution'])->name('create.distribution');
-    Route::post('/storedistribution', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
+    Route::get('/selectbranch', [AdminController::class, 'Selectbranch'])->name('select.branch');
+
+    Route::post('/distributionform', [AdminController::class, 'CreateDistribution'])->name('create.distribution');
+    Route::post('/storedistribution/{branch_id}', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
 
     //Puurchase
 

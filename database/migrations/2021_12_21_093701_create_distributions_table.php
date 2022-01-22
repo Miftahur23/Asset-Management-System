@@ -17,6 +17,7 @@ class CreateDistributionsTable extends Migration
             $table->id();
             $table->string('stock_id');
             $table->double('quantity');
+            $table->double('employee_id');
             $table->string('departments_id');
             $table->string('branches_id');
             $table->timestamps();

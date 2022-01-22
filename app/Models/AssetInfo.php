@@ -11,9 +11,5 @@ class AssetInfo extends Model
     //protected $fillable = [ 'email', 'password', ];
     protected $guarded=[];
 
-    public function categories()
-
-    {
-        return $this-> belongsTo(Category::class);
-    }
+    
 }

@@ -18,6 +18,7 @@ class CreateStocksTable extends Migration
             $table->string('asset_id');
             $table->double('quantity');
             $table->string('location');
+            $table->string('worth');
             $table->timestamps();
         });
     }

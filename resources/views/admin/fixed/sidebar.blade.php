@@ -1,8 +1,6 @@
 {{-- sidebar --}}
 @if(auth()->user()->role=='admin')
-<a class="nav-link" href="{{url('/admin/home')}}">
-    Home
-</a>
+
 
 <a class="nav-link" href="{{route('admin.dashboard')}}">
     Dashboard
@@ -16,7 +14,6 @@
 <div class="collapse" id="collapseEmp" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
         <a class="nav-link" href="{{route('show.emplist')}}">Employee List</a>
-        <a class="nav-link" href="{{route('show.emplogininfo')}}">Employee Login Info</a>
     </nav>
 </div>
 
@@ -30,10 +27,8 @@
 <div class="collapse" id="collapseAssets" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
     <nav class="sb-sidenav-menu-nested nav">
         <a class="nav-link" href="{{route('show.asset')}}">Asset List</a>
-
-        @if(auth()->user()->role=='admin')
-        <a class="nav-link" href="{{route('show.category')}}">Asset Category</a>
-        <a class="nav-link" href="{{route('show.asset.condition')}}">Asset Condition</a>
+        @if(auth()->user()->role=='user')
+        <a class="nav-link" href="{{route('assigned.asset')}}">Assigned Asset </a>
         @endif
     </nav>
 </div>

@@ -1,44 +1,39 @@
 @extends('master')  
 @section('content')
         
-   
+@if ($errors->any())
+<div class="alert alert-warning" role="alert">
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>{{$error}}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
            
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                 <h1>Create Stock</h1> 
-                                </div>       
-                            </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
+<div class="card mt-3">
+  <div class="container m-3">
+      <h1>Create Stock</h1> 
+  </div>       
+</div>
                       
 
                       
 
-                      @if ($errors->any())
-                      <div class="alert alert-warning" role="alert">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                          @endforeach
-                        </ul>
-                      </div>
-                      @endif
+                      
 
+<div class="card mt-4">
+  <div class="container">
 
-
-                      <center><form action="{{route('store.stock')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                      <center>
+                        <form action="{{route('store.stock')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
                         
 
                         @csrf
 
-                        <div class="col-6 mt-5 ">
+                        <div class="col-6 mt-2 ">
+                          <label for="exampleInputAsset" class="form-label"><h5>Asset Name</h5></label>
                           <select name="asset_id" class="form-control form-control">
                             <option>Select Asset</option>
                       
@@ -63,16 +58,16 @@
                         
                         
                         
-                        <div class="  pt-2">
+                        <div class=" m-auto p-3">
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
-                        </form></center>     
+                        </form>
+                      </center>     
 
                         
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endsection
+                   
+  </div>
+</div>
+@endsection
 
  

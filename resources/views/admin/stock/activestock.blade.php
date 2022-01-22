@@ -1,38 +1,28 @@
 @extends('master')  
     @section('content')
         
-   
+@if(session()->has('success'))
+    <p class="alert alert-success">
+        {{session()->get('success')}}
+    </p>
+@endif
            
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                 <h2>Active Asset Infos</h2> 
-                                </div> 
+    <div class="card mt-3">
+        <div class="container m-3">
+            <h2>Active Asset Infos</h2> 
+        </div> 
+    </div> 
                                 
-                                <div class="page-title-actions"> 
-                                    <a href="{{route('create.stock')}}" type="button" class="btn btn-success">
+    <div class="card mt-4">
+        <div class="container"> 
+                                    <a href="{{route('create.stock')}}" type="button" class="btn btn-success mt-2">
                                         Create Stock
                                     </a>
-                                </div> 
+                                
 
-                            </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
-                        {{-- table  --}}
-                        {{-- @include('table.table') --}}
 
-                        @if(session()->has('success'))
-                            <p class="alert alert-success">
-                                {{session()->get('success')}}
-                            </p>
-                        @endif
 
-                        <div class="container" style="width: 100%">
+                    <div class="container" style="width: 100%">
                         <table class="table table-dark table-bordered mt-3">
                             <thead>
                               <tr>
@@ -41,6 +31,7 @@
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Location</th>
+                                <th scope="col">Total Worth</th>
                                 
                               </tr>
                             </thead>
@@ -53,15 +44,16 @@
                                 <td>{{$item->asset->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->location}}</td>
+                                <td>{{$item->worth}}</td>
                                 
                               </tr>
                               @endforeach 
                             </tbody>
-                        </table> </div>
+                        </table> 
                     </div>
-                </div>
-            </div>
-        </div>
-    @endsection
+
+    </div>
+</div>
+@endsection
 
     

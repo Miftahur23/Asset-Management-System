@@ -47,14 +47,8 @@
                     @endif
                     
                     <div class="container-fluid px-4 pt-3">
-                        <div class="card mb-4">
-                            <div class="card-body">
-
                                 {{-- contents --}}
                                 @yield('content')
-
-                            </div>
-                        </div>
                     </div>
                 </main>
 

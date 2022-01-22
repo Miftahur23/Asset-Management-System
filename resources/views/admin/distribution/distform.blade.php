@@ -35,13 +35,32 @@
                       </div>
                       @endif
 
+                      @if(session()->has('stock'))
+                      <p class="alert alert-danger">
+                          {{session()->get('stock')}}
+                      </p>
+                      @endif
 
+                      {{-- @dd($user) --}}
 
-                      <center><form action="{{route('store.distribution')}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                      <center><form action="{{route('store.distribution',$branch_id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
                         {{-- {{route('store.distribution')}} --}}
 
                         @csrf
+
+                        <div class="col-6 mt-5">
+                          <select name="employee_id" class="form-control form-control">
+                            <option>Employee</option>
+                      
+                            @foreach ($employee as $item)
+                      
+                            <option  value="{{$item->user_id}}">{{$item->fname}} {{$item->lname}}</option>
+                      
+                            @endforeach
+                      
+                          </select>
+                        </div>
 
                         <div class="col-6 mt-5 ">
                           <select name="stock_id" class="form-control form-control">
@@ -74,19 +93,7 @@
                           </select>
                         </div>
                         
-                      <div class="col-6 mt-5">
-                        <select name="branches_id" class="form-control form-control">
-                          <option>Select Branch</option>
                       
-                          @foreach ($branches as $item)
-                      
-                          <option  value="{{$item->id}}">{{$item->name}}</option>
-                      
-                          @endforeach
-                      
-                        </select>
-                      </div>
-                        
                         <div class="  pt-2">
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>

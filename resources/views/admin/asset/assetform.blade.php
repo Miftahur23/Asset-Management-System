@@ -2,39 +2,32 @@
 @extends('master')  
 @section('content')
     
+@if(session()->has('success'))
+<p class="alert alert-success">
+  {{session()->get('success')}}
+</p>
+@endif
 
-       
-    <div class="app-main">
-        <div class="app-main__outer">
-            <div class="app-main__inner">
-                <div class="app-page-title">
-                    <div class="container fiori-container">
-                        <div class="page-title-wrapper">
-                            <div class="page-title-heading">
-                             <h1>Add New Assets</h1> 
-                            </div>
-                        </div>
-                    </div>
-                </div>               
-                <div class="app-inner-layout app-inner-layout-page">
-
-  @if(session()->has('success'))
-                  <p class="alert alert-success">
-                    {{session()->get('success')}}
-                  </p>
-  @endif
-
-  @if ($errors->any())
-              <div class="alert alert-warning" role="alert">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                    <li>
+@if ($errors->any())
+    <div class="alert alert-warning" role="alert">
+        <ul>
+              @foreach ($errors->all() as $error)
+                  <li>
                       {{$error}}
-                    </li>   
-                  @endforeach
-                </ul>
-              </div>
-  @endif
+                  </li>   
+              @endforeach
+        </ul>
+    </div>
+@endif
+       
+<div class="card mt-3">
+  <div class="container m-3">
+    <h1>Add New Assets</h1> 
+  </div>
+</div>        
+
+<div class="card mt-4">
+  <div class="container">
 
                   <form action="{{route('Create.asset')}}" method="POST" class="row" enctype="multipart/form-data">
                     @csrf
@@ -50,12 +43,13 @@
                       
                     <div class="col-6 mt-3">
                       <h5>Category</h5>
-                      <select name="categoriesid" class="form-control form-control-md">
+                      <select name="category" class="form-control form-control-md">
                         <option>Select Category</option>
+                        <option>Stationary</option>
+                        <option>Furniture</option>
+                        <option>Electronics</option>
                   
-                        @foreach ($category as $item)
-                        <option  value="{{$item->name}}">{{$item->name}}</option>
-                        @endforeach
+                        
                   
                       </select>
                     </div>
@@ -86,10 +80,8 @@
                     
                   
                   </form>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
+</div>
 @endsection
 
 

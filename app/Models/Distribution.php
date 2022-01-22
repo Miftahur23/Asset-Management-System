@@ -11,6 +11,12 @@ class Distribution extends Model
     protected $guarded=[];
 
 
+
+    public function employee()
+    {
+        return $this-> belongsTo(EmployeeInfo::class);
+    }
+
     public function asset()
     {
         return $this-> belongsTo(AssetInfo::class);

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
-use App\Models\Category;
 use App\Models\Product;
 use App\Models\Req;
 use App\Models\EmployeeInfo;
@@ -14,7 +14,9 @@ use App\Models\Branch;
 use App\Models\Department;
 use App\Models\Stock;
 use App\Models\User;
+use App\Models\Report;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class AdminController extends Controller
@@ -26,15 +28,26 @@ class AdminController extends Controller
 
     public function Dashboard()
     {
-        return view ('admin.dashboard');
+        $count['employees']=EmployeeInfo::all()->count();
+        $count['assets']=AssetInfo::all()->count();
+        $count['requests']=Req::where('status','pending')->count();
+        //$count['purchased']=Req::where('status','purchased')->count();
+        $count['stock']=Stock::all()->count();
+        return view ('admin.dashboard',compact('count'));
     }
 
 
     
     public function ShowBranch()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $branches = Branch::where('name','LIKE','%'.$key.'%')->get();
+            return view('admin.branch.branchlist', compact('branches','key'));
+        }
         $branches=Branch::all();
-        return view ('admin.branch.branchlist', compact ('branches'));
+        return view ('admin.branch.branchlist', compact ('branches','key'));
     }
 
 
@@ -228,25 +241,33 @@ class AdminController extends Controller
         return view('admin.distribution.distlist', compact('distasset'));
     }
 
-    public function CreateDistribution()
+    public function SelectBranch()
     {
-
-        
-        $stocks=Stock::all();
         $branches=Branch::all();
+        return view('admin.distribution.selectbranch', compact ('branches'));
+
+    }
+
+    
+
+    public function CreateDistribution(Request $request)
+    {
+        $employee=EmployeeInfo::where('branches_id',$request->branches_id)->get();
+        $branch_id=$request->branches_id;
+        $stocks=Stock::all();
         $departments=Department::all();
-        return view('admin.distribution.distform', compact ('stocks','branches','departments'));
+        return view('admin.distribution.distform', compact ('stocks','departments','employee','branch_id'));
     }
         
 
-    public function StoreDistribution(Request $request)
+    public function StoreDistribution(Request $request,$branches_id)
     {
+        //dd($request->all());
 
         $request->validate([
             'stock_id'=>'required',
             'quantity'=>'required',
             'departments_id'=>'required',
-            'branches_id'=>'required'
         ]);
 
         // dd($request->all());
@@ -258,10 +279,11 @@ class AdminController extends Controller
         if($stock->quantity >= $request->quantity)
         {
             Distribution::create([
+                'employee_id'=>$request->employee_id,
                 'stock_id'=>$request->stock_id,
                 'quantity'=>$request->quantity,
                 'departments_id'=>$request->departments_id,
-                'branches_id'=>$request->branches_id
+                'branches_id'=>$branches_id
              ]);
 
              $quantity=$stock->quantity - $request->quantity;
@@ -274,7 +296,7 @@ class AdminController extends Controller
         }
         else
         {
-            return redirect()->back();
+            return redirect()->back()->with('stock','Not enough stock');
         }
 
 
@@ -304,10 +326,19 @@ class AdminController extends Controller
             'status'=>request()->status
         ]);
 
+        
+        // $price=AssetInfo::find($request->asset_id);
+
+        
 
         $stock=Stock::where('asset_id',$update->asset_id)->first();
+        $updateprice=$stock->worth/$stock->quantity;
+//dd($updateprice);
+        
         $stock->update([
+            //'worth'=>$totalquantity*$price->cost,
             'quantity'=>$update->quantity+$stock->quantity,
+            'worth'=>($update->quantity+$stock->quantity)*$updateprice
             
         ]);
         return redirect()->back();
@@ -339,10 +370,13 @@ class AdminController extends Controller
             'location'=>'required',
         ]);
 
+        $price=AssetInfo::find($request->asset_id);
+
         Stock::create([
                 'asset_id'=>$request->asset_id,
                 'quantity'=>$request->quantity,
                 'location'=>$request->location,
+                'worth'=>$request->quantity*$price->cost,
              ]);
         
              return redirect()->route('show.active.stock')->with('success', 'Stock Created Successfully');
@@ -370,8 +404,7 @@ class AdminController extends Controller
 
     public function AssetCreated()
     {
-        $category= Category::all();
-        return view ('admin.asset.assetform', compact('category'));
+        return view ('admin.asset.assetform');
     }
 
     public function Assetinfo(Request $request)
@@ -399,11 +432,11 @@ class AdminController extends Controller
 
                  }
 
-        Assetinfo::create([
+        AssetInfo::create([
                   'asset_name'=>$request->asset_name, 
                   'cost'=>$request->cost,
                   'description'=>$request->description,
-                  'categories'=>$request->categoriesid, 
+                  'category'=>$request->category, 
                   'image'=>$image_name
                ]);
         
@@ -429,13 +462,29 @@ class AdminController extends Controller
         if(request()->search){
             $key=request()->search;
             $assets = AssetInfo::where('asset_name','LIKE','%'.$key.'%')
-                ->orWhere('categories','LIKE','%'.$key.'%')
+                ->orWhere('category','LIKE','%'.$key.'%')
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
         $assets = Assetinfo::get();
         return view('admin.asset.assetlist',compact('assets','key'));
 
+    }
+
+    public function AssignedAsset()
+    {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $assets = AssetInfo::where('asset_name','LIKE','%'.$key.'%')
+                ->orWhere('category','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.asset.assigned',compact('assets','key'));
+        }
+
+        $assets = Distribution::where('employee_id',auth()->user()->id)->get();
+        //dd($assets);
+        return view('admin.asset.assigned',compact('assets','key'));
     }
 
     public function DetailsAsset($details_id){
@@ -463,9 +512,8 @@ class AdminController extends Controller
         $edit=AssetInfo::find($editasset);
 
         //return redirect()->back()->with('delete', 'Asset deleted');
-        $category= Category::all();
 
-        return view('admin.asset.edit', compact('category'), compact('edit'));
+        return view('admin.asset.edit', compact('edit'));
     }
 
     public function EditedAsset(Request $request, $editasset)
@@ -491,7 +539,7 @@ class AdminController extends Controller
                     'asset_name'=>$request->asset_name, 
                     'cost'=>$request->cost,
                     'description'=>$request->description,
-                    'categories_id'=>$request->categoriesid, 
+                    'category'=>$request->category, 
                     'image'=>$image_name
                  ]);
 
@@ -504,78 +552,6 @@ class AdminController extends Controller
     }
 
     
-
-    
-
-    
-
-
-    public function ShowCategory()
-    {
-
-        $key=null;
-        if(request()->search){
-            $key=request()->search;
-            $categories = Category::where('name','LIKE','%'.$key.'%')->get();
-            return view('admin.category.categorylist', compact('categories','key'));
-        }
-        $categories=Category::all();
-        return view ('admin.category.categorylist', compact ('categories','key'));
-    }
-
-
-    public function CreateCategory()
-    {
-       
-         //return redirect('/home');
-        return view ('admin.category.categoryform');
-    }
-
-    public function StoreCategory(Request $req)
-    {
-       // dd($req->all());
-        $req->validate([
-            'name'=>'required',
-            'details'=>'required'
-
-        ]);
-
-        Category::create([
-            'name'=>$req->name,
-            'details'=>$req->details
-         ]);
-
-         return redirect()->route('show.category')->with('success', 'Category Added');
-    }
-
-    public function EditCategory($edit)
-    {
-
-        $category=Category::find($edit);
-        return view('admin.category.edit',compact('category'));
-    }
-
-    public function UpdateCategory($edit)
-    {
-
-        
-        $category=Category::find($edit);
-        $category->update(request()->all());
-        return redirect()->route('show.category')->with('success','Category Updated Successfully');
-
-    }
-
-    public function DeleteCategory($delcategory){
-        
-        Category::find($delcategory)->delete();
-
-        return redirect()->back()->with('delete', 'Category Deleted');
-
-    }
-
-
-
-    
     public function ShowAssetCondition(){
         
         return 'ok';
@@ -585,9 +561,18 @@ class AdminController extends Controller
     public function ShowEmpinfo(){
 
         //dd($data);
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $data = EmployeeInfo::where('fname','LIKE','%'.$key.'%')
+            ->Orwhere('lname','LIKE','%'.$key.'%')
+            ->get();
+            return view('admin.employee.emplist', compact('data','key'));
+        }
         $data=EmployeeInfo::all();
 
-        return view('admin.employee.emplist', compact ('data'));
+        return view('admin.employee.emplist', compact ('data','key'));
 
     }
 
@@ -674,9 +659,34 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function ShowReport() {
+    public function ShowReport() 
+    {
+        $month= AssetInfo::select(
+            DB::raw(value: 'MONTHNAME(created_at) as month')
+        )
+        ->whereYear('created_at', date(format:'Y'))
+        ->groupBy('month')
+        ->get();
 
-        return 'report';
+        // $requests= Req::select(
+        //     DB::raw(value: "(COUNT(*)) as count"),
+        //     DB::raw(value: 'MONTHNAME(created_at) as month')
+        // )
+        // ->whereYear('created_at', date(format:'Y'))
+        // ->groupBy('month')
+        // ->get()->toArray();
+
+        // $reports= AssetInfo::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
+        //     ->get();
+
+        // $reports= AssetInfo::whereMonth('created_at', date(format:'m'))
+        //     ->get();
+
+        
+        $quantity= Stock::all();
+
+        //dd($quantity);
+        return view('admin.report.report',compact('quantity','month'));
     }
     
 }

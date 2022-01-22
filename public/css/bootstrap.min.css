@@ -11699,3 +11699,9 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+
+.sellect {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+  font-size: 1.5rem;
+}

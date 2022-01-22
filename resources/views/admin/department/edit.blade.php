@@ -1,55 +1,42 @@
 @extends('master')  
     @section('content')
         
-   
+    @if ($errors->any())
+    <div class="alert alert-warning" role="alert">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{$error}}</li>
+        @endforeach
+      </ul>
+    </div>
+    @endif
+
            
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                 <h1>Edit Department</h1> 
-                                </div>       
-                            </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
-                      
-
-                      
-
-                      @if ($errors->any())
-                      <div class="alert alert-warning" role="alert">
-                        <ul>
-                          @foreach ($errors->all() as $error)
-                            <li>{{$error}}</li>
-                          @endforeach
-                        </ul>
-                      </div>
-                      @endif
-
-
-
-                      <center><form action="{{route('update.dept',$edit->id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+<div class="card mt-3">
+  <div class="container m-3">
+      <h1>Edit Department</h1> 
+  </div>       
+</div>
+                  
+<div class="card mt-4">
+  <div class="container">
+                      <center>
+                        <form action="{{route('update.dept',$edit->id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
                         @method('PATCH')
                         @csrf
                         
-                        <div class="col-12 mt-5 ">
+                        <div class="col-12 mt-3 ">
                             <label for="exampleInputName" class="form-label"><h5>Department Name</h5></label>
                             <input type="text" name="dname" value="{{$edit->dname}}" class="form-control" id="exampleInputName">
                         </div>
                         
-                        <div class=" m-auto pt-2">
+                        <div class=" m-auto pt-2 mb-2">
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
-                        </form></center>      
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endsection
+                        </form>
+                      </center>  
+  </div>
+</div>
+@endsection
 
  

@@ -6,7 +6,8 @@
                     
                 <div id="AssetPrint">
 
-                    <div class="app-inner-layout app-inner-layout-page">
+                    <div class="card mt-3">
+                        <div class="container m-3">
                         {{-- table  --}}
                         {{-- @include('table.table') --}}
                         <p>
@@ -25,16 +26,11 @@
 
                 </div>
 
-                <button class="btn btn-primary" type="submit" onClick="PrintDiv('AssetPrint');" value="Print">Print</button>
+                <button class="btn btn-primary m-3" type="submit" onClick="PrintDiv('AssetPrint');" value="Print">Print</button>
 
                     
 
-                </div>
-                    
-            </div>
                 
-        </div>
-    </div>
         
     @endsection
 

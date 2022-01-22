@@ -1,11 +1,13 @@
 @extends('master')  
     @section('content')
+
+    @if(session()->has('success'))
+                        <p class="alert alert-success">
+                            {{session()->get('success')}}
+                        </p>
+    @endif
         
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
+        
 
                             <form action="{{route('show.reqlist')}}" method="GET" >
 
@@ -22,24 +24,24 @@
                             
                             </form>
                             
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
+                            <div class="card mt-3">
+                                <div class="container m-3">
                                  <h2>Request List</h2> 
                                 </div>
-                                
                             </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
-                        {{-- table  --}}
-                        {{-- @include('table.table') --}}
 
-                    @if(session()->has('success'))
-                        <p class="alert alert-success">
-                            {{session()->get('success')}}
-                        </p>
-                    @endif
+                            <div class="container m-2">
+                                @if($key)
+                                        <h5>
+                                                Your are searching for: "{{$key}}" <br>
+                                                found: {{$data->count()}}
+                                        </h5>
+                                @endif
+                            </div>
 
+                    
+            <div class="card mt-4">
+                <div class="container">
                     <div class="container" style="width: 100%">
                         <table class="table table-dark table-bordered mt-3">
                             <thead>
@@ -68,7 +70,7 @@
 
                                     @if(auth()->user()->role=='admin')
 
-                                    <td>{{$item->requested_by}}</h6></td>
+                                    <td>{{$item->requested_by}}  {{$item->created_at->diffforhumans()}}</td>
 
                                     <td>
                                         @if($item->status=='Pending')
@@ -76,8 +78,8 @@
                                         <form action="{{route('update.action',$item->id)}}" method="POST">
                                             @method('PATCH')
                                             @csrf
-                                        <button class="btn btn-success ml-3"  href="{{route('create.purchase',$item->id)}}" name="status" value="Accepted" type='submit'>Accept<a>
-                                        <button class="btn btn-danger mr-3" name="status" value="Rejected" type='submit'>Reject<a>
+                                        <button class="btn btn-success btn-sm ml-3"  href="{{route('create.purchase',$item->id)}}" name="status" value="Accepted" type='submit'>Accept<a>
+                                        <button class="btn btn-danger btn-sm mr-3" name="status" value="Rejected" type='submit'>Reject<a>
                                         
 
                                         </form>
@@ -90,12 +92,14 @@
 
                                     <td>
                                         @if($item->status=='Pending')
-                                        <a class="btn btn-warning" >{{$item->status}}<a>
+                                        <a class="btn btn-warning btn-sm" >{{$item->status}}<a>
                                             @elseif($item->status=='Accepted')
-                                        <a class="btn btn-success" >{{$item->status}}<a>
+                                        <a class="btn btn-success btn-sm" >{{$item->status}}<a>
                                             @else
-                                        <a class="btn btn-danger" >{{$item->status}}<a>
+                                        <a class="btn btn-danger btn-sm" >{{$item->status}}<a>
                                             @endif
+
+                                            {{$item->updated_at->diffforhumans()}}
                                     </td>
 
                                     
@@ -105,12 +109,12 @@
                                 @endforeach 
 
                             </tbody>
-                          </table></div>
+                          </table>
+                        </div>
 
 
                         
-                    </div>
-                </div>
+                    
             </div>
         </div>
     @endsection

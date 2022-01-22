@@ -16,7 +16,7 @@ class CreateAssetInfosTable extends Migration
         Schema::create('asset_infos', function (Blueprint $table) {
             $table->id();
             $table->string('asset_name');
-            $table->string('categories');
+            $table->string('category');
             $table->double('cost');
             $table->string('description');
             // $table->string('status')->default('Request');
