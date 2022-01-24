@@ -1,8 +1,21 @@
+<style>
+    .siam{
+        background-image: url('/media/home.jpg');
+    }
+</style>
+
 <!doctype html>
+
+<div class="siam"> 
 <html lang="en">
 
+   
+
+
 <head>
-    <link href="/css/bootstrap.min.css" rel="stylesheet"></head>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
 <body>
 
 
@@ -11,34 +24,32 @@
         {{session()->get('logoutmessage')}}
     </p>
     @endif
-
-    {{-- header --}}
-
-    {{-- @include('fixed.header') --}}
-<div class="p-5 m-5 bg-dark">
-
-          {{-- <div class="top-bar-middle">
-              <h1>Offix</h1>
-          </div> --}}
-          
-        <div class="top-bar col-md-12 text-center">
+        
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          Login/Signup
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="{{route('loginpage')}}">Login</a></li>
-                          <li><a class="dropdown-item" href="{{route('usersignup')}}">Signup</a></li>
-                        </ul>
+                        
+                        
                     </div>
-        </div>
+                    <br><br><br><br><br><br>
+        
 
-<p class="p-5 m-5 bg-white text-center text-success font-weight-bold mt-5 pt-5 display-1">Manage Your Assets</p>
-    {{-- content --}}
+<div class="p-5 m-5 text-center font-weight-bold mt-5 pt-5" style="color:rgb(255, 255, 255);" >
+    <h1><b>Manage Your Assets</b></h1>
 
-    @yield('content')
-<script  src="/js/bootstrap.js"></script>
+    <br>
 
+    <a type="button" href="{{route('loginpage')}}" class="btn btn-success text-center" aria-expanded="false">
+        Login
+    </a>
+</div>
+    
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+</div>
 </body>
+
+
 </html>
+

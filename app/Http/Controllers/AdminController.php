@@ -661,12 +661,18 @@ class AdminController extends Controller
 
     public function ShowReport() 
     {
-        $month= AssetInfo::select(
-            DB::raw(value: 'MONTHNAME(created_at) as month')
-        )
-        ->whereYear('created_at', date(format:'Y'))
-        ->groupBy('month')
+        $reports=[];
+        if(request()->has('fromdate'))
+        {
+            $from_date=request()->fromdate;
+            $to_date=request()->todate;
+            
+        
+        $reports=Stock::where('worth','>=',30000)
+        ->whereDate('created_at','>=',$from_date)
+        ->whereDate('created_at','<=',$to_date)
         ->get();
+        }
 
         // $requests= Req::select(
         //     DB::raw(value: "(COUNT(*)) as count"),
@@ -675,6 +681,8 @@ class AdminController extends Controller
         // ->whereYear('created_at', date(format:'Y'))
         // ->groupBy('month')
         // ->get()->toArray();
+
+        //dd($month);
 
         // $reports= AssetInfo::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         //     ->get();
@@ -686,7 +694,7 @@ class AdminController extends Controller
         $quantity= Stock::all();
 
         //dd($quantity);
-        return view('admin.report.report',compact('quantity','month'));
+        return view('admin.report.report',compact('quantity','reports'));
     }
     
 }

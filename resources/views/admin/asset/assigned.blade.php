@@ -81,12 +81,12 @@
                                 <td>{{$key+1}}</td>
 
                                 <th>
-                                    <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/products/'.$item->image)}}" alt="product">
+                                    <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/products/'.$item->stock->asset->image)}}" alt="product">
                                 </th>
 
                                 
-                                <td>{{$item->asset_name}}</td>
-                                <td>{{$item->category}}</td>
+                                <td>{{$item->stock->asset->asset_name}}</td>
+                                <td>{{$item->stock->asset->category}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="{{route('details.asset',$item->id)}}">Details</a>
                                     @if(auth()->user()->role=='user')

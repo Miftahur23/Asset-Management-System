@@ -11,6 +11,10 @@ class Distribution extends Model
     protected $guarded=[];
 
 
+    public function user()
+    {
+        return $this-> belongsTo(User::class,'employee_id','id');
+    }
 
     public function employee()
     {

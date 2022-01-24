@@ -42,7 +42,7 @@
                               <tr>
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->stock->asset->asset_name}}</td>
-                                <td>{{$item->employee_id}}</td>
+                                <td>{{$item->user->name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->departments->dname}}</td>
                                 <td>{{$item->branches->name}}</td>

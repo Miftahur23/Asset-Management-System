@@ -61,7 +61,7 @@ class UserController extends Controller
             if(Auth::user()->role=='admin')
             {
 
-                return redirect()->route('Homepage')->with('loginmessage','Logged In');
+                return redirect()->route('admin.dashboard')->with('loginmessage','Logged In');
                 
             }
 

@@ -7,22 +7,22 @@
                 <div id="AssetPrint">
 
                     <div class="card mt-3">
-                        <div class="container m-3">
-                        {{-- table  --}}
-                        {{-- @include('table.table') --}}
-                        <p>
-                            <img style="border-radius: 8px;" width="300px;" height="300px;" src=" {{url('/uploads/products/'.$details->image)}}" alt="product">
-                        </p>
+                        <div class="container m-3" style="display:flex;">
                         
-                        <div >
-                        <p><b>Name: {{$details->asset_name}}</b></p>
-                        {{-- <p><b>Category: {{$details->categories->name}}</b></p> --}}
-                        <p><b>Price: {{$details->cost}}</b></p>
-                        <p><b>Decription: {{$details->description}}</b></p>
-                        <p><b>Purchased Date: {{$details->created_at}}</b></p>
+                            <p>
+                                <img style="border-radius: 8px;" width="300px;" height="300px;" src=" {{url('/uploads/products/'.$details->image)}}" alt="product">
+                            </p>
+                        
+                            <div class="container" style="margin-left: 120px; margin-top: 60px; font-size:20px"  >
+                            
+                                <p><b>Name: {{$details->asset_name}}</b></p>
+                                <p><b>Category: {{$details->category}}</b></p>
+                                <p><b>Price: {{$details->cost}}</b></p>
+                                <p><b>Decription: {{$details->description}}</b></p>
+                                <p><b>Purchased Date: {{$details->created_at}}</b></p>
 
+                            </div>
                         </div>
-                    </div>
 
                 </div>
 

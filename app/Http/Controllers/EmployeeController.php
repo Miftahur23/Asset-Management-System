@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     public function EmpHomepage()
     {
         
-        return view ('admin.homepage');
+        return redirect()->route('show.asset');
     }
 
     public function Empregform()
