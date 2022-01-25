@@ -8,19 +8,9 @@
         
    
            
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                 <h3>Distribute Assets</h3> 
-                                </div>       
-                            </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
+<div class="container" style="text-align:center;">
+                                 <h1>Distribute Assets</h1> 
+</div>       
                       
 
                       
@@ -40,7 +30,8 @@
                         @csrf
                        
                         
-                      <div class="col-12 mt-5 ">
+                      <div class="col-12 mt-4 ">
+                        <label for="exampleInputBranch" class="form-label"><h5>Select Branch</h5></label>
                         <select name="branches_id" class="form-control form-control">
                           <option>Select Branch</option>
                       

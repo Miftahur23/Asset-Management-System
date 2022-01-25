@@ -9,7 +9,7 @@
 
     
     
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" style="background: aliceblue;">
 
         {{-- navbar --}}
         @include('admin.fixed.navbar')

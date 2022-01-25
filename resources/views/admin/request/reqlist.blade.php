@@ -24,11 +24,9 @@
                             
                             </form>
                             
-                            <div class="card mt-3">
-                                <div class="container m-3">
-                                 <h2>Request List</h2> 
-                                </div>
-                            </div>
+                            
+                                 <h1>Request List</h1> 
+                                
 
                             <div class="container m-2">
                                 @if($key)
@@ -43,7 +41,7 @@
             <div class="card mt-4">
                 <div class="container">
                     <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-3">
+                        <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

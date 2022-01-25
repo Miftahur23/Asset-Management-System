@@ -20,14 +20,12 @@
     </div>
 @endif
        
-<div class="card mt-3">
-  <div class="container m-3">
-    <h1>Add New Assets</h1> 
-  </div>
+<div class="container" style="text-align:center;">
+    <h1>Add New Assets</h1>
 </div>        
 
 <div class="card mt-4">
-  <div class="container">
+  <div class="container p-4">
 
                   <form action="{{route('Create.asset')}}" method="POST" class="row" enctype="multipart/form-data">
                     @csrf

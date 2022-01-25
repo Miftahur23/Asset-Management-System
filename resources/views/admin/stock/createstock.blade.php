@@ -11,10 +11,10 @@
 </div>
 @endif
            
-<div class="card mt-3">
-  <div class="container m-3">
+<div class="container" style="text-align:center;">
+
       <h1>Create Stock</h1> 
-  </div>       
+      
 </div>
                       
 
@@ -51,7 +51,7 @@
                             <input type="number" name="quantity" class="form-control" id="exampleInputquantity">
                         </div>
 
-                        <div class="col-6 mt-2 ">
+                        <div class="col-6 mt-2">
                             <label for="exampleInputstock" class="form-label"><h5>Location</h5></label>
                             <input type="text" name="location" class="form-control" id="exampleInputstock">
                         </div>

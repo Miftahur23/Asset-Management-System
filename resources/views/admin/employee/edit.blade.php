@@ -1,16 +1,17 @@
 @extends('master')  
 @section('content')
     
-<div class="card">
-  <div class="container m-4">
-      <h1>Update Employee Info</h1> 
+
+       
+<div class="container" style="text-align:center;">
+        <h1>Update Employee Info</h1>
+        <img style="border-radius: 8px;" width="200px;" height="200px; " src=" {{url('/uploads/employee/'.$edit->employee_image)}}" alt="employee">
+
     </div>
-</div>
 
 <div class="card mt-3">
-  <div class="container m-2">
+  <div class="container p-4">
                     
-                    <img style="border-radius: 8px;" width="200px;" height="200px;" src=" {{url('/uploads/employee/'.$edit->employee_image)}}" alt="employee">
 
 
                 @if ($errors->any())

@@ -12,11 +12,9 @@
     @endif
 
            
-<div class="card mt-3">
-  <div class="container m-3">
+<div class="container" style="text-align:center;">
       <h1>Edit Department</h1> 
-  </div>       
-</div>
+</div> 
                   
 <div class="card mt-4">
   <div class="container">

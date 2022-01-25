@@ -1,10 +1,9 @@
 @extends('master')  
 @section('content')
     
-<div class="card">
-  <div class="container m-4">
+<div class="container" style="text-align:center;">
+
                              <h1>Employee Register</h1> 
-  </div>
 </div>
                     
 
@@ -19,7 +18,7 @@
 @endif
 
 <div class="card mt-3">
-  <div class="container m-2">
+  <div class="container p-5">
           <form action="{{route('Empregdone')}}" method="POST" class="row  m-auto" enctype="multipart/form-data">
                       @csrf
   
@@ -44,7 +43,8 @@
                             <label for="inputPassword1" class="form-label"><h6>Confirm Password</h6></label>
                             <input name="password1" type="password" class="form-control" id="inputPassword1">
                       </div>
-                      <div class="col-6 mt-5">
+                      <div class="col-6 mt-3">
+                        <label for="inputDepartment" class="form-label"><h6>Department</h6></label>
                             <select name="departments_id" class="form-control form-control">
                                       <option>Select Department</option>
 
@@ -54,7 +54,8 @@
                             </select>
                       </div>
   
-                      <div class="col-6 mt-5">
+                      <div class="col-6 mt-3">
+                        <label for="inputBranch" class="form-label"><h6>Department</h6></label>
                             <select name="branches_id" class="form-control form-control">
                                       <option>Select Branch</option>
 
@@ -64,11 +65,11 @@
 
                             </select>
                       </div>
-                      <div class="col-12 mt-3">
+                      <div class="col-6 mt-3">
                                 <label for="inputAddress" class="form-label"><h6>Address</h6></label>
                                 <input name="address" type="text" class="form-control" id="inputAddress">
                       </div>
-                      <div class="col-12 mt-3">
+                      <div class="col-6 mt-3">
                                 <label for="inputMobilenNo" class="form-label"><h6>Mobile No</h6></label>
                                 <input name="pnumber" type="number" class="form-control" id="inputMobileNo">
                       </div>

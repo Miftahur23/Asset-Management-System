@@ -7,11 +7,8 @@
     </p>
 @endif
            
-    <div class="card mt-3">
-        <div class="container m-3">
-                                 <h2>Distributions</h2> 
-        </div> 
-    </div> 
+    
+                    <h1>Distributions</h1> 
 
     <div class="card mt-4">
         <div class="container">
@@ -22,7 +19,7 @@
                         
 
                         <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-3">
+                        <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                               <tr>
                                 

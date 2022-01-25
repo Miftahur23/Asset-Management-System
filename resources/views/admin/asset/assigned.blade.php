@@ -31,12 +31,9 @@
                     
                     @endif
 
-<div class="card mt-3">
-    <div class="container m-3">
-            <h2>Assigned Asset List</h2> 
-    </div>
-</div>
 
+            <h1>Assigned Asset List</h1> 
+    
                 <div class="container m-2">
                         @if($key)
                                 <h5>
@@ -59,14 +56,15 @@
                                 
                                 <br>
                     
-                    <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-2">
+                    <div class="container" style="width: 100%;">
+                        <table class="table table-dark table-bordered mt-2" style="text-align:center;">
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Asset Image</th>
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
                                 <th scope="col">Action</th>
                                 <th scope="col">Status</th>
                                 
@@ -87,6 +85,7 @@
                                 
                                 <td>{{$item->stock->asset->asset_name}}</td>
                                 <td>{{$item->stock->asset->category}}</td>
+                                <td>{{$item->quantity}}</td>
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="{{route('details.asset',$item->id)}}">Details</a>
                                     @if(auth()->user()->role=='user')

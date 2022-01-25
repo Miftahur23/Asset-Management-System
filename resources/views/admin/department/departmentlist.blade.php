@@ -29,11 +29,9 @@
                             
                         @endif
                         
-<div class="card mt-3">
-    <div class="container m-3">
-            <h2>Department List</h2> 
-    </div>
-</div>
+
+            <h1>Department List</h1> 
+   
 
 <div class="container m-2">
     @if($key)
@@ -55,7 +53,7 @@
                         
 
                         <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-3">
+                        <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                               <tr>
                                 

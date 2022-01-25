@@ -7,13 +7,11 @@
     </p>
 @endif
            
-    <div class="card mt-3">
-        <div class="container m-3">
-            <h2>Active Asset Infos</h2> 
-        </div> 
-    </div> 
+    
+            <h1>Active Asset Infos</h1> 
+        
                                 
-    <div class="card mt-4">
+    <div class="card mt-3">
         <div class="container"> 
                                     <a href="{{route('create.stock')}}" type="button" class="btn btn-success mt-2">
                                         Create Stock
@@ -23,7 +21,7 @@
 
 
                     <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-3">
+                        <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                               <tr>
                                 

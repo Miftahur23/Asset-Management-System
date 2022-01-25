@@ -11,10 +11,8 @@
   </div>
 @endif
       
-<div class="card mt-3">
-    <div class="container m-3">
-        <h1>Add New Branch</h1> 
-    </div>
+<div class="container" style="text-align:center;">
+        <h1>Add New Branch</h1>
 </div>
                       
 

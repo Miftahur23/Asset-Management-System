@@ -11,12 +11,11 @@
     </div>
     @endif
            
-<div class="card mt-4">
-  <div class="container m-3">
-    <h1>Request Asset</h1> 
-  </div>       
-</div>      
-                      
+    <div class="container" style="text-align:center;">
+
+      <h1>Request Asset</h1> 
+        
+    </div>             
 
                       
 

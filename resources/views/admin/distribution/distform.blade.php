@@ -7,20 +7,9 @@
     @section('content')
         
    
-           
-        <div class="app-main">
-            <div class="app-main__outer">
-                <div class="app-main__inner">
-                    <div class="app-page-title">
-                        <div class="container fiori-container">
-                            <div class="page-title-wrapper">
-                                <div class="page-title-heading">
-                                 <h1>Distribute Assets</h1> 
-                                </div>       
-                            </div>
-                        </div>
-                    </div>               
-                    <div class="app-inner-layout app-inner-layout-page">
+<div class="container" style="text-align:center;">
+      <h1>Distribute Assets</h1> 
+</div>  
                       
 
                       
@@ -41,7 +30,7 @@
                       </p>
                       @endif
 
-                      {{-- @dd($user) --}}
+                      <div class="card p-3 m-4">
 
                       <center><form action="{{route('store.distribution',$branch_id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
@@ -49,7 +38,8 @@
 
                         @csrf
 
-                        <div class="col-6 mt-5">
+                        <div class="col-6 mt-2">
+                          <label for="exampleInputemployee" class="form-label"><h5>Employee</h5></label>
                           <select name="employee_id" class="form-control form-control">
                             <option>Employee</option>
                       
@@ -62,7 +52,8 @@
                           </select>
                         </div>
 
-                        <div class="col-6 mt-5 ">
+                        <div class="col-6 mt-2">
+                          <label for="exampleInputAssetname" class="form-label"><h5>Asset Name</h5></label>
                           <select name="stock_id" class="form-control form-control">
                             <option>Select Asset</option>
                       
@@ -80,7 +71,8 @@
                             <input type="number" name="quantity" class="form-control" id="exampleInputquantity">
                         </div>
                         
-                        <div class="col-6 mt-5">
+                        <div class="col-6 mt-2">
+                          <label for="exampleInputDepartment" class="form-label"><h5>Department</h5></label>
                           <select name="departments_id" class="form-control form-control">
                             <option>Select Department</option>
                       
@@ -94,16 +86,13 @@
                         </div>
                         
                       
-                        <div class="  pt-2">
+                        <div class="  pt-2 mt-4">
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
-                        </form></center>     
+                        </form></center> </div>    
 
                         
-                    </div>
-                </div>
-            </div>
-        </div>
+                    
     @endsection
 
  

@@ -4,14 +4,10 @@
     
 
        
-<div class="card mb-3">
-  <div class="container m-4">
+<div class="container" style="text-align:center;">
                              <h1>Edit Your Asset</h1> 
-  </div>
+                    <img style="border-radius: 8px; " width="200px;" height="200px;" src=" {{url('/uploads/products/'.$edit->image)}}" alt="product">
 </div>
-
-                    <img style="border-radius: 8px; " width="300px;" height="300px;" src=" {{url('/uploads/products/'.$edit->image)}}" alt="product">
-
   @if ($errors->any())
               <div class="alert alert-warning" role="alert">
                 <ul>
@@ -24,7 +20,7 @@
               </div>
   @endif
 <div class="card mt-3">
-    <div class="container m-2">
+    <div class="container p-4">
                   <form action="{{route('edited.asset',$edit->id)}}" method="POST" class="row" enctype="multipart/form-data">
 
                     @method('PUT')

@@ -3,20 +3,17 @@
         
    
            
-    <div class="card mt-3">
-        <div class="container m-3">
-            <h2>Reports</h2> 
-        </div>      
-    </div>
+   
+            <h1>Reports</h1> 
+       
 
 
-    <div class="card mt-3">
-      <div class="container m-3">
+    
 
-    <form action="{{route('show.report')}}"  method="GET">
+    <form action="{{route('show.report')}}"  method="GET" style="text-align:center;">
       <div class="row" >
 
-        <div class="col-4 mt-3">
+        <div class="col-4 mt-3" >
           <label for="fromdate" class="form-label"><h5>From</h5></label>
           <input name="fromdate" type="date" class="form-control" id="fromdate" >
         </div>
@@ -31,13 +28,11 @@
           </div>
       </div>
     </form>
-      </div>
-    </div>
 
     <div class="card mt-4">
         <div class="container">
                         <div class="container" style="width: 100%;">
-                            <table class="table table-dark table-bordered mt-3">
+                            <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                                 <thead>
                                   <tr>
                                     
