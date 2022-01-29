@@ -1,4 +1,3 @@
-
 @extends('master')  
 @section('content')
     
@@ -33,11 +32,6 @@
                           <label for="inputAssetname" class="form-label"><h5>Asset Name</h5></label>
                           <input name="asset_name" type="name" class="form-control" id="inputAssetname" >
                         </div>
-                        
-                      
-                  
-
-                      {{-- relation --}}
                       
                     <div class="col-6 mt-3">
                       <h5>Category</h5>
@@ -45,6 +39,7 @@
                         <option>Select Category</option>
                         <option>Stationary</option>
                         <option>Furniture</option>
+                        <option>Cyramics</option>
                         <option>Electronics</option>
                   
                         
@@ -60,8 +55,8 @@
                       
                       
 
-                      <div class="form-group col-6 mt-4 mb-3">
-                        <label for="inputImage"><h5>Select Asset Image</h5></label>
+                      <div class="form-group col-6 mt-3 mb-2"><h5>Select Asset Image</h5>
+                        <label for="inputImage"></label>
                         <input type="file" name='product_image' class="form-control-file" id="inputImage">
                       </div>
 

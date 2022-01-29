@@ -37,8 +37,11 @@ Route::get('/assignedassetlist', [AdminController::class, 'AssignedAsset'])->nam
 Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
 
 Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');
+Route::get('/damagerequests', [AdminController::class, 'ShowDamageRequest'])->name('show.damagereqlist');
 Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->name('create.request');
+Route::get('/damagerequestform/{dam_id}', [AdminController::class, 'CreateDamageRequest'])->name('create.damagerequest');
 Route::post('/storerequest/{req_id}', [AdminController::class, 'StoreRequest'])->name('store.request');
+Route::post('/storedamagerequest/{dam_id}', [AdminController::class, 'StoreDamageRequest'])->name('store.damagerequest');
 
 });
 
@@ -127,6 +130,11 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::get('/viewrequest/{viewreq_id}', [AdminController::class, 'ViewRequest'])->name('view.request');
     Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
     Route::patch('/updateaction/{action_id}', [AdminController::class, 'UpdateAction'])->name('update.action');
+
+    Route::put('/confirmdam/{dam_id}', [AdminController::class, 'ConfirmDam'])->name('confirm.damrequest');
+    Route::patch('/updatedamage/{damage_id}', [AdminController::class, 'UpdateDamage'])->name('update.damage');
+
+
 
     //Distribution 
 

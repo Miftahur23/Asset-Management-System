@@ -47,7 +47,7 @@
                     @endif
 
 
-                    <div class="container" style="width: 100%">
+                    <div class="table-responsive-sm">
                         <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                                 <tr>

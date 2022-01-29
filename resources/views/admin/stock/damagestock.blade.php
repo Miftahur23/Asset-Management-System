@@ -25,7 +25,7 @@
                             </p>
                         @endif
 
-                        <div class="container" style="width: 100%">
+                    <div class="table-responsive-sm">
                         <table class="table table-dark table-bordered mt-3">
                             <thead>
                               <tr>
@@ -35,20 +35,27 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Branch</th>
+                                <th scope="col">Worth</th>
                                 
                               </tr>
                             </thead>
-                            {{-- <tbody>
+                            <tbody>
                         
-                              @foreach ($departments as $key=>$item)
+                                {{-- @dd($damstocks) --}}
+
+                              @foreach ($damstocks as $key=>$item)
                               <tr>
                                 
                                 <td>{{$key+1}}</td>
-                                <td>{{$item->dname}}</td>
+                                <td>{{$item->asset_name}}</td>
+                                <td>{{$item->quantity}}</td>
+                                <td>{{$item->distribution->departments->dname}}</td>
+                                <td>{{$item->distribution->branches->name}}</td>
+                                <td>{{$item->worth}}</td>
                                 
                               </tr>
                               @endforeach 
-                            </tbody> --}}
+                            </tbody>
                         </table> </div>
                     </div>
                 </div>

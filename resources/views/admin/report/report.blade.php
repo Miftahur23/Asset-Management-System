@@ -1,14 +1,8 @@
 @extends('master')  
     @section('content')
         
-   
-           
-   
             <h1>Reports</h1> 
        
-
-
-    
 
     <form action="{{route('show.report')}}"  method="GET" style="text-align:center;">
       <div class="row" >
@@ -29,38 +23,45 @@
       </div>
     </form>
 
-    <div class="card mt-4">
-        <div class="container">
-                        <div class="container" style="width: 100%;">
-                            <table class="table table-dark table-bordered mt-3" style="text-align:center;">
-                                <thead>
-                                  <tr>
-                                    
-                                    
-                                    <th scope="col">No</th>
-                                    <th scope="col">Asset Name</th>
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col">Amount</th>
-                                    
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                @foreach ($reports as $key=>$item)
-                                  <tr>
-                                    <td>{{$key+1}}</td>>
-                                    <td>{{$item->asset->asset_name}}</td>
-                                    <td>{{$item->quantity}}</td>
-                                    <td>{{$item->worth}}</td>
-                                  </tr>
-                                @endforeach 
-    
-                                </tbody>
-                            </table> 
-                        </div>
-        </div>
-    </div>
+
+
+
+
+<div class="card mt-4">
+  <div class="container">
+      <div class="table-responsive-sm">
+          <table class="table table-dark table-bordered mt-3" style="text-align:center;">
+              
+                  <tbody>
+                    <thead>
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Asset Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Amount</th>
+                      </tr>
+                    </thead>
+              
+                    @foreach ($reports as $key=>$item)
+                        <tr>
+                          <td>{{$key+1}}</td>
+                          <td>{{$item->asset->asset_name}}</td>
+                          <td>{{$item->quantity}}</td>
+                          <td>{{$item->worth}}</td>
+                        </tr>
+                    @endforeach 
+
+              </tbody>
+            </table>
+          </div>
+
+
+          
+      
+  </div>
+</div>
         
-    @endsection
+@endsection
 
     
 

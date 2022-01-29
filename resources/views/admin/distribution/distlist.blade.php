@@ -18,8 +18,8 @@
 
                         
 
-                        <div class="container" style="width: 100%">
-                        <table class="table table-dark table-bordered mt-3" style="text-align:center;">
+                        <div class="table-responsive-sm">
+                            <table class="table table-dark table-bordered mt-3" style="text-align:center;">
                             <thead>
                               <tr>
                                 
@@ -38,7 +38,7 @@
                             @foreach ($distasset as $key=>$item)
                               <tr>
                                 <td>{{$key+1}}</td>
-                                <td>{{$item->stock->asset->asset_name}}</td>
+                                <td>{{$item->asset->asset_name}}</td>
                                 <td>{{$item->user->name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->departments->dname}}</td>

@@ -57,11 +57,9 @@ class EmployeeController extends Controller
                  }
 
                  User::create([
-
                     'email'=>$empinfo->email,
                     'name'=>$empinfo->fname,
                     'password'=>bcrypt($empinfo->password)
-
                  ]);
 
                  //why this

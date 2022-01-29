@@ -41,9 +41,21 @@
     Department
 </a>
 @endif
-<a class="nav-link" href="{{route('show.reqlist')}}">
+
+
+<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAssetsReq" aria-expanded="false" aria-controls="collapseAssetsReq">
     Requests
+    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
 </a>
+
+<div class="collapse" id="collapseAssetsReq" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+    <nav class="sb-sidenav-menu-nested nav">
+        <a class="nav-link" href="{{route('show.reqlist')}}">Asset Request</a>
+        @if(auth()->user()->role=='admin')
+        <a class="nav-link" href="{{route('show.damagereqlist')}}">Damage Request</a>
+        @endif
+    </nav>
+</div>
 @if(auth()->user()->role=='admin')
 <a class="nav-link" href="{{route('show.distribution')}}">
     Distribution 

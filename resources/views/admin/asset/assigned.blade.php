@@ -56,8 +56,8 @@
                                 
                                 <br>
                     
-                    <div class="container" style="width: 100%;">
-                        <table class="table table-dark table-bordered mt-2" style="text-align:center;">
+                        <div class="table-responsive-sm">
+                            <table class="table table-dark table-bordered mt-2" style="text-align:center;">
                             <thead>
                               <tr>
                                 <th scope="col">No</th>
@@ -89,7 +89,7 @@
                                 <td>
                                     <a class="btn btn-primary btn-sm" href="{{route('details.asset',$item->id)}}">Details</a>
                                     @if(auth()->user()->role=='user')
-                                    <a class="btn btn-danger btn-sm" href="{{route('create.request',$item->id)}}">Damage</a>
+                                    <a class="btn btn-danger btn-sm" href="{{route('create.damagerequest',$item->id)}}">Damage</a>
                                     @endif
 
                                 </td>

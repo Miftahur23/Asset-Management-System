@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDistributionsTable extends Migration
+class CreateDamageReqsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateDistributionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('distributions', function (Blueprint $table) {
+        Schema::create('damage_reqs', function (Blueprint $table) {
             $table->id();
-            $table->string('stock_id');
             $table->unsignedBigInteger('asset_id');
+            $table->unsignedBigInteger('distribuition_id');
+            $table->string('asset_name');
             $table->double('quantity');
-            $table->double('employee_id');
-            $table->string('departments_id');
-            $table->string('branches_id');
+            $table->string('requested_by');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateDistributionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('distributions');
+        Schema::dropIfExists('damage_reqs');
     }
 }

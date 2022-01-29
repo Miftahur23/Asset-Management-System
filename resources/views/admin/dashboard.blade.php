@@ -16,18 +16,14 @@
             <h1>Dashboard</h1> 
         
 
-    
-        {{-- {{$count['stock']}} --}}
-        
-
     <div class="card mt-3">
         <div class="container m-2">
 
-            <div class="row">
+            <div class="row m-2">
                 <div class="col-4">
                     
-                    <div class="card widget-flat m-3" style="text-align:center;">
-                        <a href="{{route('show.emplist')}}">
+                    <div class="card m-3" style="text-align:center;">
+                    <a href="{{route('show.emplist')}}">
                         <div class="card-body" style="background-color:rgba(131, 109, 255, 0.466);">
                             
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Employees</h5>
@@ -37,13 +33,13 @@
                                 <span class="text-nowrap">Since last month</span>  
                             </p>
                         </div> <!-- end card-body-->
-                        </a>
+                    </a>
                     </div>
                      <!-- end card-->
                 </div> <!-- end col-->
 
                 <div class="col-4">
-                    <div class="card widget-flat m-3" style="text-align:center;">
+                    <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.asset')}}">
                         <div class="card-body" style="background-color:powderblue;">
                             <div class="float-end">
@@ -62,7 +58,7 @@
 
             
                 <div class="col-4">
-                    <div class="card widget-flat m-3" style="text-align:center;">
+                    <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.reqlist')}}">
                         <div class="card-body" style="background-color:rgba(145, 233, 74, 0.829);">
                             <div class="float-end">

@@ -15,6 +15,7 @@ use App\Models\Department;
 use App\Models\Stock;
 use App\Models\User;
 use App\Models\Report;
+use App\Models\DamageReq;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -179,6 +180,9 @@ class AdminController extends Controller
         return view('admin.request.reqlist', compact ('data','key'));
     }
 
+    
+
+
     public function CreateRequest($req)
     {
 
@@ -208,6 +212,8 @@ class AdminController extends Controller
  
           return redirect()->route('show.asset')->with('success', 'Asset Requested');
     }
+    
+    
 
     public function ViewRequest($viewreq)
     {
@@ -229,6 +235,83 @@ class AdminController extends Controller
         ]);
 
         return view('admin.request.confirmreq');
+    }
+
+    public function UpdateAction($action)
+    {
+        $updateaction=Req::find($action);
+
+        //dd($updateaction->status);
+        //dd(request()->all());
+        $updateaction->update([
+            'status'=>request()->status
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function CreateDamageRequest ($dam_id)
+    {
+        $damage=AssetInfo::find($dam_id);
+        return view ('admin.request.damreqform',compact('damage'));
+    }
+    
+    public function StoreDamageRequest(Request $request, $dam_id)
+    {
+        // dd($request->all());
+         $request->validate([
+             'name'=>'required',
+             'quantity'=>'required'
+ 
+         ]);
+
+         $distribution=Distribution::where('asset_id',$dam_id)->first();
+ 
+         DamageReq::create([
+             'asset_id'=>$dam_id,
+             'distribuition_id'=>$distribution->id,
+             'asset_name'=>$request->name,
+             'requested_by'=>Auth::user()->name,
+             'quantity'=>$request->quantity,
+          ]);
+ 
+          return redirect()->back()->with('success', 'Damage Requested');
+    }
+    public function ShowDamageRequest()
+    {
+        $damage=DamageReq::all();
+        return view('admin.request.damreqlist',compact('damage'));
+    }
+
+    public function ConfirmDam(Request $damage, $dam_id)
+    {
+        DamageReq::find($dam_id)->update([
+            'status'=>$damage->status
+        ]);
+
+        return view('admin.request.confirmdam');
+
+    }
+
+    public function UpdateDamage($damage)
+    {
+
+        $updatedamage=DamageReq::find($damage);
+        //dd($updatedamage);
+        $updatelist =Distribution::find($updatedamage->distribuition_id);
+        
+
+        $updatelist->update([
+            'quantity'=>$updatelist->quantity-$updatedamage->quantity
+        ]);
+        //dd($updatelist);
+
+        $updatedamage->update([
+            'status'=>request()->status
+        ]);
+
+
+        return redirect()->back();
     }
 
     
@@ -274,13 +357,15 @@ class AdminController extends Controller
         $quantity=0;
         $stock=Stock::where('asset_id',$request->stock_id)->first();
 
-        // dd($stock);
+        //dd($stock->asset_id);
 
         if($stock->quantity >= $request->quantity)
         {
+            //dd($request->all());
             Distribution::create([
                 'employee_id'=>$request->employee_id,
                 'stock_id'=>$request->stock_id,
+                'asset_id'=>$stock->asset_id,
                 'quantity'=>$request->quantity,
                 'departments_id'=>$request->departments_id,
                 'branches_id'=>$branches_id
@@ -352,7 +437,8 @@ class AdminController extends Controller
 
     public function ShowDamageStock()
     {
-        return view('admin.stock.damagestock');
+        $damstocks=DamageReq::where('status','Accepted')->get();
+        return view('admin.stock.damagestock',compact('damstocks'));
     } 
 
     public function CreateStock()
@@ -371,7 +457,7 @@ class AdminController extends Controller
         ]);
 
         $price=AssetInfo::find($request->asset_id);
-
+        dd($request->all());
         Stock::create([
                 'asset_id'=>$request->asset_id,
                 'quantity'=>$request->quantity,
@@ -646,18 +732,7 @@ class AdminController extends Controller
     
 
 
-    public function UpdateAction($action)
-    {
-        $updateaction=Req::find($action);
-
-        //dd($updateaction->status);
-        //dd(request()->all());
-        $updateaction->update([
-            'status'=>request()->status
-        ]);
-
-        return redirect()->back();
-    }
+    
 
     public function ShowReport() 
     {
@@ -667,7 +742,6 @@ class AdminController extends Controller
             $from_date=request()->fromdate;
             $to_date=request()->todate;
             
-        
         $reports=Stock::where('worth','>=',30000)
         ->whereDate('created_at','>=',$from_date)
         ->whereDate('created_at','<=',$to_date)
