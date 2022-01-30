@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
 use App\Models\Product;
@@ -170,7 +171,7 @@ class AdminController extends Controller
         
         if(Auth::User()->role=='admin')
         {
-            $data= Req::all();
+            $data= Req::paginate(5);
 
         }
         else
@@ -178,6 +179,11 @@ class AdminController extends Controller
             $data= Req::where('requested_by',Auth::User()->name)->get();
         }
         return view('admin.request.reqlist', compact ('data','key'));
+    }
+
+    public function boot()
+    {
+        Paginator::useBootstrap();
     }
 
     
@@ -275,7 +281,7 @@ class AdminController extends Controller
              'quantity'=>$request->quantity,
           ]);
  
-          return redirect()->back()->with('success', 'Damage Requested');
+          return redirect()->back()->with('damage', 'Successfully Requested');
     }
     public function ShowDamageRequest()
     {

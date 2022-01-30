@@ -100,19 +100,25 @@
                                             {{$item->updated_at->diffforhumans()}}
                                     </td>
 
-                                    
-
-                                    
                                   </tr>
                                 @endforeach 
 
                             </tbody>
                           </table>
+
+                          
                         </div>
-
-
+                        {{$data->links('pagination::bootstrap-4')}}
                         
-                    
-            </div>
-        </div>
-    @endsection
+                         
+                            
+
+    </div>     
+</div>
+
+    
+
+
+
+
+@endsection

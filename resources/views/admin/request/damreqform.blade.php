@@ -17,7 +17,11 @@
         
     </div>             
 
-                      
+    @if(session()->has('damage'))
+    <p class="alert alert-success">
+      {{session()->get('damage')}}
+    </p>
+    @endif                 
 
                       
 
