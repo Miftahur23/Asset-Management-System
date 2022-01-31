@@ -32,9 +32,13 @@ class AdminController extends Controller
     {
         $count['employees']=EmployeeInfo::all()->count();
         $count['assets']=AssetInfo::all()->count();
-        $count['requests']=Req::where('status','pending')->count();
+        $count['pendingassetrequests']=Req::where('status','pending')->count();
+        $count['pendingdamagerequests']=DamageReq::where('status','pending')->count();
+        $count['purchasable']=Req::where('status','Accepted')->count();
         //$count['purchased']=Req::where('status','purchased')->count();
         $count['stock']=Stock::all()->count();
+
+        //dd($count);
         return view ('admin.dashboard',compact('count'));
     }
 
@@ -171,7 +175,7 @@ class AdminController extends Controller
         
         if(Auth::User()->role=='admin')
         {
-            $data= Req::paginate(5);
+            $data= Req::all();
 
         }
         else
@@ -463,7 +467,7 @@ class AdminController extends Controller
         ]);
 
         $price=AssetInfo::find($request->asset_id);
-        dd($request->all());
+        //dd($request->all());
         Stock::create([
                 'asset_id'=>$request->asset_id,
                 'quantity'=>$request->quantity,
@@ -581,11 +585,23 @@ class AdminController extends Controller
 
     public function DetailsAsset($details_id){
         
-        //dd($data);
 
         $details=AssetInfo::find($details_id);
+
+        //dd($details);
         
         return view ('admin.asset.assetdetails',compact('details'));
+
+    }
+
+    public function ShowAssigned($assigned_id){
+        
+
+        $assigned=Distribution::find($assigned_id);
+
+        //dd($assigned);
+        
+        return view ('admin.asset.assigneddetails',compact('assigned'));
 
     }
 
@@ -663,7 +679,6 @@ class AdminController extends Controller
             return view('admin.employee.emplist', compact('data','key'));
         }
         $data=EmployeeInfo::all();
-
         return view('admin.employee.emplist', compact ('data','key'));
 
     }
@@ -672,7 +687,6 @@ class AdminController extends Controller
 
         //dd($data);
         $data=User::where('role','!=','admin')->get();
-
         return view('admin.employee.logininfo', compact ('data'));
 
     }
@@ -680,7 +694,6 @@ class AdminController extends Controller
     public function DetailsEmployee($details_id)
     {
         $details=EmployeeInfo::find($details_id);
-
         return view ('admin.employee.empdetails', compact('details'));
     }
 
@@ -719,10 +732,7 @@ class AdminController extends Controller
             'address'=>$request->address,
             'pnumber'=>$request->pnumber
 
-
         ]);
-
-    
 
         return redirect()->route('show.emplist')->with('success', 'Employee Information Updated');
     }
@@ -748,21 +758,13 @@ class AdminController extends Controller
             $from_date=request()->fromdate;
             $to_date=request()->todate;
             
-        $reports=Stock::where('worth','>=',30000)
-        ->whereDate('created_at','>=',$from_date)
-        ->whereDate('created_at','<=',$to_date)
-        ->get();
+            $reports=Stock::where('worth','>=',5000)->whereBetween('created_at',[$from_date,$to_date])->get();
+
+        // $reports=Stock::where('worth','>=',30000)
+        // ->whereDate('created_at','>=',$from_date)
+        // ->whereDate('created_at','<=',$to_date)
+        // ->get();
         }
-
-        // $requests= Req::select(
-        //     DB::raw(value: "(COUNT(*)) as count"),
-        //     DB::raw(value: 'MONTHNAME(created_at) as month')
-        // )
-        // ->whereYear('created_at', date(format:'Y'))
-        // ->groupBy('month')
-        // ->get()->toArray();
-
-        //dd($month);
 
         // $reports= AssetInfo::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         //     ->get();

@@ -34,6 +34,7 @@ Route::group(['middleware'=>'auth'],function() {
 
 Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
 Route::get('/assignedassetlist', [AdminController::class, 'AssignedAsset'])->name('assigned.asset');
+Route::get('/assignedassetdetails/{assigned_id}', [AdminController::class, 'ShowAssigned'])->name('show.assigned.details');
 Route::get('/assetdetails/{details_id}', [AdminController::class, 'DetailsAsset'])->name('details.asset');
 
 Route::get('/requests', [AdminController::class, 'ShowRequest'])->name('show.reqlist');

@@ -79,15 +79,15 @@
                                 <td>{{$key+1}}</td>
 
                                 <th>
-                                    <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/products/'.$item->stock->asset->image)}}" alt="product">
+                                    <img style="border-radius: 8px;" width="70px;" height="70px;" src=" {{url('/uploads/products/'.$item->asset->image)}}" alt="product">
                                 </th>
 
                                 
-                                <td>{{$item->stock->asset->asset_name}}</td>
-                                <td>{{$item->stock->asset->category}}</td>
+                                <td>{{$item->asset->asset_name}}</td>
+                                <td>{{$item->asset->category}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="{{route('details.asset',$item->id)}}">Details</a>
+                                    <a class="btn btn-primary btn-sm" href="{{route('show.assigned.details',$item->id)}}">Details</a>
                                     @if(auth()->user()->role=='user')
                                     <a class="btn btn-danger btn-sm" href="{{route('create.damagerequest',$item->id)}}">Damage</a>
                                     @endif

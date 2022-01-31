@@ -1,5 +1,17 @@
 @extends('master')  
     @section('content')
+    
+<style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            text-decoration: none;
+            color: black;
+        }
+</style>
+    
 
     @if(session()->has('success'))
                         <p class="alert alert-success">
@@ -25,7 +37,7 @@
                             </form>
                             
                             
-                                 <h1>Request List</h1> 
+                                 <h1>Asset Request List</h1> 
                                 
 
                             <div class="container m-2">
@@ -108,17 +120,12 @@
 
                           
                         </div>
-                        {{$data->links('pagination::bootstrap-4')}}
-                        
-                         
-                            
+
+                            {{-- {{$data->links('pagination::bootstrap-4')}} --}}
+
 
     </div>     
 </div>
-
-    
-
-
 
 
 @endsection

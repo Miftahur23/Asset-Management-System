@@ -55,7 +55,7 @@
                       </div>
   
                       <div class="col-6 mt-3">
-                        <label for="inputBranch" class="form-label"><h6>Department</h6></label>
+                        <label for="inputBranch" class="form-label"><h6>Branch</h6></label>
                             <select name="branches_id" class="form-control form-control">
                                       <option>Select Branch</option>
 

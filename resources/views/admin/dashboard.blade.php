@@ -64,8 +64,8 @@
                             <div class="float-end">
                                 <i class="mdi mdi-currency-usd widget-icon"></i>
                             </div>
-                            <h5 class="text fw-normal mt-0" title="Total Revenue">Requests</h5>
-                            <h3 class="mt-3 mb-3">{{$count['requests']}}</h3>
+                            <h5 class="text fw-normal mt-0" title="Total Revenue">Asset Requests</h5>
+                            <h3 class="mt-3 mb-3">{{$count['pendingassetrequests']}}</h3>
                             <p class="mb-0 text-muted">
                                 <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
                                 <span class="text-nowrap">Since last month</span>
@@ -74,6 +74,43 @@
                         </a> <!-- end card-body-->
                     </div> <!-- end card-->
                 </div> <!-- end col-->
+
+                <div class="col-4">
+                    
+                    <div class="card m-3" style="text-align:center;">
+                    <a href="{{route('show.damagereqlist')}}">
+                        <div class="card-body" style="background-color:rgba(255, 180, 68, 0.842);">
+                            
+                            <h5 class="text fw-normal mt-0" title="Number of Employees">Damage Requests</h5>
+                            <h3 class="mt-3 mb-3">{{$count['pendingdamagerequests']}}</h3>
+                            <p class="mb-0 text-muted">
+                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
+                                <span class="text-nowrap">Since last month</span>  
+                            </p>
+                        </div> <!-- end card-body-->
+                    </a>
+                    </div>
+                     <!-- end card-->
+                </div>
+
+                <div class="col-4">
+                    
+                    <div class="card m-3" style="text-align:center;">
+                    <a href="{{route('show.purchase')}}">
+                        <div class="card-body" style="background-color:rgba(131, 109, 255, 0.466);">
+                            
+                            <h5 class="text fw-normal mt-0" title="Number of Employees">Purchasable</h5>
+                            <h3 class="mt-3 mb-3">{{$count['purchasable']}}</h3>
+                            <p class="mb-0 text-muted">
+                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
+                                <span class="text-nowrap">Since last month</span>  
+                            </p>
+                        </div> <!-- end card-body-->
+                    </a>
+                    </div>
+                     <!-- end card-->
+                </div>
+
             </div>
             
       
