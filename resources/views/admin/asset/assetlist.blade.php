@@ -108,7 +108,7 @@
                         
                         </div>
                         
-                    
+                        {{$assets->links('pagination::bootstrap-4')}}       
                 
     </div>
 </div>

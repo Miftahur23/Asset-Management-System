@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 use App\Models\Adminlogininfo;
 use App\Models\AssetInfo;
 use App\Models\Product;
@@ -175,19 +174,14 @@ class AdminController extends Controller
         
         if(Auth::User()->role=='admin')
         {
-            $data= Req::all();
+            $data= Req::paginate(4);
 
         }
         else
         {
-            $data= Req::where('requested_by',Auth::User()->name)->get();
+            $data= Req::where('requested_by',Auth::User()->name)->paginate(4);
         }
         return view('admin.request.reqlist', compact ('data','key'));
-    }
-
-    public function boot()
-    {
-        Paginator::useBootstrap();
     }
 
     
@@ -283,6 +277,7 @@ class AdminController extends Controller
              'asset_name'=>$request->name,
              'requested_by'=>Auth::user()->name,
              'quantity'=>$request->quantity,
+             'reason'=>$request->reason
           ]);
  
           return redirect()->back()->with('damage', 'Successfully Requested');
@@ -369,8 +364,23 @@ class AdminController extends Controller
 
         //dd($stock->asset_id);
 
+        $quantity=$stock->quantity - $request->quantity;
+
         if($stock->quantity >= $request->quantity)
+        
         {
+            if(Distribution::where('employee_id',$request->employee_id)->where('asset_id',$stock->asset_id)->exists())
+            {
+                $variable=Distribution::where('employee_id',$request->employee_id)->where('asset_id',$stock->asset_id)->first();
+                //dd($variable->quantity+$request->quantity);
+                $variable->update([
+                    'quantity'=>$variable->quantity+$request->quantity
+                ]);
+                return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
+
+            }
+
+
             //dd($request->all());
             Distribution::create([
                 'employee_id'=>$request->employee_id,
@@ -381,13 +391,11 @@ class AdminController extends Controller
                 'branches_id'=>$branches_id
              ]);
 
-             $quantity=$stock->quantity - $request->quantity;
              $stock->update([
                 'quantity'=>$quantity
-             ]);
+            ]);
              return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
             
-           
         }
         else
         {
@@ -467,15 +475,32 @@ class AdminController extends Controller
         ]);
 
         $price=AssetInfo::find($request->asset_id);
-        //dd($request->all());
+        $variable=Stock::where('asset_id',$request->asset_id)->first();
+
+        if(Stock::where('asset_id',$request->asset_id)->exists()){
+            $variable->update([
+                'quantity'=>$request->quantity+$variable->quantity
+            ]);
+
+            return redirect()->route('show.active.stock')->with('success', 'Stock Created Successfully');
+
+        }
+
+        else
+        
+        {
         Stock::create([
                 'asset_id'=>$request->asset_id,
                 'quantity'=>$request->quantity,
                 'location'=>$request->location,
                 'worth'=>$request->quantity*$price->cost,
              ]);
-        
+
              return redirect()->route('show.active.stock')->with('success', 'Stock Created Successfully');
+
+        }
+
+        
             
     }
 
@@ -562,7 +587,7 @@ class AdminController extends Controller
                 ->get();
             return view('admin.asset.assetlist',compact('assets','key'));
         }
-        $assets = Assetinfo::get();
+        $assets = Assetinfo::paginate(3);
         return view('admin.asset.assetlist',compact('assets','key'));
 
     }
@@ -758,7 +783,7 @@ class AdminController extends Controller
             $from_date=request()->fromdate;
             $to_date=request()->todate;
             
-            $reports=Stock::where('worth','>=',5000)->whereBetween('created_at',[$from_date,$to_date])->get();
+            $reports=Stock::where('worth','>=',7000)->whereBetween('created_at',[$from_date,$to_date])->get();
 
         // $reports=Stock::where('worth','>=',30000)
         // ->whereDate('created_at','>=',$from_date)

@@ -40,6 +40,7 @@
                                     <th scope="col">No</th>
                                     <th scope="col">Asset Name</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Reason</th>
 
                                     @if(auth()->user()->role=='admin')
 
@@ -57,6 +58,7 @@
                                     <td>{{$key+1}}</td>
                                     <td>{{$item->asset_name}}</td>
                                     <td>{{$item->quantity}}</td>
+                                    <td>{{$item->reason}}</td>
                                     @if(auth()->user()->role=='admin')
                                     <td>{{$item->requested_by}}</td>
                                     <td>

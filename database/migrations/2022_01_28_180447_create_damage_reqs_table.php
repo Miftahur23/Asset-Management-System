@@ -21,6 +21,7 @@ class CreateDamageReqsTable extends Migration
             $table->double('quantity');
             $table->string('requested_by');
             $table->string('status')->default('Pending');
+            $table->string('reason');
             $table->timestamps();
         });
     }

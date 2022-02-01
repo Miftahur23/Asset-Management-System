@@ -34,6 +34,7 @@
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Department</th>
+                                <th scope="col">Condition</th>
                                 <th scope="col">Branch</th>
                                 <th scope="col">Worth</th>
                                 
@@ -50,6 +51,7 @@
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->distribution->departments->dname}}</td>
+                                <td> </td>
                                 <td>{{$item->distribution->branches->name}}</td>
                                 <td>{{$item->worth}}</td>
                                 

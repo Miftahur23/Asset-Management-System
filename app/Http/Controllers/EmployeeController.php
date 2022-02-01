@@ -36,7 +36,8 @@ class EmployeeController extends Controller
         
         $empinfo->validate([
             'fname'=>'required',
-            'lname'=>'required'
+            'lname'=>'required',
+            'email'=>'email:rfc,dns'
 
         ]);
 

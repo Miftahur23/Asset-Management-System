@@ -121,10 +121,11 @@
                           
                         </div>
 
-                            {{-- {{$data->links('pagination::bootstrap-4')}} --}}
+                            
+                        {{$data->links('pagination::bootstrap-4')}} 
 
-
-    </div>     
+    </div>  
+      
 </div>
 
 

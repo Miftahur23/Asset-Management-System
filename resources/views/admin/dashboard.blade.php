@@ -28,10 +28,7 @@
                             
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Employees</h5>
                             <h3 class="mt-3 mb-3">{{$count['employees']}}</h3>
-                            <p class="mb-0 text-muted">
-                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                <span class="text-nowrap">Since last month</span>  
-                            </p>
+                             
                         </div> <!-- end card-body-->
                     </a>
                     </div>
@@ -47,10 +44,7 @@
                             </div>
                             <h5 class="text fw-normal mt-0" title="Number of Assets">Assets</h5>
                             <h3 class="mt-3 mb-3">{{$count['assets']}}</h3>
-                            <p class="mb-0 text-muted">
-                                <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 1.08%</span>
-                                <span class="text-nowrap">Since last month</span>
-                            </p>
+                             
                         </div>
                         </a> <!-- end card-body-->
                     </div> <!-- end card-->
@@ -66,10 +60,7 @@
                             </div>
                             <h5 class="text fw-normal mt-0" title="Total Revenue">Asset Requests</h5>
                             <h3 class="mt-3 mb-3">{{$count['pendingassetrequests']}}</h3>
-                            <p class="mb-0 text-muted">
-                                <span class="text-danger me-2"><i class="mdi mdi-arrow-down-bold"></i> 7.00%</span>
-                                <span class="text-nowrap">Since last month</span>
-                            </p>
+                             
                         </div>
                         </a> <!-- end card-body-->
                     </div> <!-- end card-->
@@ -83,10 +74,7 @@
                             
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Damage Requests</h5>
                             <h3 class="mt-3 mb-3">{{$count['pendingdamagerequests']}}</h3>
-                            <p class="mb-0 text-muted">
-                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                <span class="text-nowrap">Since last month</span>  
-                            </p>
+                            
                         </div> <!-- end card-body-->
                     </a>
                     </div>
@@ -101,10 +89,7 @@
                             
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Purchasable</h5>
                             <h3 class="mt-3 mb-3">{{$count['purchasable']}}</h3>
-                            <p class="mb-0 text-muted">
-                                <span class="text-success me-2"><i class="mdi mdi-arrow-up-bold"></i> 5.27%</span>
-                                <span class="text-nowrap">Since last month</span>  
-                            </p>
+                             
                         </div> <!-- end card-body-->
                     </a>
                     </div>

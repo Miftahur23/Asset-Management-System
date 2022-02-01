@@ -42,6 +42,11 @@
                             <label for="exampleInputQuantity" class="form-label"><h5>Quantity</h5></label>
                             <input type="number" name="quantity" class="form-control" id="exampleInputQuantity">
                         </div>
+
+                        <div class="col-6 mt-3 ">
+                          <label for="exampleInputReason" class="form-label"><h5>Reason</h5></label>
+                          <input type="text" name="reason" class="form-control" id="exampleInputReason">
+                      </div>
                         
                         <div class="m-auto p-3">
                           <button type="submit" class="btn btn-success">Submit</button>
