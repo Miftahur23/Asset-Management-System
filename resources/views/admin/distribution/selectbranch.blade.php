@@ -30,7 +30,7 @@
                         @csrf
                        
                         
-                      <div class="col-12 mt-4 ">
+                      <div class="col-6 mt-4 ">
                         <label for="exampleInputBranch" class="form-label"><h5>Select Branch</h5></label>
                         <select name="branches_id" class="form-control form-control">
                           <option>Select Branch</option>
@@ -38,6 +38,20 @@
                           @foreach ($branches as $item)
                       
                           <option  value="{{$item->id}}">{{$item->name}}</option>
+                      
+                          @endforeach
+                      
+                        </select>
+                      </div>
+
+                      <div class="col-6 mt-4 ">
+                        <label for="exampleInputDept" class="form-label"><h5>Select Department</h5></label>
+                        <select name="departments_id" class="form-control form-control">
+                          <option>Select Department</option>
+                      
+                          @foreach ($departments as $item)
+                      
+                          <option  value="{{$item->id}}">{{$item->dname}}</option>
                       
                           @endforeach
                       

@@ -3,11 +3,11 @@
 
     <!-- Navbar Brand-->
     @if(auth()->user()->role=='admin')
-    <a class="navbar-brand ps-3" href="index.html">Admin</a>
+    <a class="navbar-brand ps-3" href="{{route('profile')}}">Admin</a>
 
     @else
 
-    <a class="navbar-brand ps-3" href="index.html">{{Auth::User()->name}}</a>
+    <a class="navbar-brand ps-3" href="{{route('profile')}}">{{Auth::User()->name}}</a>
 
     @endif
 
@@ -34,9 +34,9 @@
 
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 @if(auth()->user()->role=='admin')
-                <img width="35" class="rounded" src="/media/siam.jpg" alt="">
+                <img style="height:45px; width:45px border: 2px solid red; border-radius: 25px;" src="/media/siam.jpg" alt="">
                 @else
-                {{Auth::User()->name}}
+                <img style="height:45px; width:45px border: 2px solid red; border-radius: 25px;" src={{url('/uploads/employee/'.auth()->user()->employee_image)}}>
                 @endif
             </a>
 

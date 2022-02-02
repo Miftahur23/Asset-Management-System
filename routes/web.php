@@ -143,7 +143,7 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::get('/selectbranch', [AdminController::class, 'Selectbranch'])->name('select.branch');
 
     Route::post('/distributionform', [AdminController::class, 'CreateDistribution'])->name('create.distribution');
-    Route::post('/storedistribution/{branch_id}', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
+    Route::post('/storedistribution/{branch_id}/{department_id}', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
 
     //Puurchase
 

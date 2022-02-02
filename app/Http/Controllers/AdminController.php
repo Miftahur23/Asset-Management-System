@@ -332,7 +332,8 @@ class AdminController extends Controller
     public function SelectBranch()
     {
         $branches=Branch::all();
-        return view('admin.distribution.selectbranch', compact ('branches'));
+        $departments=Department::all();
+        return view('admin.distribution.selectbranch', compact ('branches','departments'));
 
     }
 
@@ -340,22 +341,23 @@ class AdminController extends Controller
 
     public function CreateDistribution(Request $request)
     {
-        $employee=EmployeeInfo::where('branches_id',$request->branches_id)->get();
+        $employee=EmployeeInfo::where('branches_id',$request->branches_id)->where('departments_id',$request->departments_id)->get();
         $branch_id=$request->branches_id;
+        $department_id=$request->departments_id;
         $stocks=Stock::all();
-        $departments=Department::all();
-        return view('admin.distribution.distform', compact ('stocks','departments','employee','branch_id'));
+
+        //dd($departments);
+        return view('admin.distribution.distform', compact ('stocks','department_id','employee','branch_id'));
     }
         
 
-    public function StoreDistribution(Request $request,$branches_id)
+    public function StoreDistribution(Request $request,$branches_id,$departments_id)
     {
-        //dd($request->all());
+        //dd($branches_id,$departments_id);
 
         $request->validate([
             'stock_id'=>'required',
             'quantity'=>'required',
-            'departments_id'=>'required',
         ]);
 
         // dd($request->all());
@@ -387,7 +389,7 @@ class AdminController extends Controller
                 'stock_id'=>$request->stock_id,
                 'asset_id'=>$stock->asset_id,
                 'quantity'=>$request->quantity,
-                'departments_id'=>$request->departments_id,
+                'departments_id'=>$departments_id,
                 'branches_id'=>$branches_id
              ]);
 

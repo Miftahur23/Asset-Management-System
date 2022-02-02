@@ -29,7 +29,6 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Branch</th>
-                                <th scope="col">Action</th>
                                 
                               </tr>
                             </thead>
@@ -43,10 +42,6 @@
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->departments->dname}}</td>
                                 <td>{{$item->branches->name}}</td>
-                                <td>
-                                    <a class="btn btn-warning btn-sm" href="#">Damage</a>
-
-                                </td>
 
                             
 

@@ -32,7 +32,7 @@
 
                       <div class="card p-3 m-4">
 
-                      <center><form action="{{route('store.distribution',$branch_id)}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
+                      <center><form action="{{route('store.distribution',['branch_id'=>$branch_id, 'department_id'=>$department_id])}}" class="row ml-5 pl-5 mr-5 pr-5" method="POST">
 
                         {{-- {{route('store.distribution')}} --}}
 
@@ -71,19 +71,7 @@
                             <input type="number" name="quantity" class="form-control" id="exampleInputquantity">
                         </div>
                         
-                        <div class="col-6 mt-2">
-                          <label for="exampleInputDepartment" class="form-label"><h5>Department</h5></label>
-                          <select name="departments_id" class="form-control form-control">
-                            <option>Select Department</option>
-                      
-                            @foreach ($departments as $item)
-                      
-                            <option  value="{{$item->id}}">{{$item->dname}}</option>
-                      
-                            @endforeach
-                      
-                          </select>
-                        </div>
+                        
                         
                       
                         <div class="  pt-2 mt-4">
