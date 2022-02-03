@@ -75,7 +75,7 @@
                         
                               @foreach ($assets as $key=>$item)
                               <tr>
-                                {{-- @dd($data)->all(); --}}
+                 
                                 <td>{{$key+1}}</td>
 
                                 <th>

@@ -174,7 +174,7 @@ class AdminController extends Controller
         
         if(Auth::User()->role=='admin')
         {
-            $data= Req::paginate(4);
+            $data= Req::paginate(6);
 
         }
         else
@@ -256,7 +256,9 @@ class AdminController extends Controller
 
     public function CreateDamageRequest ($dam_id)
     {
-        $damage=AssetInfo::find($dam_id);
+       
+        $damage=Distribution::find($dam_id);
+        //  dd($damage);
         return view ('admin.request.damreqform',compact('damage'));
     }
     
@@ -626,7 +628,7 @@ class AdminController extends Controller
 
         $assigned=Distribution::find($assigned_id);
 
-        //dd($assigned);
+      
         
         return view ('admin.asset.assigneddetails',compact('assigned'));
 
@@ -770,12 +772,6 @@ class AdminController extends Controller
 
         return redirect()->back()->with('delete', 'Employee Removed');
     }
-
-
-    
-
-
-    
 
     public function ShowReport() 
     {

@@ -35,12 +35,12 @@
                         
                         <div class="col-6 mt-3 ">
                             <label for="exampleInputName" class="form-label"><h5>Asset Name</h5></label>
-                            <input type="text" value="{{$damage->asset_name}}" name="name" class="form-control" id="exampleInputName">
+                            <input type="text" value="{{$damage->asset->asset_name}}" name="name" class="form-control" id="exampleInputName">
                         </div>
 
                         <div class="col-6 mt-3 ">
                             <label for="exampleInputQuantity" class="form-label"><h5>Quantity</h5></label>
-                            <input type="number" name="quantity" class="form-control" id="exampleInputQuantity">
+                            <input type="number" name="quantity" class="form-control" id="exampleInputQuantity" min="1" max="{{$damage->quantity}}">
                         </div>
 
                         <div class="col-6 mt-3 ">
