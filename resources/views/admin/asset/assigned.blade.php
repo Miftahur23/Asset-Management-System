@@ -66,7 +66,6 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Action</th>
-                                <th scope="col">Status</th>
                                 
                                 
                               </tr>
@@ -93,8 +92,6 @@
                                     @endif
 
                                 </td>
-
-                                <td></td>
 
                                 
                               </tr>

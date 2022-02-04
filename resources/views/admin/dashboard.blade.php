@@ -16,6 +16,8 @@
             <h1>Dashboard</h1> 
         
 
+            
+
     <div class="card mt-3">
         <div class="container m-2">
 
@@ -38,7 +40,7 @@
                 <div class="col-4">
                     <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.asset')}}">
-                        <div class="card-body" style="background-color:powderblue;">
+                        <div class="card-body" style="background-color:rgb(0, 255, 21);">
                             <div class="float-end">
                                 <i class="mdi mdi-cart-plus widget-icon"></i>
                             </div>
@@ -54,7 +56,7 @@
                 <div class="col-4">
                     <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.reqlist')}}">
-                        <div class="card-body" style="background-color:rgba(145, 233, 74, 0.829);">
+                        <div class="card-body" style="background-color:rgba(255, 6, 6, 0.911);">
                             <div class="float-end">
                                 <i class="mdi mdi-currency-usd widget-icon"></i>
                             </div>
@@ -85,7 +87,7 @@
                     
                     <div class="card m-3" style="text-align:center;">
                     <a href="{{route('show.purchase')}}">
-                        <div class="card-body" style="background-color:rgba(131, 109, 255, 0.466);">
+                        <div class="card-body" style="background-color:rgb(0, 162, 255);">
                             
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Purchasable</h5>
                             <h3 class="mt-3 mb-3">{{$count['purchasable']}}</h3>
@@ -95,6 +97,23 @@
                     </div>
                      <!-- end card-->
                 </div>
+
+                <div class="col-4">
+                    
+                    <div class="card m-3" style="text-align:center;">
+                    <a href="#">
+                        <div class="card-body" style="background-color:rgb(128, 107, 241);">
+                            
+                            <h5 class="text fw-normal mt-0" title="Number of Employees">Total Worth Of Active Stock</h5>
+                            <h5 class="mt-3 mb-3">BDT {{$totalworth}}</h5>
+                             
+                        </div> <!-- end card-body-->
+                    </a>
+                    </div>
+                     <!-- end card-->
+                </div>
+
+                
 
             </div>
             

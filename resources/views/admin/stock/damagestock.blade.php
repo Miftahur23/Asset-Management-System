@@ -36,7 +36,6 @@
                                 <th scope="col">Department</th>
                                 <th scope="col">Condition</th>
                                 <th scope="col">Branch</th>
-                                <th scope="col">Worth</th>
                                 
                               </tr>
                             </thead>
@@ -51,9 +50,8 @@
                                 <td>{{$item->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->distribution->departments->dname}}</td>
-                                <td> </td>
+                                <td>{{$item->reason}}</td>
                                 <td>{{$item->distribution->branches->name}}</td>
-                                <td>{{$item->worth}}</td>
                                 
                               </tr>
                               @endforeach 

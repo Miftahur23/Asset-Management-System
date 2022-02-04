@@ -47,7 +47,7 @@
 
                       <div class="col-6 mt-3">
                           <label for="inputCost" class="form-label"><h5>Cost</h5></label>
-                          <input name="cost" type="number" class="form-control" id="inputCost" >
+                          <input name="cost" value="{{$edit->cost}}" type="number" class="form-control" id="inputCost" >
                         </div>
 
                       <div class="form-group col-6 mt-5">
@@ -57,7 +57,7 @@
 
                       <div class="col-12 mt-1">
                         <label for="inputDescription" class="form-label" ><h5>Description</h5></label>
-                        <input name="description" type="text" class="form-control" style="height:100px" id="inputDescription" >
+                        <input name="description" value="{{$edit->description}}" type="text" class="form-control" style="height:100px" id="inputDescription" >
                       </div>
 
                       

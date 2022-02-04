@@ -37,8 +37,17 @@ class AdminController extends Controller
         //$count['purchased']=Req::where('status','purchased')->count();
         $count['stock']=Stock::all()->count();
 
+        $stocks=Stock::all();
+        $totalworth=0;
+        foreach($stocks as $item)
+        {
+            $totalworth+=$item->worth;
+        }
+
+       $totalworth=intval($totalworth);
+
         //dd($count);
-        return view ('admin.dashboard',compact('count'));
+        return view ('admin.dashboard',compact('count','totalworth'));
     }
 
 
@@ -167,25 +176,25 @@ class AdminController extends Controller
         if(request()->search){
             $key=request()->search;
             $data = Req::where('requested_by','LIKE','%'.$key.'%')
-            ->orWhere('asset_name','LIKE','%'.$key.'%')->get();
+            ->orWhere('asset_name','LIKE','%'.$key.'%')
+            ->paginate(5);
             return view('admin.request.reqlist', compact('data','key'));
         }
-
+        
         
         if(Auth::User()->role=='admin')
         {
-            $data= Req::paginate(6);
+            $data= Req::paginate(5);
 
         }
         else
         {
-            $data= Req::where('requested_by',Auth::User()->name)->paginate(4);
+            $data= Req::where('requested_by',Auth::User()->name)->paginate(5);
         }
         return view('admin.request.reqlist', compact ('data','key'));
     }
 
     
-
 
     public function CreateRequest($req)
     {
@@ -347,6 +356,8 @@ class AdminController extends Controller
         $branch_id=$request->branches_id;
         $department_id=$request->departments_id;
         $stocks=Stock::all();
+
+        
 
         //dd($departments);
         return view('admin.distribution.distform', compact ('stocks','department_id','employee','branch_id'));
@@ -588,7 +599,7 @@ class AdminController extends Controller
             $key=request()->search;
             $assets = AssetInfo::where('asset_name','LIKE','%'.$key.'%')
                 ->orWhere('category','LIKE','%'.$key.'%')
-                ->get();
+                ->paginate(3);
             return view('admin.asset.assetlist',compact('assets','key'));
         }
         $assets = Assetinfo::paginate(3);
@@ -781,13 +792,22 @@ class AdminController extends Controller
             $from_date=request()->fromdate;
             $to_date=request()->todate;
             
-            $reports=Stock::where('worth','>=',7000)->whereBetween('created_at',[$from_date,$to_date])->get();
+            $reports=Distribution::where('quantity','>=',1)->whereBetween('created_at',[$from_date,$to_date])->get();
 
+        
+        }
+
+        
+
+        $dist = Distribution::where('created_at','>=', Carbon::now()->subDays(7))
+        ->get();
+
+        
+        
         // $reports=Stock::where('worth','>=',30000)
         // ->whereDate('created_at','>=',$from_date)
         // ->whereDate('created_at','<=',$to_date)
         // ->get();
-        }
 
         // $reports= AssetInfo::whereBetween('created_at', [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()])
         //     ->get();
@@ -796,10 +816,10 @@ class AdminController extends Controller
         //     ->get();
 
         
-        $quantity= Stock::all();
+        // $quantity= Stock::all();
 
         //dd($quantity);
-        return view('admin.report.report',compact('quantity','reports'));
+        return view('admin.report.report',compact('reports','dist'));
     }
     
 }

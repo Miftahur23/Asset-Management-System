@@ -40,4 +40,5 @@ class Distribution extends Model
     {
         return $this-> belongsTo(Department::class);
     }
+
 }

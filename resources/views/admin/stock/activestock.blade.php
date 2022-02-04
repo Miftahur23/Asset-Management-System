@@ -27,20 +27,26 @@
                                 <th scope="col">Asset Name</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Location</th>
-                                <th scope="col">Total Worth</th>
+                                <th scope="col">Amount</th>
                                 
                               </tr>
                             </thead>
                             <tbody>
                         
                               @foreach ($stock as $key=>$item)
+
+                              @php
+                                   $wor=$item->worth; 
+                              @endphp
+
                               <tr>
                                 
                                 <td>{{$key+1}}</td>
                                 <td>{{$item->asset->asset_name}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->location}}</td>
-                                <td>{{$item->worth}}</td>
+                                
+                                <td>{{intval($wor)}}</td>
                                 
                               </tr>
                               @endforeach 

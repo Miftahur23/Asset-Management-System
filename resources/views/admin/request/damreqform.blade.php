@@ -40,12 +40,18 @@
 
                         <div class="col-6 mt-3 ">
                             <label for="exampleInputQuantity" class="form-label"><h5>Quantity</h5></label>
-                            <input type="number" name="quantity" class="form-control" id="exampleInputQuantity" min="1" max="{{$damage->quantity}}">
+                            <input type="number" name="quantity" class="
+                            form-control" id="exampleInputQuantity" min="1" max="{{$damage->quantity}}">
                         </div>
 
                         <div class="col-6 mt-3 ">
-                          <label for="exampleInputReason" class="form-label"><h5>Reason</h5></label>
-                          <input type="text" name="reason" class="form-control" id="exampleInputReason">
+
+                            <h5>Reason</h5>
+                            <select name="reason" class="form-control form-control-md">
+                              <option>Lost</option>
+                              <option>Broken</option>
+                              <option>Partial Damaged</option>
+                            </select>
                       </div>
                         
                         <div class="m-auto p-3">

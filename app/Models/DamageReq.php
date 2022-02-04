@@ -14,4 +14,9 @@ class DamageReq extends Model
     {
         return $this->belongsTo(Distribution::class,'distribuition_id','id');
     }
+
+    public function asset()
+    {
+        return $this->belongsTo(AssetInfo::class,'asset_id','id');
+    }
 }
