@@ -27,9 +27,9 @@
                     <div class="card m-3" style="text-align:center;">
                     <a href="{{route('show.emplist')}}">
                         <div class="card-body" style="background-color:rgba(131, 109, 255, 0.466);">
-                            
-                            <h5 class="text fw-normal mt-0" title="Number of Employees">Employees</h5>
-                            <h3 class="mt-3 mb-3">{{$count['employees']}}</h3>
+                            <i class="fas fa-users fa-4x"></i>
+                            <h5 class="text fw-normal mt-1" title="Number of Employees">Employees</h5>
+                            <h3>{{$count['employees']}}</h3>
                              
                         </div> <!-- end card-body-->
                     </a>
@@ -41,11 +41,9 @@
                     <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.asset')}}">
                         <div class="card-body" style="background-color:rgb(0, 255, 21);">
-                            <div class="float-end">
-                                <i class="mdi mdi-cart-plus widget-icon"></i>
-                            </div>
-                            <h5 class="text fw-normal mt-0" title="Number of Assets">Assets</h5>
-                            <h3 class="mt-3 mb-3">{{$count['assets']}}</h3>
+                            <i class="fas fa-cogs fa-4x"></i>
+                            <h5 class="text fw-normal mt-1" title="Number of Assets">Assets</h5>
+                            <h3>{{$count['assets']}}</h3>
                              
                         </div>
                         </a> <!-- end card-body-->
@@ -57,11 +55,9 @@
                     <div class="card m-3" style="text-align:center;">
                         <a href="{{route('show.reqlist')}}">
                         <div class="card-body" style="background-color:rgba(255, 6, 6, 0.911);">
-                            <div class="float-end">
-                                <i class="mdi mdi-currency-usd widget-icon"></i>
-                            </div>
-                            <h5 class="text fw-normal mt-0" title="Total Revenue">Asset Requests</h5>
-                            <h3 class="mt-3 mb-3">{{$count['pendingassetrequests']}}</h3>
+                            <i class="fas fa-exclamation-circle fa-4x"></i>
+                            <h5 class="text fw-normal mt-1" title="Total Revenue">Asset Requests</h5>
+                            <h3>{{$count['pendingassetrequests']}}</h3>
                              
                         </div>
                         </a> <!-- end card-body-->
@@ -73,9 +69,9 @@
                     <div class="card m-3" style="text-align:center;">
                     <a href="{{route('show.damagereqlist')}}">
                         <div class="card-body" style="background-color:rgba(255, 180, 68, 0.842);">
-                            
-                            <h5 class="text fw-normal mt-0" title="Number of Employees">Damage Requests</h5>
-                            <h3 class="mt-3 mb-3">{{$count['pendingdamagerequests']}}</h3>
+                            <i class="fas fa-exclamation-triangle fa-4x"></i>
+                            <h5 class="text fw-normal mt-1" title="Number of Employees">Damage Requests</h5>
+                            <h3>{{$count['pendingdamagerequests']}}</h3>
                             
                         </div> <!-- end card-body-->
                     </a>
@@ -88,9 +84,9 @@
                     <div class="card m-3" style="text-align:center;">
                     <a href="{{route('show.purchase')}}">
                         <div class="card-body" style="background-color:rgb(0, 162, 255);">
-                            
+                            <i class="fas fa-money-bill-alt fa-4x"></i>
                             <h5 class="text fw-normal mt-0" title="Number of Employees">Purchasable</h5>
-                            <h3 class="mt-3 mb-3">{{$count['purchasable']}}</h3>
+                            <h3>{{$count['purchasable']}}</h3>
                              
                         </div> <!-- end card-body-->
                     </a>
