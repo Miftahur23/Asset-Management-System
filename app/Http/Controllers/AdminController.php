@@ -295,8 +295,17 @@ class AdminController extends Controller
     }
     public function ShowDamageRequest()
     {
-        $damage=DamageReq::all();
-        return view('admin.request.damreqlist',compact('damage'));
+
+        if(Auth::User()->role=='admin')
+        {
+            $damage= DamageReq::paginate(5);
+
+        }
+        else
+        {
+            $damage= DamageReq::where('requested_by',Auth::User()->name)->paginate(5);
+        }
+        return view('admin.request.damreqlist', compact ('damage'));
     }
 
     public function ConfirmDam(Request $damage, $dam_id)
@@ -375,11 +384,14 @@ class AdminController extends Controller
 
         // dd($request->all());
         $quantity=0;
+        
         $stock=Stock::where('asset_id',$request->stock_id)->first();
 
         //dd($stock->asset_id);
-
+        
         $quantity=$stock->quantity - $request->quantity;
+
+        //dd($quantity);
 
         if($stock->quantity >= $request->quantity)
         
@@ -390,6 +402,10 @@ class AdminController extends Controller
                 //dd($variable->quantity+$request->quantity);
                 $variable->update([
                     'quantity'=>$variable->quantity+$request->quantity
+                ]);
+
+                $stock->update([
+                    'quantity'=>$quantity
                 ]);
                 return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
 
@@ -406,15 +422,18 @@ class AdminController extends Controller
                 'branches_id'=>$branches_id
              ]);
 
+            
+
              $stock->update([
                 'quantity'=>$quantity
             ]);
              return redirect()->route('show.distribution')->with('success', 'Asset Distributed Successfully');
             
         }
+
         else
         {
-            return redirect()->back()->with('stock','Not enough stock');
+            return redirect()->route('show.distribution')->with('stock','Not enough stock');
         }
 
 

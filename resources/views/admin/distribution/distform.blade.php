@@ -24,11 +24,6 @@
                       </div>
                       @endif
 
-                      @if(session()->has('stock'))
-                      <p class="alert alert-danger">
-                          {{session()->get('stock')}}
-                      </p>
-                      @endif
 
                       <div class="card p-3 m-4">
 

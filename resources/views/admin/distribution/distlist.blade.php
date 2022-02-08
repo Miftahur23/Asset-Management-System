@@ -6,6 +6,12 @@
         {{session()->get('success')}}
     </p>
 @endif
+
+@if(session()->has('stock'))
+      <p class="alert alert-danger">
+          {{session()->get('stock')}}
+      </p>
+@endif
            
     
                     <h1>Distributions</h1> 
