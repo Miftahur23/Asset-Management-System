@@ -21,6 +21,7 @@ class CreateDistributionsTable extends Migration
             $table->double('employee_id');
             $table->string('departments_id');
             $table->string('branches_id');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

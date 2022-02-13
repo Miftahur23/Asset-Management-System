@@ -263,6 +263,19 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
+    public function ConfirmDist($confirm)
+    {
+        $updateaction=Distribution::find($confirm);
+
+        //dd($updateaction->status);
+        //dd(request()->all());
+        $updateaction->update([
+            'status'=>request()->status
+        ]);
+
+        return redirect()->back();
+    }
+
     public function CreateDamageRequest ($dam_id)
     {
        
@@ -419,7 +432,7 @@ class AdminController extends Controller
                 'asset_id'=>$stock->asset_id,
                 'quantity'=>$request->quantity,
                 'departments_id'=>$departments_id,
-                'branches_id'=>$branches_id
+                'branches_id'=>$branches_id,
              ]);
 
             

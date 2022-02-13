@@ -43,6 +43,7 @@ Route::get('/requestform/{req_id}', [AdminController::class, 'CreateRequest'])->
 Route::get('/damagerequestform/{dam_id}', [AdminController::class, 'CreateDamageRequest'])->name('create.damagerequest');
 Route::post('/storerequest/{req_id}', [AdminController::class, 'StoreRequest'])->name('store.request');
 Route::post('/storedamagerequest/{dam_id}', [AdminController::class, 'StoreDamageRequest'])->name('store.damagerequest');
+Route::patch('/confirmdistribution/{confirm_id}', [AdminController::class, 'ConfirmDist'])->name('confirm.distribution');
 
 });
 

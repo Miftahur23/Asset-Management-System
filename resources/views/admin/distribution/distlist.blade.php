@@ -35,6 +35,7 @@
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Department</th>
                                 <th scope="col">Branch</th>
+                                <th scope="col">Status</th>
                                 
                               </tr>
                             </thead>
@@ -48,6 +49,16 @@
                                 <td>{{$item->quantity}}</td>
                                 <td>{{$item->departments->dname}}</td>
                                 <td>{{$item->branches->name}}</td>
+
+                                <td>
+
+                                  @if($item->status=='Pending')
+                                  <a class="btn btn-warning btn-sm" >{{$item->status}}<a>
+                                      @else
+
+                                  <button class="btn btn-success btn-sm mr-3">{{$item->status}}<a>
+                                      @endif
+                                </td>
 
                             
 

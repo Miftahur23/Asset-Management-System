@@ -58,6 +58,8 @@
         
         <a class="nav-link" href="{{route('show.damagereqlist')}}">
             <i class="fas fa-times m-1"></i>Damage Request</a>
+
+       
         
     </nav>
 </div>

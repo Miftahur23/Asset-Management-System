@@ -66,6 +66,7 @@
                                 <th scope="col">Category</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Action</th>
+                                <th scope="col">Status</th>
                                 
                                 
                               </tr>
@@ -86,10 +87,37 @@
                                 <td>{{$item->asset->category}}</td>
                                 <td>{{$item->quantity}}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-sm" href="{{route('show.assigned.details',$item->id)}}">Details</a>
                                     @if(auth()->user()->role=='user')
+                                    <a class="btn btn-primary btn-sm" href="{{route('show.assigned.details',$item->id)}}">Details</a>
+                            
                                     <a class="btn btn-danger btn-sm" href="{{route('create.damagerequest',$item->id)}}">Damage</a>
+                                    
+                                    @if($item->status=='Pending')
+
+                                        <form action="{{route('confirm.distribution',$item->id)}}" method="POST">
+                                            @method('PATCH')
+                                            @csrf
+                                        <button class="btn btn-danger btn-sm mr-3" name="status" value="Confirmed" type='submit'>Confirm<a>
+                                        
+
+                                        </form>
+                                        
+                                        @endif
+
                                     @endif
+
+                                </td>
+                                <td>
+
+                                    @if($item->status=='Pending')
+                                        <a class="btn btn-warning btn-sm" >{{$item->status}}<a>
+                                            @elseif($item->status=='Confirmed')
+                                        <a class="btn btn-success btn-sm" >{{$item->status}}<a>
+                                            @else
+                                        <a class="btn btn-danger btn-sm" >{{$item->status}}<a>
+                                            @endif
+
+                                            {{$item->updated_at->diffforhumans()}}
 
                                 </td>
 
