@@ -21,6 +21,23 @@ use App\Http\Controllers\Req;
 */
 
 
+// Login With Facebook
+Route::get('auth/facebook/redirect',[UserController::class,'fbredirect'])->name('fb.login');
+Route::get('auth/facebook/callback',[UserController::class,'fblogin']);
+
+// Login With Github
+Route::get('auth/github/redirect',[UserController::class,'githubRedirect'])->name('github.login');
+Route::get('auth/github/callback',[UserController::class,'githubLogin']);
+
+//Forgot Password
+Route::get('send/email',[UserController::class,'sendEmail'])->name('send.email');
+Route::post('post/email',[UserController::class,'postEmail'])->name('post.email');
+
+//Reset Pass Mail
+Route::get('reset/form/{coupon}',[UserController::class,'resetForm'])->name('reset.form');
+Route::post('users', [UserController::class, 'resetpass'])->name('reset.pass');
+
+
 
 Route::get('/login',[UserController::class,'Login'])->name('loginpage');
 

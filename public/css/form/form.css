@@ -4,12 +4,13 @@ body{
     font-family: sans-serif;
     background: #34495e;
   }
+
   .box{
     width: 300px;
     padding: 40px;
-    margin-top: 55px;
+    margin-top: 20px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
     background: #191919;
@@ -55,9 +56,29 @@ body{
   .box input[type = "submit"]:hover{
     background: #2ecc71;
   }
+
+  .box input[type = "button"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+  }
+  .box input[type = "button"]:hover{
+    background: #2ecc71;
+  }
+
   .alert{position:relative;padding:.75rem 1.25rem;margin-left: 450px; margin-right: 450px;margin-bottom:1rem;border:1px solid transparent;border-radius:3.25rem}
   
   .alert-warning{color:#806013;background-color:#fdf1d3;border-color:#fdebc2}
   .alert-warning hr{border-top-color:#fce3a9}
   .alert-warning .alert-link{color:#543f0c}
+
   

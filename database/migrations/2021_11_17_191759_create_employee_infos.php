@@ -16,16 +16,15 @@ class CreateEmployeeInfos extends Migration
         Schema::create('employee_infos', function (Blueprint $table) {
             $table->id();
             $table->string('employee_image')->nullable();
-            $table->string('user_id');
+            $table->string('user_id')->nullable();
             $table->string('fname');
             $table->string('lname');
             $table->string('email');  
             $table->string('password');
-            $table->string('password1');
-            $table->string('departments_id');
-            $table->string('branches_id');
-            $table->string('address');
-            $table->double('pnumber');          
+            $table->string('departments_id')->nullable();
+            $table->string('branches_id')->nullable();
+            $table->string('address')->nullable();
+            $table->double('pnumber')->nullable();          
             $table->timestamps();
         });
     }

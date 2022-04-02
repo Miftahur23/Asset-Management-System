@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' =>'520177949683604' ,
+        'client_secret' => 'fe5bcbadb23bb4813651620d191cb760',
+        'redirect' =>'https://asset.test/auth/facebook/callback' ,
+    ],
+
+    'github' => [
+        'client_id' => 'f80ec157138602015e11',
+        'client_secret' => '08dbbbebe4b29d46d05a22af986cba7bbabbcf13',
+        'redirect' => 'https://asset.test/auth/github/callback'
+    ],
+
 ];

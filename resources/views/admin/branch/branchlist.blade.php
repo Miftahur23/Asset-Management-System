@@ -87,7 +87,7 @@
                                 </tbody>
                             </table>
                         </div>
-
+                        {{$branches -> links()}}
     </div>
 </div>
 @endsection

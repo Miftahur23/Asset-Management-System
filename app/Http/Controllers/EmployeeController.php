@@ -78,7 +78,6 @@ class EmployeeController extends Controller
             'lname'=>$empinfo->lname,
             'email'=>$empinfo->email,
             'password'=>$empinfo->password,
-            'password1'=>$empinfo->password1,
             'departments_id'=>$empinfo->departments_id,
             'branches_id'=>$empinfo->branches_id,
             'address'=>$empinfo->address,

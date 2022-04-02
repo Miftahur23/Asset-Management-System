@@ -60,7 +60,7 @@ class AdminController extends Controller
             $branches = Branch::where('name','LIKE','%'.$key.'%')->get();
             return view('admin.branch.branchlist', compact('branches','key'));
         }
-        $branches=Branch::all();
+        $branches=Branch::paginate();
         return view ('admin.branch.branchlist', compact ('branches','key'));
     }
 

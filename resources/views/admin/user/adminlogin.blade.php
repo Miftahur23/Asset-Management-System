@@ -32,4 +32,7 @@
     <input type="text" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Password">
     <input type="submit" name="" value="Login">
+    <a style="text-decoration:none;" href="{{route('send.email')}}">
+      <input type="button" name="" value="Forgot Password">
+    </a>
   </form>
