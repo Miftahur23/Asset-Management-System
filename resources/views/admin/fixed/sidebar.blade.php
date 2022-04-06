@@ -16,7 +16,7 @@
 
 @endif
 
-@if(auth()->user()->role=='user')
+@if(auth()->user()->role=='manager')
 
 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAssets" aria-expanded="false" aria-controls="collapseAssets">
     <i class="fas fa-tools m-1"></i>Assets

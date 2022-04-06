@@ -36,10 +36,22 @@ return [
         'redirect' =>'https://asset.test/auth/facebook/callback' ,
     ],
 
+    'google' => [
+        'client_id' =>'1010857364057-j0f08hhto1a94dr3um0v2n19dnktil06.apps.googleusercontent.com' ,
+        'client_secret' => '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',
+        'redirect' =>'https://asset.test/auth/google/callback' ,
+    ],
+
     'github' => [
         'client_id' => 'f80ec157138602015e11',
         'client_secret' => '08dbbbebe4b29d46d05a22af986cba7bbabbcf13',
         'redirect' => 'https://asset.test/auth/github/callback'
+    ],
+
+    'linkedin' => [
+        'client_id' => '86loqpino9yfrx',
+        'client_secret' => 'esLDz6Lwkk10csUW',
+        'redirect' => 'https://asset.test/auth/linkedin/callback'
     ],
 
 ];

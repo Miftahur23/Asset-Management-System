@@ -25,9 +25,17 @@ use App\Http\Controllers\Req;
 Route::get('auth/facebook/redirect',[UserController::class,'fbredirect'])->name('fb.login');
 Route::get('auth/facebook/callback',[UserController::class,'fblogin']);
 
+// Login With Google
+Route::get('auth/google/redirect',[UserController::class,'googleredirect'])->name('google.login');
+Route::get('auth/google/callback',[UserController::class,'googlelogin']);
+
 // Login With Github
 Route::get('auth/github/redirect',[UserController::class,'githubRedirect'])->name('github.login');
 Route::get('auth/github/callback',[UserController::class,'githubLogin']);
+
+// Login With Linkedin
+Route::get('auth/linkedin/redirect',[UserController::class,'linkedinRedirect'])->name('linkedin.login');
+Route::get('auth/linkedin/callback',[UserController::class,'linkedinLogin']);
 
 //Forgot Password
 Route::get('send/email',[UserController::class,'sendEmail'])->name('send.email');
@@ -47,7 +55,7 @@ Route::get('/loginpage',[UserController::class,'Logout'])->name('logoutpage');
 
 //Route::post('/employeeloggedin',[UserController::class,'UserLoggedIn'])->name('userloggedin');
 
-Route::group(['middleware'=>'auth'],function() {
+Route::group(['middleware'=>'auth:web,manager'],function() {
 
 Route::get('/assetlist', [AdminController::class, 'ShowAsset'])->name('show.asset');
 Route::get('/assignedassetlist', [AdminController::class, 'AssignedAsset'])->name('assigned.asset');
@@ -114,6 +122,11 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     //Branch 
 
     Route::get('/branchlist',[AdminController::class, 'ShowBranch'])->name('show.branch');
+
+    Route::get('/branchlistyajra',[AdminController::class, 'getBranch'])->name('yajra.branch');
+    Route::post('/branch/delete',[AdminController::class, 'yajraDel'])->name('yajra.delete');
+
+
     Route::get('/branchinsertform',[AdminController::class, 'CreateBranch'])->name('create.branch');
     
     Route::get('/branchedit/{edit_id}',[AdminController::class, 'EditBranch'])->name('edit.branch');
@@ -141,10 +154,8 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::get('/stockform', [AdminController::class, 'CreateStock'])->name('create.stock');
     Route::post('/stocks', [AdminController::class, 'StoreStock'])->name('store.stock');
 
-    //Request 
 
-    
-    
+    //Request 
 
     Route::get('/viewrequest/{viewreq_id}', [AdminController::class, 'ViewRequest'])->name('view.request');
     Route::put('/confirmrequest/{req_id}', [AdminController::class, 'Confirmrequest'])->name('confirm.request');
@@ -163,7 +174,7 @@ Route::group(['prefix'=>'admin','middleware'=>['admin','auth']],function() {
     Route::post('/distributionform', [AdminController::class, 'CreateDistribution'])->name('create.distribution');
     Route::post('/storedistribution/{branch_id}/{department_id}', [AdminController::class, 'StoreDistribution'])->name('store.distribution');
 
-    //Puurchase
+    //Purchase
 
     Route::get('/purchase', [AdminController::class, 'ShowPurchase'])->name('show.purchase');
     Route::get('/createpurchase', [AdminController::class, 'CreatePurchase'])->name('create.purchase');

@@ -1,7 +1,11 @@
 @extends('master')  
 @section('content')
 
-<form action="{{route('show.branch')}}" method="GET">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <form action="{{route('show.branch')}}" method="GET">
     <div class="row" style="margin-left: 700px">
         
         <div class="col-md-4">
@@ -58,9 +62,9 @@
                     
                         <br>
                         
-                         
+                        {{-- {{$branches -> links()}} --}}
                         <div class="table-responsive-sm">
-                            <table class="table table-dark table-bordered mt-2" style="text-align:center;">
+                            <table class="table table-dark table-bordered mt-2 yajra-datatable" style="text-align:center;">
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
@@ -73,9 +77,9 @@
 
                                 <tbody>
                         
-                                    @foreach ($branches as $key=>$item)
+                                    {{-- @foreach ($branches as $key=>$item)
                                     <tr>
-                                        <td>{{$key+1}}</td>
+                                        <td>{{$item->id}}</td>
                                         <td>{{$item->name}}</td>
                                         <td>{{$item->location}}</td>
                                         <td>
@@ -86,8 +90,40 @@
                                     @endforeach 
                                 </tbody>
                             </table>
-                        </div>
-                        {{$branches -> links()}}
-    </div>
+                        </div> --}}
+                        
+
+@push('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('.yajra-datatable').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('yajra.branch') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'name', name: 'name'},
+            {data: 'location', name: 'location'},
+            {
+                data: 'action', 
+                name: 'action', 
+                orderable: true, 
+                searchable: true
+            },
+        ]
+    });
+    
+  });
+</script>
+</tbody>
+@endpush
+</table>
+</div>
 </div>
 @endsection

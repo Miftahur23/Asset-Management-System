@@ -2,22 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use DataTables;
 use Carbon\Carbon;
+use App\Models\Req;
+use App\Models\User;
+use App\Models\Stock;
+use App\Models\Branch;
+use App\Models\Report;
+use App\Models\Product;
+use App\Models\AssetInfo;
+use App\Models\DamageReq;
+use App\Models\Department;
+use App\Models\Distribution;
+use App\Models\EmployeeInfo;
 use Illuminate\Http\Request;
 use App\Models\Adminlogininfo;
-use App\Models\AssetInfo;
-use App\Models\Product;
-use App\Models\Req;
-use App\Models\EmployeeInfo;
-use App\Models\Distribution;
-use App\Models\Branch;
-use App\Models\Department;
-use App\Models\Stock;
-use App\Models\User;
-use App\Models\Report;
-use App\Models\DamageReq;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\AssetRequest;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Auth;
+use App\Repositories\AssetRepository;
 
 
 class AdminController extends Controller
@@ -60,8 +64,24 @@ class AdminController extends Controller
             $branches = Branch::where('name','LIKE','%'.$key.'%')->get();
             return view('admin.branch.branchlist', compact('branches','key'));
         }
-        $branches=Branch::paginate();
+        $branches=Branch::paginate(300);
         return view ('admin.branch.branchlist', compact ('branches','key'));
+    }
+
+    public function getBranch(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Branch::latest()->get();
+            return Datatables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $actionBtn = '<a href="javascript:void(0)" class="edit btn btn-success btn-sm">Edit</a> 
+                                <a href="javascript:void(0)" class="delete btn btn-danger btn-sm">Delete</a>';
+                    return $actionBtn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
     }
 
 
@@ -164,7 +184,8 @@ class AdminController extends Controller
     public function DelDepartment($deldept)
     {
         Department::find($deldept)->delete();
-        return redirect()->back()->with('delete', 'Department Deleted');
+        Toastr::success('Deleted');
+        return redirect()->back();
     }
 
     
@@ -575,56 +596,10 @@ class AdminController extends Controller
         return view ('admin.asset.assetform');
     }
 
-    public function Assetinfo(Request $request)
-    {
-        // dd($request->all());
-
-        $request->validate([
-            'asset_name'=>'required',
-            'cost'=>'required',
-
-        ]);
-
-                $image_name=null;
-
-                //checking if image exist in this request.
-
-                 if($request->hasFile('product_image'))
-                 {
-                     //generating file name
-                     $image_name=date('Ymdhis') .'.'. $request->file('product_image')->getClientOriginalExtension();
-
-                     //storing into project directory
-
-                     $request->file('product_image')->storeAs('/products',$image_name);
-
-                 }
-
-        AssetInfo::create([
-                  'asset_name'=>$request->asset_name, 
-                  'cost'=>$request->cost,
-                  'description'=>$request->description,
-                  'category'=>$request->category, 
-                  'image'=>$image_name
-               ]);
-        
-               return redirect()->route('show.asset')->with('success', 'Asset Created Successfully');
-
-        // return redirect()->back();
-        // return $request->only(['name','email']);
-        // return $request->except('name');
-
-        // echo $request->input('name');
-        // echo '<br/>';
-        // echo $request->input('password');
-
-        // return 'ok';
-    }
-
+    
     public function ShowAsset(){
         
         //dd($data);
-
 
         $key=null;
         if(request()->search){
@@ -655,80 +630,42 @@ class AdminController extends Controller
         return view('admin.asset.assigned',compact('assets','key'));
     }
 
-    public function DetailsAsset($details_id){
-        
-
-        $details=AssetInfo::find($details_id);
-
-        //dd($details);
-        
-        return view ('admin.asset.assetdetails',compact('details'));
-
-    }
-
-    public function ShowAssigned($assigned_id){
-        
-
+    public function ShowAssigned($assigned_id)
+    {
         $assigned=Distribution::find($assigned_id);
-
-      
-        
         return view ('admin.asset.assigneddetails',compact('assigned'));
-
     }
 
+    public function Assetinfo(AssetRequest $request, AssetRepository $assetrepo)
+    {
+        $asset=$assetrepo->store($request);
+        return redirect()->route('show.asset');
+    }
+
+    public function DetailsAsset($details_id, AssetRepository $findasset)
+    {
+        $asset=$findasset->find($details_id);
+        return view ('admin.asset.assetdetails',compact('asset'));
+    }
+
+    public function EditAsset($id, AssetRepository $findasset)
+    {
+        $edit=$findasset->find($id);
+        return view('admin.asset.edit', compact('edit'));
+    }
+
+    public function EditedAsset($id, AssetRequest $requesttt, AssetRepository $findasset)
+    {
+        $updatedAsset=$findasset->find($id);
+        $findasset->update($updatedAsset, $requesttt);
+        return redirect()->route('show.asset')->with('success', 'Asset Edited Successfully');
+    }
 
     public function DeleteAsset($delasset)
     {
         AssetInfo::find($delasset)->delete();
 
         return redirect()->back()->with('delete', 'Asset deleted');
-    }
-
-    
-
-    public function EditAsset($editasset)
-    {
-        $edit=AssetInfo::find($editasset);
-
-        //return redirect()->back()->with('delete', 'Asset deleted');
-
-        return view('admin.asset.edit', compact('edit'));
-    }
-
-    public function EditedAsset(Request $request, $editasset)
-    {
-        $edit=AssetInfo::find($editasset);
-
-        $image_name=$edit->image;
-
-                //checking if image exist in this request.
-
-                 if($request->hasFile('product_image'))
-                 {
-                     //generating file name
-                     $image_name=date('Ymdhis') .'.'. $request->file('product_image')->getClientOriginalExtension();
-
-                     //storing into project directory
-
-                     $request->file('product_image')->storeAs('/products',$image_name);
-
-                 }
-
-                 $edit->update([
-                    'asset_name'=>$request->asset_name, 
-                    'cost'=>$request->cost,
-                    'description'=>$request->description,
-                    'category'=>$request->category, 
-                    'image'=>$image_name
-                 ]);
-
-
-                 return redirect()->route('show.asset')->with('success', 'Asset Edited Successfully');
-
-                 
-
-
     }
 
     
