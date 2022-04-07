@@ -45,8 +45,17 @@
     <a type="button" href="{{route('fb.login')}}" class="btn btn-primary text-center" aria-expanded="false">
         <i class="bi bi-facebook" style="font-size:24px"></i>
     </a>
+    <a type="button" href="{{route('google.login')}}" class="btn btn-success" aria-expanded="false">
+        <i class="bi bi-google" style="font-size:24px"></i>
+    </a>
     <a type="button" href="{{route('github.login')}}" class="btn btn-dark text-center" aria-expanded="false">
         <i class="bi bi-github" style="font-size:24px"></i>
+    </a>
+    <a type="button" href="{{route('linkedin.login')}}" class="btn btn-primary text-center" aria-expanded="false">
+        <i class="bi bi-linkedin" style="font-size:24px"></i>
+    </a>
+    <a type="button" href="{{route('linkedin.login')}}" class="btn btn-primary text-center" aria-expanded="false">
+        <i class="bi bi-twitter" style="font-size:24px"></i>
     </a>
     
 </div>

@@ -22,7 +22,9 @@ class CreateUsersTable extends Migration
             $table->string('employee_image')->nullable();
             $table->string('role')->default('user');
             $table->string('facebook_id')->nullable();
+            $table->string('google_id')->nullable();
             $table->string('github_id')->nullable();
+            $table->string('linkedin_id')->nullable();
             $table->string('reset_token')->nullable();
             $table->string('reset_token_expire_at')->nullable();
             $table->rememberToken();

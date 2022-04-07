@@ -49,6 +49,41 @@ class UserController extends Controller
         }
     }
 
+    //Google Login
+    public function googleRedirect()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function googleLogin()
+    {
+        try{
+            $user = Socialite::driver('google')->user();
+            $isUser = User::where('google_id', $user->id)->first();
+
+            if($isUser){
+                Auth::login($isUser);
+                return redirect()->route('admin.dashboard');
+            }
+            else
+            {
+                $createUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'role' => 'admin',
+                    'google_id' => $user->id,
+                    'password' => bcrypt('12345')
+                    ]);
+
+                Auth::login($createUser);
+                return redirect()->route('admin.dashboard');
+            }
+
+        }catch(\Throwable $exception) {
+            dd($exception->getMessage());
+        }
+    }
+
 
 
     //Github Login
@@ -86,6 +121,43 @@ class UserController extends Controller
             dd($exception->getMessage());
         }
     }
+
+    //Linkedin Login
+    public function linkedinRedirect()
+    {
+        return Socialite::driver('linkedin')->redirect();
+    }
+
+    public function linkedinLogin()
+    {
+        try{
+            $user = Socialite::driver('linkedin')->user();
+            //dd($user);
+            $isUser = User::where('linkedin_id', $user->id)->first();
+
+            if($isUser){
+                Auth::login($isUser);
+                return redirect()->route('admin.dashboard');
+            }
+            else
+            {
+                $createUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'role' => 'admin',
+                    'linkedin_id' => $user->id,
+                    'password' => bcrypt('12345')
+                    ]);
+
+                Auth::login($createUser);
+                return redirect()->route('admin.dashboard');
+            }
+
+        }catch(\Throwable $exception) {
+            dd($exception->getMessage());
+        }
+    }
+
 
 
     public function sendEmail()
@@ -201,12 +273,12 @@ class UserController extends Controller
         // @dd($req->all());
 
 
-        if( Auth::attempt([ 'email'=>$req->email,'password'=>$req->password]))
+        if( Auth::guard('web')->attempt([ 'email'=>$req->email,'password'=>$req->password])  ||  Auth::guard('manager')->attempt([ 'email'=>$req->email,'password'=>$req->password]) ) 
         {
 
             //dd(Auth::user()->id);
 
-            if(Auth::user()->role=='admin')
+            if(Auth::user())
             {
 
                 return redirect()->route('admin.dashboard')->with('loginmessage','Logged In');

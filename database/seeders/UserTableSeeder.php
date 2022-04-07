@@ -24,5 +24,13 @@ class UserTableSeeder extends Seeder
                 'role'=>'admin',
                 'employee_image'=>'image'
             ]);
+
+        DB::table('managers')->insert
+            ([
+                'name'=>'manager',
+                'email'=>'manager@gmail.com',
+                'password'=>bcrypt('12345'),
+                'role'=>'manager',
+            ]);    
     }
 }

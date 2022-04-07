@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Manager;
+
 return [
 
     /*
@@ -16,6 +18,11 @@ return [
     'defaults' => [
         'guard' => 'web',
         'passwords' => 'users',
+    ],
+
+    'manager' => [
+        'guard' => 'manager',
+        'passwords' => 'managers',
     ],
 
     /*
@@ -39,6 +46,11 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'manager' => [
+            'driver' => 'session',
+            'provider' => 'managers',
         ],
     ],
 
@@ -65,10 +77,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Manager::class,
+        ],
     ],
 
     /*
@@ -89,6 +101,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'managers' => [
+            'provider' => 'managers',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

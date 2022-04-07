@@ -1,5 +1,5 @@
 @extends('master')  
-    @section('content')
+@section('content')
 
                         <form action="{{route('show.department')}}" method="GET">
                             <div class="row" style="margin-left: 700px">

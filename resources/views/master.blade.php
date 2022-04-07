@@ -3,6 +3,8 @@
     <head>
         <link href="/css/datatable.css" rel="stylesheet" />
         <link href="/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
         <title>Manage Assets</title>
         <script src="/js/fontawsome.js"></script>
     </head>
@@ -60,5 +62,8 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="/js/bootstrap.js"></script>
         <script src="/js/bundle.js"></script>
+        <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+        {!! Toastr::message() !!}
+        @stack('js')
     </body>
 </html>

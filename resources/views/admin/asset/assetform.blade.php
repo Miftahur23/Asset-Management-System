@@ -35,8 +35,8 @@
                       
                     <div class="col-6 mt-3">
                       <h5>Category</h5>
-                      <select name="category" class="form-control form-control-md">
-                        <option>Select Category</option>
+                      <select name="category" class="form-control form-control-md" placeholder="Select Category">
+                        <option> </option>
                         <option>Stationary</option>
                         <option>Furniture</option>
                         <option>Cyramics</option>
