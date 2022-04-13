@@ -31,6 +31,8 @@
                         
 
             <h1>Department List</h1> 
+
+            <p class="btn btn-primary">{{$msg}}</p> 
    
 
 <div class="container m-2">
