@@ -17,11 +17,13 @@ use App\Models\Distribution;
 use App\Models\EmployeeInfo;
 use Illuminate\Http\Request;
 use App\Models\Adminlogininfo;
+use App\Events\DepartmentEvent;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\AssetRequest;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\AssetRepository;
+use Illuminate\Support\Facades\Cache;
 
 
 class AdminController extends Controller
@@ -142,8 +144,18 @@ class AdminController extends Controller
             return view('admin.department.departmentlist', compact('departments','key'));
         }
 
-        $departments=Department::all();
-        return view ('admin.department.departmentlist', compact('departments','key'));
+        if(Cache::has('Departments'))
+        {
+            $departments=Cache::get('Departments');
+            $msg='Cache';
+        }else
+        {
+            $departments=Department::all();
+            Cache::put('Departments',$departments);
+            $msg='Database';
+        }
+        return view ('admin.department.departmentlist', compact('departments','msg','key'));
+
     }
     
 
@@ -164,6 +176,7 @@ class AdminController extends Controller
 
         ]);
 
+        event(new DepartmentEvent());
         return redirect()->route('show.department')->with('success', 'Department Added');
     }
 
@@ -183,7 +196,15 @@ class AdminController extends Controller
 
     public function DelDepartment($deldept)
     {
-        Department::find($deldept)->delete();
+
+        // $user=User::findOrFail($user_id);
+        // $user->delete();
+        // event(new UserEvent($user));
+        // return redirect()->back();
+
+        $department=Department::findOrFail($deldept);
+        $department->delete();
+        event(new DepartmentEvent($department));
         Toastr::success('Deleted');
         return redirect()->back();
     }
@@ -636,9 +657,9 @@ class AdminController extends Controller
         return view ('admin.asset.assigneddetails',compact('assigned'));
     }
 
-    public function Assetinfo(AssetRequest $request, AssetRepository $assetrepo)
+    public function Assetinfo(AssetRequest $request, AssetRepository $asset)
     {
-        $asset=$assetrepo->store($request);
+        $asset->store($request);
         return redirect()->route('show.asset');
     }
 
