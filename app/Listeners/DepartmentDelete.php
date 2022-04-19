@@ -28,8 +28,8 @@ class DepartmentDelete
     public function handle(DepartmentEvent $event)
     {
         if(Cache::has('Departments'))
-        {
-            Cache::forget('Departments');
-        }
+            {
+                Cache::forget('Departments');
+            }
     }
 }
