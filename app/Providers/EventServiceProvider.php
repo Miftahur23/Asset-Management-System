@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Events\DepartmentEvent;
+use App\Events\DepartmentCreate;
 use App\Listeners\DepartmentDelete;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
+use App\Listeners\DepartmentCreateListener;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -22,9 +24,11 @@ class EventServiceProvider extends ServiceProvider
         ],
 
         DepartmentEvent::class=> [
-
             DepartmentDelete::class
-            
+        ],
+
+        DepartmentCreate::class=> [
+            DepartmentCreateListener::class
         ]
     ];
 

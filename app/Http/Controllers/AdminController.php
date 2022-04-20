@@ -89,7 +89,6 @@ class AdminController extends Controller
 
     public function CreateBranch()
     {
-       
          //return redirect('/home');
         return view ('admin.branch.branchform');
     }
@@ -116,7 +115,6 @@ class AdminController extends Controller
         $req->validate([
             'name'=>'required',
             'location'=>'required'
-
         ]);
 
         Branch::create([
@@ -130,13 +128,11 @@ class AdminController extends Controller
     public function DelBranch($delbranch)
     {
         Branch::find($delbranch)->delete();
-
         return redirect()->back()->with('delete', 'Branch Deleted');
     }
 
     public function ShowDepartment()
     {
-
         $key=null;
         if(request()->search){
             $key=request()->search;
@@ -155,7 +151,6 @@ class AdminController extends Controller
             $msg='Database';
         }
         return view ('admin.department.departmentlist', compact('departments','msg','key'));
-
     }
     
 
@@ -170,15 +165,14 @@ class AdminController extends Controller
             'dname'=>'required'
         ]);
 
-        Department::create([
-
+        $deptCreate=Department::create([
             'dname'=>$req->dname
-
         ]);
 
-        event(new DepartmentEvent());
+        event(new DepartmentEvent($deptCreate));
         return redirect()->route('show.department')->with('success', 'Department Added');
     }
+
 
     public function EditDepartment($editt_id)
     {
@@ -204,6 +198,7 @@ class AdminController extends Controller
 
         $department=Department::findOrFail($deldept);
         $department->delete();
+
         event(new DepartmentEvent($department));
         Toastr::success('Deleted');
         return redirect()->back();
@@ -213,7 +208,6 @@ class AdminController extends Controller
 
     public function ShowRequest()
     {
-
         $key=null;
         if(request()->search){
             $key=request()->search;
