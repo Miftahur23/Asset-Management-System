@@ -1,6 +1,8 @@
 <style>
     .siam{
         background-image: url('/media/home.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>
 

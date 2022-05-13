@@ -208,7 +208,7 @@ Route::get('/',[HomeController::class,'Firstpage'])->name('firstloginpage');
 //Route::get('/employeehome',[HomeController::class,'EmployeeHomepage'])->name('EmployeeHomepage');
 
 
-
+Route::get('change/language/{locale}', [HomeController::class, 'changeLanguage'])->name('language');
 
 
 Route::get('/adminregister',[UserController::class,'SignUpForm'])->name('usersignup');
