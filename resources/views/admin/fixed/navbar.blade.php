@@ -14,22 +14,22 @@
 
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-    <!-- Navbar Search-->
-
-    {{-- <form action="{{route('show.asset')}}" class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET">
-        <div class="input-group">
-            <input value="{{$key}}" class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-    </form> --}}
     
-    <!-- Navbar-->
-    <ul class="navbar-nav" style="margin-left:900px;">
+
+    <div style="margin-left: 60%;">
+        <select class="form-control" size="1" name="links" onchange="window.location.href=this.value;">
+            <option value="">{{__('Select Language')}}</option>
+            <option value="{{route('language','en')}}">EN</option>
+            <option value="{{route('language','bn')}}">BN</option>
+        </select>
+    </div>
+
+    <ul class="navbar-nav">
+
+        
+            
+        
         <li class="nav-item dropdown">
-
-
             @if (Auth::check())
 
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -19,6 +20,14 @@ class HomeController extends Controller
     public function Firstpage()
     {
         return view ('admin.firstpage');
+    }
+
+    public function changeLanguage($locale)
+    {
+        App::setLocale($locale);
+        session()->put('applocale', $locale);
+
+        return redirect()->back();
     }
 
     
