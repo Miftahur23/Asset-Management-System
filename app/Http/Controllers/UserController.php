@@ -275,14 +275,9 @@ class UserController extends Controller
 
         if( Auth::guard('web')->attempt([ 'email'=>$req->email,'password'=>$req->password])  ||  Auth::guard('manager')->attempt([ 'email'=>$req->email,'password'=>$req->password]) ) 
         {
-
-            //dd(Auth::user()->id);
-
-            if(Auth::user())
+            if(Auth::user()->role != 'user')
             {
-
                 return redirect()->route('admin.dashboard')->with('loginmessage','Logged In');
-                
             }
 
             return redirect()->route('EmpHomepage')->with('loginmessage','Logged In');

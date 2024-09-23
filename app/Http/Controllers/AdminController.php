@@ -614,17 +614,15 @@ class AdminController extends Controller
     
     public function ShowAsset(){
         
-        //dd($data);
-
         $key=null;
         if(request()->search){
             $key=request()->search;
             $assets = AssetInfo::where('asset_name','LIKE','%'.$key.'%')
                 ->orWhere('category','LIKE','%'.$key.'%')
                 ->paginate(3);
-            return view('admin.asset.assetlist',compact('assets','key'));
+        } else {
+            $assets = Assetinfo::paginate(3);
         }
-        $assets = Assetinfo::paginate(3);
         return view('admin.asset.assetlist',compact('assets','key'));
 
     }

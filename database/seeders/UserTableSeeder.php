@@ -16,21 +16,21 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert
-            ([
+        DB::table('users')->insert([
+            [
                 'name'=>'admin',
                 'email'=>'admin@gmail.com',
                 'password'=>bcrypt('12345'),
                 'role'=>'admin',
                 'employee_image'=>'image'
-            ]);
-
-        DB::table('managers')->insert
-            ([
+            ],          
+            [
                 'name'=>'manager',
                 'email'=>'manager@gmail.com',
                 'password'=>bcrypt('12345'),
                 'role'=>'manager',
-            ]);    
+                'employee_image'=>'image'
+            ]
+        ]);   
     }
 }
